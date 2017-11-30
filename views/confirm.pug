@@ -1,0 +1,16 @@
+include headmenu.pug
+h1.heading Are you sure you want to delete this item? 
+br
+br
+div.itemDesc
+    p.heading <b>#{item.name}</b>
+    p.heading #{item.manufacturer}
+    p.heading  Quantity: #{item.quantity}
+br
+br
+br
+form(action='/db/view_item/del/' + item.id, method='POST')
+    button.generalButton#warning(action='submit') Remove Item
+br
+form(action='/db/storeview')
+    button.generalButton(action='submit' style='width:7em') Nevermind

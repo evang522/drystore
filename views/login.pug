@@ -1,0 +1,34 @@
+include headmenu.pug
+h1.heading Login to GDB
+br
+br
+p.heading(style='color:green') #{success}
+br
+if !user
+	div.login
+		form(action='/users/login', method='POST')
+			p Email: &nbsp
+				input(name='username' required)
+			br
+			br
+			p Password &nbsp
+				input(name='password'  type='password' required)
+			br
+			br
+			button.generalButton(action='submit') Log In
+			br
+			br
+		p This is a private site restricted to authorized users.
+		br
+		br
+if user
+	h3.heading Hey, #{user.name}. You're already logged in! 
+	br
+	br
+	p.heading So.. um, do you want to log out? How dare you? But if you must, click below.
+	br
+	form(action='/users/logout')
+		button.generalButton Logout
+	br
+	br
+	

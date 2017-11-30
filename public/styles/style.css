@@ -1,0 +1,398 @@
+* {
+    margin:0;
+    padding:0;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size:1.02em;
+}
+
+body {
+    background-color:#f9f9f9;
+}
+
+/* Global Header CSS */
+.header {
+    height:2.8em;
+    background-color:#195913;
+    margin-bottom:3em;
+}
+.header ul {
+    display:flex;
+    justify-content:center;
+}
+
+.header li {
+    list-style:none;
+    padding-left:1em;
+    padding-right:1em;
+    margin-top:1em;
+}
+
+.header button {
+    border:none;
+    width:8.7em;
+    height:3em;
+    color:black;
+    font-size:.9em;
+    background-color:#a4b79f;
+    border-radius:30px;
+	outline:none;
+}
+
+.hov:hover {
+    background-color:#e3e5e8;
+    border:1px solid gray;
+}
+
+
+#homeWelcome {
+    text-align:center;
+}
+
+#homeWelcomeInfo {
+    text-align:center;
+    font-weight:bold;
+}
+
+#entireCont {
+    height:80%;
+}
+
+#footerCont {
+    height:10%;
+}
+
+
+/* Global Button  */
+.generalButton {
+    border:none;
+    width:6em;
+    height:2.5em;
+    font-size:1.1em;
+    display:block;
+    margin:0 auto;
+    background-color:#a4b79f;  
+}
+
+.generalButton:hover {
+    background-color:#e3e5e8;
+    border:1px solid gray;
+}
+
+/* Global Heading*/
+.heading {
+    text-align:center;
+}
+
+
+#fife {
+    display:block;
+    width:15em;
+    border-radius:5px;
+    margin:0 auto;
+}
+
+
+#errorHandle {
+    width:80%;
+    margin:0 auto;
+}
+
+#crash {
+    border-radius:20em;
+    display:block;
+    margin:0 auto;
+}
+
+
+.homeCircle {
+    color:white;
+    background-color:#195913;
+    width:28em;
+    border-bottom-left-radius:15em;
+    height:20em;
+    margin:0 auto;
+    border-top-left-radius:15em;
+    border-bottom-right-radius:15em;
+    box-shadow: 3px 3px black;
+}
+
+.homeCircle h1 {
+    font-size:1.6em;
+}
+
+.homeLinks a:link, a:visited{
+    color:black;
+}
+
+/* Add Item Form Styles */
+
+
+.addItemForm {
+    width:100%
+}
+.addItem {
+    text-align:center;
+}
+
+
+.addItem  input{
+    width:20em;
+    height:2.5em;
+   font-size:1.2em;
+   text-align:center;
+   background-color:white;
+    
+}
+
+.addItem  select{
+    font-size:1.2em;
+    text-align:center;
+     
+ }
+
+ .addItem  textarea{
+     padding:1em;
+     overflow:hidden;
+ }
+
+
+.upload {
+    padding:1em;
+    height:10em;
+    background-color:#5f7a89;
+    margin-bottom:0;
+}
+ 
+.input {
+    display:block;
+    margin:0 auto;
+    width:15em;
+    height:2em;
+    padding-left:1em;
+}
+
+
+/* View Drystore */
+.dryStoreItem {
+    
+    background-color:white;
+    display:block;
+    border:none; 
+    font-size:.8em;
+    box-sizing:border-box;
+    height:2.4em;
+    width:10em;
+    padding:2px;
+    line-height:20px;
+    padding-left:1em;
+    text-align:left;
+    line-height:26px;
+    overflow:hidden;
+    border:1px solid gray;
+}
+
+.dryStoreLi{
+    height:2.3em;
+}
+
+.dsiName {
+    width:20em;
+    border-right:1px solid black;
+    border-top-left-radius:1em;
+}
+
+.dsiCat {
+    border-right:1px solid black;
+    width:11em;
+}
+
+.dsiQuant {
+    border-right:1px solid black;
+    width:8.5em;
+
+}
+.dsiManu {
+    border-right:1px solid black;
+    width:17.5em;
+}
+
+.dsiExp {
+    border-right:1px solid black;
+    width:18em;
+}
+
+
+.dsiButt {
+    background-color:gray;
+    border-bottom-right-radius:1em;    
+}
+.dryStoreItem button {
+    border:none;
+    color:white;
+    background-color:gray;
+    line-height:25px;
+}
+
+
+.dryStoreItemCont{
+    width:90vw;
+    display:flex;
+    flex-direction:wrap;
+    margin:0 auto;
+}
+
+.dryStoreItem img {
+    width:30px;
+    height:25px;
+    padding-top:10px;
+    padding-bottom:4px;
+    background-color:lightblue;
+    border-radius:20px;
+    padding-left:6px;
+    border:1px solid black;
+}
+
+.itemInfoCont{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    background-color:white;
+    padding:1em;
+
+}
+
+#warning {
+    background-color:#9b3e29;
+    padding:2px;
+    width:7em;
+    color:white;
+}
+
+
+#edit {
+    color:white;
+    width:7em;
+    margin-right:5px;
+}
+.itemInfo {
+    padding:2em;
+    border:1px solid gray;
+    text-align:center;
+}
+
+
+.change {
+    display:flex;
+    justify-content:center;
+}
+
+/* Confirm page  */
+
+.itemDesc {
+    background-color:white;
+    width:30%;
+    margin:0 auto;
+    padding:1em;
+    border:1px solid black;
+}
+
+
+/* Login Page */
+
+.login {
+    text-align:center;
+    font-size:1.2em;
+}
+
+.login input {
+    height:2.5em;
+    width:15em;
+}
+
+
+@media screen and (max-width: 950px) {
+    .dsiManu {
+        display:none;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .dsiExp {
+        display:none;
+    }
+
+
+}
+
+
+@media screen and (max-width: 700px) {
+    .header button {
+        width:6.5em;
+        font-size:.6em;
+    }
+
+    .header {
+        max-height:7em;
+    }
+
+    .homeCircle {
+        margin-top:-4em;
+    }
+
+    .homeCircle {
+        width:16em;
+        height:11em;
+    }
+
+    .header ul {
+        flex-direction:column;
+        padding-top:1em;
+    }
+
+    .header {
+        height:10em;
+        font-size:1.5em;
+    }
+
+
+    #homeWelcome {
+        font-size:1.2em;
+    }
+
+    #homeWelcomeinfo {
+        font-size:.8em;
+    }
+
+ 
+    .header Button {
+        border-radius:0;
+        height:2em;
+        width:20em;
+    }
+
+    .header li {
+        padding:0;
+        margin:0 auto;
+        border:1px solid black;
+    }
+
+    input {
+        max-width:17em;
+    }
+    
+
+}
+
+@media screen and (max-width: 600px) {
+    .dsiCat {
+        display:none;
+    }
+
+    .dsiName{
+        width:12em;
+    }
+
+    
+}
+

@@ -1,0 +1,38 @@
+html(lang='en')
+	head
+		//- link(rel='stylesheet' type='text/css' href='https://meyerweb.com/eric/tools/css/reset/reset.css')
+		link(rel='stylesheet' type='text/css' href='/styles/style.css')
+		link(href='https://fonts.googleapis.com/css?family=Alegreya+Sans', rel='stylesheet')
+		title Garrett Drystore
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		meta(name='description' content='A Database for storing food goods')
+		meta(name='author' content='Evan Garrett')
+		meta(name='keywords' content='Database, Drystore, Evan, Garrett')
+		link(rel ='shortcut icon' href='../img/favicon.ico')
+	body
+		if user
+			div.header
+				ul
+					li
+						form(action='/')
+							button.hov Home
+					li  
+						form(action='/db/storeview')
+							button.hov View DryStore
+					li
+						form(action='/db/add')
+							button.hov Add Item
+					li
+						form(action='/users/confirmlogout')
+							button.hov Log Out
+
+		if !user
+			div.header
+				ul
+					li
+						form(action='/')
+							button.hov Home
+					li
+						form(action='/users/login')
+							button.hov Login
+			

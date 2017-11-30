@@ -1,0 +1,25 @@
+include headmenu.pug
+br
+br
+if !user
+    h2.heading Invalid URL! 
+    br
+    img#crash(src='http://boredomtherapy.com/wp-content/uploads/2017/02/flight5.gif')
+    //- img#fife(src='/img/fife.png')
+    br
+    br
+    br
+    h4.heading#errorHandle Sorry you're experiencing this issue. It looks like the URL you've entered isn't valid. Please check the web address and try again. 
+    br
+    br
+if  user
+    h2.heading #{user.name}, that's an invalid URL! 
+    br
+    img#crash(src='http://boredomtherapy.com/wp-content/uploads/2017/02/flight5.gif')
+    //- img#fife(src='/img/fife.png')
+    br
+    br
+    br
+    h4.heading#errorHandle Sorry you're experiencing this issue. It looks like the URL you've entered isn't valid. Please check the web address and try again. 
+    br
+    br

@@ -1,0 +1,14 @@
+include headmenu.pug
+if user
+    br
+    br
+    br
+    h1.heading #{user.name}, are you sure you want to log out?
+    br
+    br
+    br
+    form(action='/users/logout')
+        button.generalButton#warning(action='submit') Yes, Logout
+    br
+    form(action='/')
+        button.generalButton(action='submit') Nope

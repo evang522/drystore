@@ -1,0 +1,94 @@
+include headmenu.pug
+
+h1.heading Add Item to the DryStore
+br
+br
+if user
+    div.addItemForm
+        form.addItem(action='/db/add' method='POST')
+            input(name='name' placeholder='Name of Item' required)
+            br
+            br
+            br
+            input(name='manufacturer' placeholder='Manufacturer')
+            br
+            br
+            br
+            p Unit of Storage:
+            br
+            select(name='storageUnit')
+                option(value='Can') Can
+                option(value='Bag') Bag
+                option(value='Box') Box
+                option(value='Bottle') Bottle
+                option(value='Bucket') Bucket
+            br
+            br
+            br
+            input(name='quantity' placeholder='Quantity')
+            br
+            br
+            br
+            p Item Category:
+            br
+            select(name='category')
+                option(value='Soup') Soup
+                option(value='Entree') Entree
+                option(value='Entree with Meat') Entree with Meat
+                option(value='Meat Only') Meat Only
+                option(value='Beans') Beans
+                option(value='Cracker') Cracker
+                option(value='Pasta') Pasta
+                option(value='Potato') Potato
+                option(value='Rice') Rice
+                option(value='Vegetable') Vegetable
+                option(value='Breakfast Meal') Breakfast Meal
+                option(value='Breakfast Drink') Breakfast Drink
+                option(value='Breakfast Meat') Breakfast Meat
+                option(value='Eggs') Eggs
+                option(value='Granola') Granola
+                option(value='Milk') Milk
+                option(value='Oatmeal') Oatmeal
+                option(value='Yogurt') Yogurt
+                option(value='Fruit') Fruit
+                option(value='Gravy') Gravy 
+                option(value='Sauce') Sauce
+                option(value='Dessert') Dessert
+                option(value='Spice') Spice
+                option(value='Drink') Drink
+            br
+            br
+            br
+            input(name='servings', placeholder='Number of Servings per Unit')
+            br
+            br
+            input(name='unpreparedserving' placeholder='Dry Serving Size (Cups)')
+            br
+            br
+            input(name='preparedserving' placeholder='Prepared Serving Size (Cups)')
+            br
+            br
+            br
+            p Expiration Year:
+            br
+            input(name='expiration')
+            br
+            br
+            br
+            p Additional Details
+            br
+            textarea(name='info', cols = '40' rows='10')
+            br
+            br
+            button.generalButton(action='submit') Store Item
+            br
+            //- div.upload
+            //-     p#uploadInst Upload Image of Item
+            //-     br
+            //-     input#imageUpload(name='imageUpload' type='file')
+if !user
+    h3.heading Sorry, you do not have permission to access this page. Please Log in. 
+    br
+    br
+    form(action='/users/login')
+        button.generalButton Login

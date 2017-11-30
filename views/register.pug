@@ -1,0 +1,27 @@
+include headmenu.pug
+h1.heading Register New User with GDB
+br
+br
+
+div.login
+	form(action='/users/register', method='POST')
+		p First Name: &nbsp
+			input(name='name')
+		br
+		br
+		p Email: &nbsp
+			input(name='email')
+		br
+		br
+		p Password &nbsp
+			input(name='password' type ='password')
+		br
+		br
+		p Confirm Password: &nbsp
+			input(name='password2' type ='password')
+		br
+		br
+		button.generalButton(action='submit') Register
+		br
+		br
+		br
