@@ -18,7 +18,7 @@ if user
             br
             button.generalButton(action='/submit') Search DB
     br
-    div#storeContents
+    div.storeContents
 
         ul
             each item, i in items
@@ -48,3 +48,9 @@ if !user
     br
     form(action='/users/login')
         button.generalButton Login
+script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+script.
+  //Fade in info blocks
+  $(function () {
+  $('.storeContents').fadeIn(500);
+  });

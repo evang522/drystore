@@ -1,0 +1,19 @@
+include headmenu.pug
+	br
+	br
+	br
+	br
+	br
+	br
+	div.logout
+		h1.heading You have been successfully logged out.
+		br
+		br
+		br
+		form(action='/')
+			button.generalButton.confirm(action='submit' role='home') Return to Home
+script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+script.
+	$(function () {
+	$('.logout').fadeIn(500);
+	});

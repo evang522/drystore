@@ -84,6 +84,9 @@ router.post('/add', (req,res) => {
         item.preparedserving = req.body.preparedserving;
         item.expiration = req.body.expiration;
         item.info = req.body.info;
+        item.submittedBy = req.body.submittedBy;
+        item.editedBy = req.body.editedBy;
+
 
     item.save((err) => {
         if (err) {
@@ -138,6 +141,7 @@ router.post('/edit_item/:id', (req,res) => {
         item.preparedserving = req.body.preparedserving;
         item.expiration = req.body.expiration;
         item.info = req.body.info;
+        item.editedBy = req.body.editedBy;
 
     let query = {_id:req.params.id};
     Item.update(query,item, (err) => {

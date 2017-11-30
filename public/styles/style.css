@@ -1,19 +1,22 @@
 * {
     margin:0;
     padding:0;
-    font-family: 'Alegreya Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size:1.02em;
 }
 
 body {
-    background-color:#f9f9f9;
+    background-color:#ededed;
 }
 
 /* Global Header CSS */
 .header {
     height:2.8em;
-    background-color:#195913;
+    background-color:#1b3b51;
     margin-bottom:3em;
+    position:fixed;
+    width:100%;
+    top:0;
 }
 .header ul {
     display:flex;
@@ -29,15 +32,22 @@ body {
 
 .header button {
     border:none;
-    width:8.7em;
-    height:3em;
+    width:8em;
+    height:2.5em;
     color:black;
     font-size:.9em;
-    background-color:#a4b79f;
+    background-color:#f2f2f2;
     border-radius:30px;
-	outline:none;
+    outline:none;
+    border:1px solid gray;
 }
 
+.headBreaker {
+    height:6em;
+}
+
+
+/* Welcome Header */
 .hov:hover {
     background-color:#e3e5e8;
     border:1px solid gray;
@@ -46,6 +56,7 @@ body {
 
 #homeWelcome {
     text-align:center;
+    font-size:1.3em;
 }
 
 #homeWelcomeInfo {
@@ -70,7 +81,9 @@ body {
     font-size:1.1em;
     display:block;
     margin:0 auto;
-    background-color:#a4b79f;  
+    background-color:#1b3b51;  
+    color:white;
+    box-shadow: 1px 1px #b6b8ba;
 }
 
 .generalButton:hover {
@@ -105,20 +118,26 @@ body {
 
 
 .homeCircle {
-    color:white;
-    background-color:#195913;
-    width:28em;
-    border-bottom-left-radius:15em;
+    color:black;
+    background-color:#f9f9f9;
+    width:22em;
     height:20em;
     margin:0 auto;
-    border-top-left-radius:15em;
-    border-bottom-right-radius:15em;
-    box-shadow: 3px 3px black;
+    box-shadow: 1px 1px 1px 1px gray;
+    border-radius:5px;
+    display:none;
+
 }
 
 .homeCircle h1 {
     font-size:1.6em;
 }
+
+
+.homeLinks {
+    display:none;
+}
+
 
 .homeLinks a:link, a:visited{
     color:black;
@@ -172,7 +191,18 @@ body {
 }
 
 
+
+
 /* View Drystore */
+
+.storeContents {
+    display:none;
+}
+
+.storeContents ul{
+    list-style:none;
+}
+
 .dryStoreItem {
     
     background-color:white;
@@ -180,12 +210,13 @@ body {
     border:none; 
     font-size:.8em;
     box-sizing:border-box;
+    margin-left:auto; 
+    margin-right:auto;
     height:2.4em;
     width:10em;
     padding:2px;
     line-height:20px;
     padding-left:1em;
-    text-align:left;
     line-height:26px;
     overflow:hidden;
     border:1px solid gray;
@@ -195,36 +226,43 @@ body {
     height:2.3em;
 }
 
+
 .dsiName {
     width:20em;
     border-right:1px solid black;
     border-top-left-radius:1em;
+    margin:0;
 }
 
 .dsiCat {
     border-right:1px solid black;
     width:11em;
+    margin:0;
 }
 
 .dsiQuant {
     border-right:1px solid black;
     width:8.5em;
+    margin:0;
 
 }
 .dsiManu {
     border-right:1px solid black;
     width:17.5em;
+    margin:0;
 }
 
 .dsiExp {
     border-right:1px solid black;
     width:18em;
+    margin:0;
 }
 
 
 .dsiButt {
     background-color:gray;
     border-bottom-right-radius:1em;    
+    margin:0;
 }
 .dryStoreItem button {
     border:none;
@@ -239,6 +277,7 @@ body {
     display:flex;
     flex-direction:wrap;
     margin:0 auto;
+    justify-content:center;
 }
 
 .dryStoreItem img {
@@ -274,8 +313,13 @@ body {
     width:7em;
     margin-right:5px;
 }
+
+.confirm {
+    width:10em
+}
+
 .itemInfo {
-    padding:2em;
+    padding:1.8em;
     border:1px solid gray;
     text-align:center;
 }
@@ -309,6 +353,12 @@ body {
     width:15em;
 }
 
+/* Logout Page*/
+
+.logout {
+    display:none;
+}
+
 
 @media screen and (max-width: 950px) {
     .dsiManu {
@@ -336,15 +386,25 @@ body {
         max-height:7em;
     }
 
+    .headBreaker {
+        height:12em;
+    }
     .homeCircle {
         margin-top:-4em;
     }
 
     .homeCircle {
-        width:16em;
-        height:11em;
+        width:100vw;
+        height:18em;
+        box-shadow:none;
+        border:1px solid gray;
+        border-radius:0;
     }
 
+
+    body {
+        background-color:#dbdbdb;
+    }
     .header ul {
         flex-direction:column;
         padding-top:1em;
@@ -357,11 +417,13 @@ body {
 
 
     #homeWelcome {
-        font-size:1.2em;
+        font-size:1.5em;
+        font-family: Helvetica, sans-serif;
     }
 
     #homeWelcomeinfo {
         font-size:.8em;
+        font-family: Helvetica, sans-serif;
     }
 
  
@@ -380,6 +442,13 @@ body {
     input {
         max-width:17em;
     }
+
+    * {
+        font-family: Helvetica, sans-serif;
+    }
+
+
+
     
 
 }

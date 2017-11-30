@@ -5,11 +5,12 @@ div#entireCont
         p.heading(style='color:green') #{success}
         br
 
-    div.homeCircle
+    div.homeCircle#homeCircle
         br
         br
         br
         h1#homeWelcome Welcome to the Drystore
+        br
         if user
             p.heading Hi, #{user.name}!
         br
@@ -33,3 +34,9 @@ div#entireCont
         br
         a(href='http://freesuggestionbox.com/pub/hnbiazp') Feature Requests / Report a Bug
 script(src='/js/showdate.js')
+script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+script.
+  //Fade in info blocks
+  $(function () {
+  $('#homeCircle,.homeLinks').fadeIn(500);
+  });

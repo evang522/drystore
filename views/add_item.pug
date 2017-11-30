@@ -82,6 +82,7 @@ if user
             br
             button.generalButton(action='submit') Store Item
             br
+            input(type='hidden', id='submittedBy', name='submittedBy' value=user.name)
             //- div.upload
             //-     p#uploadInst Upload Image of Item
             //-     br
@@ -92,3 +93,12 @@ if !user
     br
     form(action='/users/login')
         button.generalButton Login
+script.
+    let timeP = new Date();
+    let zeroVar = timeP.getMinutes().toString();
+    if (zeroVar.length == 1) {
+        zeroVar = "0" + zeroVar;
+    }
+    let target = document.getElementById('submittedBy');
+    let message = ` on ${timeP.toDateString()} at ${timeP.getHours()}:${zeroVar}`;
+    target.value += message;

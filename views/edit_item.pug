@@ -79,9 +79,15 @@ div.addItemForm
         textarea(name='info', cols = '75' rows='10' value=item.info)
         br
         br
+        input(type='hidden', name='editedBy', id='editedBy', value=user.name)
         button.generalButton(action='submit') Update Item
         br
-        //- div.upload
-        //-     p#uploadInst Upload Image of Item
-        //-     br
-        //-     input#imageUpload(name='imageUpload' type='file')
+script.
+    let timeP = new Date();
+    let zeroVar = timeP.getMinutes().toString();
+    if (zeroVar.length == 1) {
+        zeroVar = "0" + zeroVar;
+    }
+    let target = document.getElementById('editedBy');
+    let message = ` on ${timeP.toDateString()} at ${timeP.getHours()}:${zeroVar}`;
+    target.value += message;

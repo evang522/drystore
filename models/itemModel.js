@@ -11,7 +11,9 @@ let itemSchema = mongoose.Schema({
     unpreparedserving: Number,
     preparedserving: Number,
     expiration: Number,
-    info: String
+    info: String,
+    submittedBy: String,
+    editedBy: String,
 })
 
 let Item = module.exports = mongoose.model('Item', itemSchema);

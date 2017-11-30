@@ -102,7 +102,7 @@ passport.serializeUser(function(user, done) {
   
   router.get('/logout', (req,res) => {
 	 	req.logout();
-		res.render('home', {
+		res.render('logout', {
 			success: 'You have been Logged out.'
 		});
   });

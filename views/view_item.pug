@@ -2,43 +2,56 @@ include headmenu.pug
 h1.heading Item Details
 br
 br
-div.itemInfoCont
-    div.itemInfo
-        h3 Name:
-        p #{item.name}
-    div.itemInfo
-        h3 Manufacturer:
-        p #{item.manufacturer}
-    div.itemInfo
-        h3 Category:
-        p #{item.category}
-    div.itemInfo
-        h3 Quantity:
-        p #{item.quantity}
-    div.itemInfo
-        h3 Servings per Unit
-        p #{item.servings}
-    div.itemInfo
-        h3 Dry Serving Size
-        p #{item.unpreparedserving} cups
-    div.itemInfo
-        h3 Prepared Serving Size
-        p #{item.preparedserving} cups
-    div.itemInfo
-        h3 Unit of Storage
-        p #{item.storageUnit}
-    div.itemInfo
-        h3 Expiration Date
-        p #{item.expiration}
-    div.itemInfo
-        h3 Additional Details:
-        p #{item.info}
-    div.itemInfo
-        h3 Insights:
-br
-div.change
-    form(action='/db/edit_item/' + item.id)
-        button.generalButton#edit(action='submit') Edit Item
-    form(action='/db/view_item/confirm/' + item.id, method='POST')
-        button.generalButton#warning(action='submit') Remove Item
-br
+if user
+    div.itemInfoCont
+        div.itemInfo
+            h3 Name:
+            p #{item.name}
+        div.itemInfo
+            h3 Manufacturer:
+            p #{item.manufacturer}
+        div.itemInfo
+            h3 Category:
+            p #{item.category}
+        div.itemInfo
+            h3 Quantity:
+            p #{item.quantity}
+        div.itemInfo
+            h3 Servings per Unit
+            p #{item.servings}
+        div.itemInfo
+            h3 Dry Serving Size
+            p #{item.unpreparedserving} cups
+        div.itemInfo
+            h3 Prepared Serving Size
+            p #{item.preparedserving} cups
+        div.itemInfo
+            h3 Unit of Storage
+            p #{item.storageUnit}
+        div.itemInfo
+            h3 Expiration Date
+            p #{item.expiration}
+        div.itemInfo
+            h3 Additional Details:
+            p #{item.info}
+        div.itemInfo
+            h3 Insights:
+        div.itemInfo
+            h3 Created By:
+            p #{item.submittedBy}
+        div.itemInfo
+            h3 Last Edited By:
+            p #{item.editedBy}
+    br
+    div.change
+        form(action='/db/edit_item/' + item.id)
+            button.generalButton#edit(action='submit') Edit Item
+        form(action='/db/view_item/confirm/' + item.id, method='POST')
+            button.generalButton#warning(action='submit') Remove Item
+    br
+if !user
+    h3.heading Sorry, you do not have permission to access this page. Please Log in. 
+    br
+    br
+    form(action='/users/login')
+        button.generalButton Login
