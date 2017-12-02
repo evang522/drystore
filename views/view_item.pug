@@ -32,9 +32,6 @@ if user
             h3 Expiration Date
             p #{item.expiration}
         div.itemInfo
-            h3 Additional Details:
-            p #{item.info}
-        div.itemInfo
             h3 Insights:
         div.itemInfo
             h3 Created By:
@@ -42,10 +39,15 @@ if user
         div.itemInfo
             h3 Last Edited By:
             p #{item.editedBy}
+        div.itemInfo
+            h3 Additional Details:
+            p #{item.info}
     br
     div.change
         form(action='/db/edit_item/' + item.id)
             button.generalButton#edit(action='submit') Edit Item
+        form(action='/db/storeview/')
+            button.generalButton.backTo(action='submit') Back to Drystore
         form(action='/db/view_item/confirm/' + item.id, method='POST')
             button.generalButton#warning(action='submit') Remove Item
     br

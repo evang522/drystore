@@ -27,16 +27,16 @@ if user
                         div.dryStoreItemCont
                             div.dryStoreItem.dsiName
                                 p <b>#{item.name}</b>
-                            div.dryStoreItem.dsiCat
-                                p Category: <b>#{item.category}</b>
                             div.dryStoreItem.dsiQuant
                                 p Quantity: <b>#{item.quantity}</b>
+                            div.dryStoreItem.dsiCat
+                                p Category: <b>#{item.category}</b>
                             div.dryStoreItem.dsiManu
                                 p Manufacturer: <b>#{item.manufacturer}</b>
                             div.dryStoreItem.dsiExp
                                 p Expires: <b>#{item.expiration}</b>
-                            div.dryStoreItem.dsiButt
-                                button(action='submit') View Details
+                            button.dryStoreItem.dsiButt.dryStoreButton.backTo(action='submit') Details
+
                             br
                             br
                             br

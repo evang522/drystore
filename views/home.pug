@@ -18,10 +18,10 @@ div#entireCont
         br
         br
         if !user
-            form(action='/users/login')
-                button.generalButton Login
+            form.homeLogin(action='/users/login')
+                button.generalButton.backTo.homeLogin Login
         if user
-            form(action='/users/confirmlogout')
+            form.homeLogin(action='/users/confirmlogout')
                 button.generalButton Logout
     br
     br

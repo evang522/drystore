@@ -64,9 +64,7 @@ body {
     font-weight:bold;
 }
 
-#entireCont {
-    height:80%;
-}
+
 
 #footerCont {
     height:10%;
@@ -83,12 +81,15 @@ body {
     margin:0 auto;
     background-color:#1b3b51;  
     color:white;
-    box-shadow: 1px 1px #b6b8ba;
+    /* box-shadow: 1px 1px #b6b8ba; */
+    border-radius:4px;
 }
 
 .generalButton:hover {
     background-color:#e3e5e8;
     border:1px solid gray;
+    color:black;
+    
 }
 
 /* Global Heading*/
@@ -190,9 +191,6 @@ body {
     padding-left:1em;
 }
 
-
-
-
 /* View Drystore */
 
 .storeContents {
@@ -220,6 +218,12 @@ body {
     line-height:26px;
     overflow:hidden;
     border:1px solid gray;
+}
+
+.dryStoreButton {
+    color:white;
+    text-align:center;
+    padding-left:2px;
 }
 
 .dryStoreLi{
@@ -308,6 +312,10 @@ body {
 }
 
 
+#warning:hover {
+    background-color:#e05353;
+}
+
 #edit {
     color:white;
     width:7em;
@@ -357,6 +365,23 @@ body {
 
 .logout {
     display:none;
+}
+
+
+
+.homeLogin button{
+    margin:0 auto;
+}
+
+.backTo {
+    margin-right:10px;
+    width: 8em;
+    background-color:#358212;
+    outline:none;
+}
+
+.backTo:hover {
+    background-color:#68c170;
 }
 
 
@@ -460,6 +485,10 @@ body {
 
     .dsiName{
         width:12em;
+    }
+
+    .change button {
+
     }
 
     
