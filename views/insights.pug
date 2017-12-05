@@ -1,11 +1,20 @@
 include headmenu.pug
-h1.heading Insights
+h1.heading.bigHead Insights
 br
 br
 input#data(type='hidden', value=items)
-div#target.heading
-div#target2.heading
-div#target3.heading
+div.insightCont
+    div.insightUnit
+        img.insightImage(src='../img/pantry.png', title='An item is simply one unit of food, like a can of dried Beef.', alt='An item is simply one unit of food, like a can of dried Beef.')
+        div#target.insightInfoRight
+    //- div.insightUnit
+    //-     div#target2.heading.insightInfo
+    div.insightUnit
+        div#target3.insightInfoLeft
+        img.insightImage(src='../img/meal.png')
+    div.insightUnit
+        img.insightImage(src='../img/measure.png')
+        div#target4.insightInfoRight
 script.
     let allItemData = document.getElementById('data');
     let items = JSON.parse(allItemData.value);
@@ -14,18 +23,26 @@ script.
     for(i=0;i<items.length;i++) {
         quant += items[i].quantity;
     }
-    target.innerHTML = 'There are ' + quant + ' items stored in the database.';
+
+
+    target.innerHTML = 'There are <b>' + quant + '</b> items stored in the database.';
         let totalServ = 0;
         for(i=0;i<items.length;i++) {
             totalServ += (items[i].servings * items[i].quantity);
         };
-    document.getElementById('target2').innerHTML = 'There are ' + totalServ + ' total servings'
+    //- document.getElementById('target2').innerHTML = 'There are ' + totalServ + ' total servings'
+
+
 
             let renderedCups = 0;
         for(i=0;i<items.length;i++) {
             renderedCups += (items[i].servings * items[i].quantity * items[i].preparedserving);
         };
-    document.getElementById('target3').innerHTML = 'There are ' + renderedCups + ' cups of prepared servings available. This means that if one were to prepared every meal in the the drystore at once, this is how many cups of edible food it would produce.'
+    document.getElementById('target3').innerHTML = 'There are <b>' + renderedCups + '</b> cups of prepared servings available. This means that if one were to prepared every meal in the the drystore at once, this is how many cups of edible food it would produce.'
+    
+
+    
+
 
     let averageCups = (renderedCups/quant);
-    console.log(averageCups);
+    document.getElementById('target4').innerHTML = 'That\'s an average of  <b>' + Math.floor(averageCups) + '</b> cups per item.'
