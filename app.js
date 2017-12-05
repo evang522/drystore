@@ -10,7 +10,7 @@ let session = require('express-session');
 let passport = require('passport');
 let expressValidator = require('express-validator');
 let flash = require('express-flash');
-
+let insightroute = require('./routes/insightroute')
 
 // Bring in Models for queries
 let Item = require('./models/itemModel');
@@ -89,6 +89,8 @@ app.use('/db', dbroute);
 // Users Route
 app.use('/users', userroute);
 
+// Insights Route
+app.use('/insights', insightroute)
 
 // Error Handling
 app.get('*', (req,res) => {

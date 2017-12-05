@@ -6,12 +6,18 @@ const { check, validationResult } = require('express-validator/check');
 
 //GET ROUTES
 router.get('/console', (req,res) => {
-    if (err) {
-        console.log(err);
-    } else {
-        res.render('insights.pug');
-    }
+        Item.find({}, (err,items) => {
+            if(err) {
+                console.log(err);
+            } else {
+        res.render('insights.pug', {
+            items:items
+        });
+            }
+
+    })
 });
+
 
 
 module.exports = router;

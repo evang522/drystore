@@ -2,3 +2,16 @@ include headmenu.pug
 h1.heading Insights
 br
 br
+input#data(type='hidden', value=items)
+div#target.heading
+script.
+    let prepro = document.getElementById('data');
+    let data = prepro.value;
+    let items = JSON.parse(data);
+    let target = document.getElementById('target');
+    let quant = 0;
+    for(i=1;i<items.length;i++) {
+        quant += items[i].quantity;
+    }
+
+    target.innerHTML = 'There are ' + quant + ' items stored in the database.';
