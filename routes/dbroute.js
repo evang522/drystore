@@ -7,7 +7,11 @@ const { check, validationResult } = require('express-validator/check');
 // GET Routes
 
 router.get('/add', (req,res) => {
+    if (req.isAuthenticated()) {
     res.render('add_item');
+    } else {
+        res.render('notauthenticated');
+    }
 });
 
 
@@ -39,11 +43,15 @@ router.get('/storeview', (req,res) => {
 
 
 router.get('/view_item/:id', (req,res) => {
+    if (req.isAuthenticated()) {
     Item.findById(req.params.id, (err,item)=> {
         res.render('view_item', {
             item:item
         });
     })
+} else {
+    res.render('notauthenticated');
+}
 });
 
 router.get('/edit_item/:id', (req,res) => {
@@ -73,6 +81,7 @@ router.get('/insights', (req,res) => {
 // POST Routes
 
 router.post('/add', (req,res) => {
+    if(req.isAuthenticated()) {
     let item = new Item();
         item.name = req.body.name;
         item.storageUnit = req.body.storageUnit;
@@ -95,10 +104,14 @@ router.post('/add', (req,res) => {
             res.redirect('storeview');
         }
     })
+    } else {
+        res.render('notauthenticated');
+    }
 });
 
 
 router.post('/view_item/del/:id', (req,res) => {
+    if (req.isAuthenticated()) {
     Item.findByIdAndRemove({_id:req.params.id}, (err) => {
         if (err) {
             console.log(err);
@@ -116,6 +129,9 @@ router.post('/view_item/del/:id', (req,res) => {
         )
         }
     })
+    } else {
+        res.render('notauthenticated');
+    }
 });
   
 

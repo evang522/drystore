@@ -129,9 +129,6 @@ body {
     border-radius:10px;
 }
 
-/* .breakDownDiv:hover {
-    box-shadow: 1px 1px black;
-} */
 
 hr {
     height:1.4em;
@@ -142,8 +139,18 @@ hr {
 .insightHeader {
     display:flex;
     list-style: none;
+    width:20em;
     justify-content:center;
+    margin:auto;
+    background-color:f9f9f9;
+    border-radius:20px;
 }
+
+.insightHeader a:link, a:visited {
+    text-decoration:none;
+    color:black;
+}
+
 
 .insightHeader li {
     padding:10px;

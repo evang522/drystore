@@ -27,10 +27,10 @@ if user
 	h3.heading Hey, #{user.name}. You're already logged in! 
 	br
 	br
-	p.heading So.. um, do you want to log out? How dare you? But if you must, click below.
+	p.heading Or, at least that what your browser's cookies say.
 	br
-	form(action='/users/logout')
-		button.generalButton Logout
+	form(action='/db/storeview')
+		button.generalButton.backTo View Drystore?
 	br
 	br
 	

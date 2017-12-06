@@ -19,6 +19,7 @@ router.get('/console', (req,res) => {
 });
 
 router.get('/breakdown', (req,res) => {
+    if (req.isAuthenticated()) {
     Item.find({}, (err,items) => {
         if(err) {
             console.log(err);
@@ -28,6 +29,9 @@ router.get('/breakdown', (req,res) => {
             })
         }
     })
+} else {
+    res.render('notauthenticated');
+}
 });
 
 
@@ -41,7 +45,8 @@ router.get('/categorylist', (req,res) => {
              console.log(err);
          } else {
              res.render('categorylist', {
-                 items:items
+                 items:items,
+                 returnMessage:regex
              });
          }
      }) 

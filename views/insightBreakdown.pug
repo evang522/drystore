@@ -1,12 +1,18 @@
 include headmenu.pug
 input#data(type='hidden', value=items)
+h1.heading.bigHead Insights
+br
+ul.insightHeader
+    li.insightHeaderLi
+        a(href='/insights/console') Main
+    hr
+    li
+        a(href='/insights/breakdown') Breakdown
+    hr
+    li
+        a(href='/insights/console') More Analysis
+br
 h1.heading.space Breakdown: Total Prepared Food Available per Category (in Cups)
-div.beside
-    form(action='/insights/categorylist' method='GET')
-        input.input(placeholder='Search DB by Category...' name='search')
-        br
-        button.generalButton(action='/submit') Search DB
- 
 div.breakDownCont
     div.breakDownUnit
         a(href='/insights/categorylist?search=soup')
@@ -161,27 +167,28 @@ script.
             catTotal.Drink+= (items[i].quantity * items[i].servings * items[i].preparedserving);
             }
     }
-    document.getElementById('soup').innerHTML = '<h1>Soups:</h1> ' + catTotal.Soup + ' servings';
-    document.getElementById('entree').innerHTML = '<h1>Entree:</h1> ' + catTotal.Entree + ' servings';
-    document.getElementById('entreeWithMeat').innerHTML = '<h1>Entree with Meat:</h1> ' + catTotal.EntreeWithMeat + ' servings';
-    document.getElementById('MeatOnly').innerHTML = '<h1>Meat Only:</h1> ' + catTotal.MeatOnly + ' servings';
-    document.getElementById('Beans').innerHTML = '<h1>Beans:</h1> ' + catTotal.Beans + ' servings';
-    document.getElementById('Cracker').innerHTML = '<h1>Crackers:</h1> ' + catTotal.Cracker + ' servings';
-    document.getElementById('Pasta').innerHTML = '<h1>Pasta:</h1> ' + catTotal.Pasta + ' servings';
-    document.getElementById('Potato').innerHTML = '<h1>Potato:</h1> ' + catTotal.Potato + ' servings';
-    document.getElementById('Rice').innerHTML = '<h1>Rice:</h1> ' + catTotal.Rice + ' servings';
-    document.getElementById('Vegetable').innerHTML = '<h1>Vegetable:</h1> ' + catTotal.Vegetable + ' servings';
-    document.getElementById('BreakfastMeal').innerHTML = '<h1>Breakfast Meal:</h1> ' + catTotal.BreakfastMeal + ' servings';
-    document.getElementById('BreakfastDrink').innerHTML = '<h1>Breakfast Drink:</h1> ' + catTotal.BreakfastDrink + ' servings';
-    document.getElementById('BreakfastMeat').innerHTML = '<h1>Breakfast Meat:</h1> ' + catTotal.BreakfastMeat + ' servings';
-    document.getElementById('Eggs').innerHTML = '<h1>Eggs:</h1> ' + catTotal.Eggs + ' servings';
-    document.getElementById('Granola').innerHTML = '<h1>Granola:</h1> ' + catTotal.Granola + ' servings';
-    document.getElementById('Milk').innerHTML = '<h1>Milk:</h1> ' + catTotal.Milk + ' servings';
-    document.getElementById('Oatmeal').innerHTML = '<h1>Oatmeal:</h1> ' + catTotal.Oatmeal + ' servings';
-    document.getElementById('Yogurt').innerHTML = '<h1>Yogurt:</h1> ' + catTotal.Yogurt + ' servings';
-    document.getElementById('Fruit').innerHTML = '<h1>Fruit:</h1> ' + catTotal.Fruit + ' servings';
-    document.getElementById('Gravy').innerHTML = '<h1>Gravy:</h1> ' + catTotal.Gravy + ' servings';
-    document.getElementById('Sauce').innerHTML = '<h1>Sauce:</h1> ' + catTotal.Sauce + ' servings';
-    document.getElementById('Dessert').innerHTML = '<h1>Dessert:</h1> ' + catTotal.Dessert + ' servings';
-    document.getElementById('Spice').innerHTML = '<h1>Spice:</h1> ' + catTotal.Spice + ' servings';
-    document.getElementById('Drink').innerHTML = '<h1>Drink:</h1> ' + catTotal.Drink + ' servings';
+    
+    document.getElementById('soup').innerHTML = '<h1>Soups:</h1> ' + catTotal.Soup + ' cups';
+    document.getElementById('entree').innerHTML = '<h1>Entree:</h1> ' + catTotal.Entree + ' cups';
+    document.getElementById('entreeWithMeat').innerHTML = '<h1>Entree with Meat:</h1> ' + catTotal.EntreeWithMeat + ' cups';
+    document.getElementById('MeatOnly').innerHTML = '<h1>Meat Only:</h1> ' + catTotal.MeatOnly + ' cups';
+    document.getElementById('Beans').innerHTML = '<h1>Beans:</h1> ' + catTotal.Beans + ' cups';
+    document.getElementById('Cracker').innerHTML = '<h1>Crackers:</h1> ' + catTotal.Cracker + ' cups';
+    document.getElementById('Pasta').innerHTML = '<h1>Pasta:</h1> ' + catTotal.Pasta + ' cups';
+    document.getElementById('Potato').innerHTML = '<h1>Potato:</h1> ' + catTotal.Potato + ' cups';
+    document.getElementById('Rice').innerHTML = '<h1>Rice:</h1> ' + catTotal.Rice + ' cups';
+    document.getElementById('Vegetable').innerHTML = '<h1>Vegetable:</h1> ' + catTotal.Vegetable + ' cups';
+    document.getElementById('BreakfastMeal').innerHTML = '<h1>Breakfast Meal:</h1> ' + catTotal.BreakfastMeal + ' cups';
+    document.getElementById('BreakfastDrink').innerHTML = '<h1>Breakfast Drink:</h1> ' + catTotal.BreakfastDrink + ' cups';
+    document.getElementById('BreakfastMeat').innerHTML = '<h1>Breakfast Meat:</h1> ' + catTotal.BreakfastMeat + ' cups';
+    document.getElementById('Eggs').innerHTML = '<h1>Eggs:</h1> ' + catTotal.Eggs + ' cups';
+    document.getElementById('Granola').innerHTML = '<h1>Granola:</h1> ' + catTotal.Granola + ' cups';
+    document.getElementById('Milk').innerHTML = '<h1>Milk:</h1> ' + catTotal.Milk + ' cups';
+    document.getElementById('Oatmeal').innerHTML = '<h1>Oatmeal:</h1> ' + catTotal.Oatmeal + ' cups';
+    document.getElementById('Yogurt').innerHTML = '<h1>Yogurt:</h1> ' + catTotal.Yogurt + ' cups';
+    document.getElementById('Fruit').innerHTML = '<h1>Fruit:</h1> ' + catTotal.Fruit + ' cups';
+    document.getElementById('Gravy').innerHTML = '<h1>Gravy:</h1> ' + catTotal.Gravy + ' cups';
+    document.getElementById('Sauce').innerHTML = '<h1>Sauce:</h1> ' + catTotal.Sauce + ' cups';
+    document.getElementById('Dessert').innerHTML = '<h1>Dessert:</h1> ' + catTotal.Dessert + ' cups';
+    document.getElementById('Spice').innerHTML = '<h1>Spice:</h1> ' + catTotal.Spice + ' cups';
+    document.getElementById('Drink').innerHTML = '<h1>Drink:</h1> ' + catTotal.Drink + ' cups';
