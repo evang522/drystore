@@ -1,6 +1,15 @@
 include headmenu.pug
 h1.heading.bigHead Insights
 br
+ul.insightHeader
+    li.insightHeaderLi
+        a(href='/insights/console') Main
+    hr
+    li
+        a(href='/insights/breakdown') Breakdown
+    hr
+    li
+        a(href='/insights/console') More Analysis
 br
 input#data(type='hidden', value=items)
 div.insightCont
@@ -15,6 +24,7 @@ div.insightCont
     div.insightUnit
         img.insightImage(src='../img/measure.png')
         div#target4.insightInfoRight
+
 script.
     let allItemData = document.getElementById('data');
     let items = JSON.parse(allItemData.value);
@@ -41,7 +51,6 @@ script.
     document.getElementById('target3').innerHTML = 'There are <b>' + renderedCups + '</b> cups of prepared servings available. This means that if one were to prepare every meal in the the drystore at once, this is how many cups of edible food it would produce.'
     
 
-    
 
 
     let averageCups = (renderedCups/quant);

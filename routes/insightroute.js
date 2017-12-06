@@ -10,7 +10,7 @@ router.get('/console', (req,res) => {
             if(err) {
                 console.log(err);
             } else {
-        res.render('insights.pug', {
+        res.render('insights', {
             items:items
         });
             }
@@ -18,6 +18,16 @@ router.get('/console', (req,res) => {
     })
 });
 
-
+router.get('/breakdown', (req,res) => {
+    Item.find({}, (err,items) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.render('insightBreakdown', {
+                items:items
+            })
+        }
+    })
+});
 
 module.exports = router;

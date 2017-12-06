@@ -6,17 +6,21 @@ br
 if user
     div.addItemForm
         form.addItem(action='/db/add' method='POST')
-            input(name='name' placeholder='Name of Item' required)
+            label(for='name') Name of Item:
+            br
+            input#name(name='name' required)
             br
             br
             br
-            input(name='manufacturer' placeholder='Manufacturer')
+            label(for='manufacturer') Manufacturer:
+            br
+            input(name='manufacturer' id='manufacturer')
             br
             br
+            label(for='storageUnit') Unit of Storage:
             br
-            p Unit of Storage:
             br
-            select(name='storageUnit')
+            select(name='storageUnit' id='storageUnit')
                 option(value='Can') Can
                 option(value='Bag') Bag
                 option(value='Box') Box
@@ -25,13 +29,15 @@ if user
             br
             br
             br
-            input(name='quantity' placeholder='Quantity')
+            label(for='quantity') Quantity:
+            br
+            input(name='quantity' id='quantity' required)
             br
             br
             br
             p Item Category:
             br
-            select(name='category')
+            select(name='category' required)
                 option(value='Soup') Soup
                 option(value='Entree') Entree
                 option(value='Entree with Meat') Entree with Meat
@@ -59,13 +65,19 @@ if user
             br
             br
             br
-            input(name='servings', placeholder='Number of Servings per Unit')
+            label(for='servings') Number of Servings Per Unit:
+            br
+            input(name='servings', id='servings' required)
             br
             br
-            input(name='unpreparedserving' placeholder='Dry Serving Size (Cups)')
+            label(for='unpreparedserving') Dry Serving Size (Cups)
+            br
+            input(name='unpreparedserving' id='unpreparedserving')
             br
             br
-            input(name='preparedserving' placeholder='Prepared Serving Size (Cups)')
+            label(for="preparedserving") Prepared Serving Size (Cups)
+            br
+            input(name='preparedserving' id='preparedserving')
             br
             br
             br
@@ -75,7 +87,7 @@ if user
             br
             br
             br
-            p Additional Details
+            p Additional Details:
             br
             textarea(name='info', cols = '40' rows='10')
             br

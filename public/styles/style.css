@@ -89,7 +89,39 @@ body {
     background-color:#e3e5e8;
     border:1px solid gray;
     color:black;
-    
+}
+
+
+.breakDownCont {
+    display:block;
+    width:95vw;
+    margin:auto;
+}
+.breakDownUnit {
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.breakDownDiv {
+    padding:1em;
+    background-color:e2e2e2;
+    margin:1px;
+}
+
+hr {
+    height:1.4em;
+    margin-top:10px;
+    background-color:black;
+}
+
+.insightHeader {
+    display:flex;
+    list-style: none;
+    justify-content:center;
+}
+
+.insightHeader li {
+    padding:10px;
 }
 
 /* Global Heading*/
@@ -364,7 +396,7 @@ body {
 
 .insightUnit {
     display:flex;
-
+    font-family: 'Montserrat', sans-serif;
 }
 
 .smaller {
