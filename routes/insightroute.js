@@ -30,4 +30,28 @@ router.get('/breakdown', (req,res) => {
     })
 });
 
+
+router.get('/categorylist', (req,res) => {
+    if(req.query.search) {
+        console.log(req.query.search);
+       const regex = new RegExp(escapeRegex(req.query.search),'gi');
+       console.log(regex);
+     Item.find({category: regex}, (err,items) => {
+         if (err) {
+             console.log(err);
+         } else {
+             res.render('categorylist', {
+                 items:items
+             });
+         }
+     }) 
+    } else {
+        res.render('error');
+        }
+    });
+
+     function escapeRegex(text) {
+        return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+    };
+
 module.exports = router;

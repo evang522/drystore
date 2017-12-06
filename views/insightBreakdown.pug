@@ -1,31 +1,63 @@
 include headmenu.pug
 input#data(type='hidden', value=items)
+h1.heading.space Breakdown: Total Prepared Food Available per Category (in Cups)
+div.beside
+    form(action='/insights/categorylist' method='GET')
+        input.input(placeholder='Search DB by Category...' name='search')
+        br
+        button.generalButton(action='/submit') Search DB
+ 
 div.breakDownCont
     div.breakDownUnit
-        div.breakDownDiv#soup
-        div.breakDownDiv#entree
-        div.breakDownDiv#entreeWithMeat
-        div.breakDownDiv#MeatOnly
-        div.breakDownDiv#Beans
-        div.breakDownDiv#Cracker
-        div.breakDownDiv#Pasta
-        div.breakDownDiv#Potato
-        div.breakDownDiv#Rice
-        div.breakDownDiv#Vegetable
-        div.breakDownDiv#BreakfastMeal
-        div.breakDownDiv#BreakfastDrink
-        div.breakDownDiv#BreakfastMeat
-        div.breakDownDiv#Eggs
-        div.breakDownDiv#Granola
-        div.breakDownDiv#Milk
-        div.breakDownDiv#Oatmeal
-        div.breakDownDiv#Yogurt
-        div.breakDownDiv#Fruit
-        div.breakDownDiv#Gravy
-        div.breakDownDiv#Sauce
-        div.breakDownDiv#Dessert
-        div.breakDownDiv#Spice
-        div.breakDownDiv#Drink
+        a(href='/insights/categorylist?search=soup')
+            div.breakDownDiv#soup
+        a(href='/insights/categorylist?search=entree')
+            div.breakDownDiv#entree
+        a(href='/insights/categorylist?search=Entree+With+Meat')
+            div.breakDownDiv#entreeWithMeat
+        a(href='/insights/categorylist?search=Meat+Only')
+            div.breakDownDiv#MeatOnly
+        a(href='/insights/categorylist?search=Beans')
+            div.breakDownDiv#Beans
+        a(href='/insights/categorylist?search=Cracker')
+            div.breakDownDiv#Cracker
+        a(href='/insights/categorylist?search=Pasta')
+            div.breakDownDiv#Pasta
+        a(href='/insights/categorylist?search=Potato')
+            div.breakDownDiv#Potato
+        a(href='/insights/categorylist?search=Rice')
+            div.breakDownDiv#Rice
+        a(href='/insights/categorylist?search=Vegetable')
+            div.breakDownDiv#Vegetable
+        a(href='/insights/categorylist?search=Breakfast+Meal')
+            div.breakDownDiv#BreakfastMeal
+        a(href='/insights/categorylist?search=Breakfast+Drink')
+            div.breakDownDiv#BreakfastDrink
+    div.breakDownUnit
+        a(href='/insights/categorylist?search=Breakfast+Meat')
+            div.breakDownDiv#BreakfastMeat
+        a(href='/insights/categorylist?search=Eggs')
+            div.breakDownDiv#Eggs
+        a(href='/insights/categorylist?search=Granola')
+            div.breakDownDiv#Granola
+        a(href='/insights/categorylist?search=Milk')
+            div.breakDownDiv#Milk
+        a(href='/insights/categorylist?search=Oatmeal')
+            div.breakDownDiv#Oatmeal
+        a(href='/insights/categorylist?search=Yogurt')
+            div.breakDownDiv#Yogurt
+        a(href='/insights/categorylist?search=Fruit')
+            div.breakDownDiv#Fruit
+        a(href='/insights/categorylist?search=Gravy')
+            div.breakDownDiv#Gravy
+        a(href='/insights/categorylist?search=Sauce')
+            div.breakDownDiv#Sauce
+        a(href='/insights/categorylist?search=Dessert')
+            div.breakDownDiv#Dessert
+        a(href='/insights/categorylist?search=Spice')
+            div.breakDownDiv#Spice
+        a(href='/insights/categorylist?search=Drink')
+            div.breakDownDiv#Drink
 script.
     let allItemData = document.getElementById('data');
     let items = JSON.parse(allItemData.value);
@@ -153,4 +185,3 @@ script.
     document.getElementById('Dessert').innerHTML = '<h1>Dessert:</h1> ' + catTotal.Dessert + ' servings';
     document.getElementById('Spice').innerHTML = '<h1>Spice:</h1> ' + catTotal.Spice + ' servings';
     document.getElementById('Drink').innerHTML = '<h1>Drink:</h1> ' + catTotal.Drink + ' servings';
-    console.log(catTotal);

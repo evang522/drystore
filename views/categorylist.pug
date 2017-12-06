@@ -1,0 +1,48 @@
+include headmenu.pug
+h1.heading Drystore Items By Category
+if user
+    br
+    br
+    if items.length == 0
+        p.heading No items found.
+    if items.length == 1
+        p.heading #{items.length} item found.
+    if items.length > 1
+        p.heading #{items.length} items found.  
+    br
+    div.storeContents
+
+        ul
+            each item, i in items
+                li.dryStoreLi 
+                    form(action='/db/view_item/'+item._id)
+                        div.dryStoreItemCont
+                            div.dryStoreItem.dsiName
+                                p <b>#{item.name}</b>
+                            div.dryStoreItem.dsiQuant
+                                p Quantity: <b>#{item.quantity}</b>
+                            div.dryStoreItem.dsiCat
+                                p Category: <b>#{item.category}</b>
+                            div.dryStoreItem.dsiManu
+                                p Manufacturer: <b>#{item.manufacturer}</b>
+                            div.dryStoreItem.dsiExp
+                                p Expires: <b>#{item.expiration}</b>
+                            button.dryStoreItem.dsiButt.dryStoreButton.backTo(action='submit') Details
+
+                            br
+                            br
+                            br
+if !user
+    br
+    br
+    h3.heading Sorry, you do not have permission to access this page. Please Log in. 
+    br
+    br
+    form(action='/users/login')
+        button.generalButton Login
+script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+script.
+  //Fade in info blocks
+  $(function () {
+  $('.storeContents').fadeIn(500);
+  });

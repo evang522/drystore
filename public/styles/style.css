@@ -9,6 +9,10 @@ body {
     background-color:#ededed;
 }
 
+
+.space {
+    margin-bottom:2em;
+}
 /* Global Header CSS */
 .header {
     height:2.8em;
@@ -91,22 +95,43 @@ body {
     color:black;
 }
 
-
 .breakDownCont {
-    display:block;
-    width:95vw;
-    margin:auto;
-}
-.breakDownUnit {
     display:flex;
-    flex-wrap:wrap;
 }
+
+
+.breakDownUnit {
+    width:15em;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    color:black;
+}
+
+.breakDownUnit a:link, a:visited {
+    text-decoration:none;
+    color:black;
+}
+
+.breakDownDiv:hover {
+    background-color:navy;
+    color:white;
+}
+
+
 
 .breakDownDiv {
     padding:1em;
-    background-color:e2e2e2;
-    margin:1px;
+    background-color:#dbbb83;
+    margin:10px;
+    text-align:center;
+    border-radius:10px;
 }
+
+/* .breakDownDiv:hover {
+    box-shadow: 1px 1px black;
+} */
 
 hr {
     height:1.4em;
