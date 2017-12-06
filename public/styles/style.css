@@ -101,7 +101,7 @@ body {
 
 
 .breakDownUnit {
-    width:15em;
+    width:25em;
     margin:auto;
     display:flex;
     flex-direction:column;
