@@ -16,6 +16,7 @@ router.get('/add', (req,res) => {
 
 
 router.get('/storeview', (req,res) => {
+    if(req.isAuthenticated()) {
    if(req.query.search) {
       const regex = new RegExp(escapeRegex(req.query.search),'gi');
       console.log(regex);
@@ -38,7 +39,10 @@ router.get('/storeview', (req,res) => {
             });
         }
     })
-}
+    }
+    } else {
+        res.render('notauthenticated');
+    }
 });
 
 
