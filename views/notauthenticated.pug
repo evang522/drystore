@@ -1,13 +1,22 @@
 include headmenu.pug
 br
+img#crash.smallerImg(src='/img/baby.png')
 br
-h1.heading Not Authenticated 
-br
-img#crash(src='/img/baby.png')
-//- img#fife(src='/img/fife.png')
+h1.heading.larger Sorry, you need to Log in!  
 br
 br
-br
-h4.heading#errorHandle Sorry you're experiencing this issue. It looks like you are not authenticated (Read: 'Not logged in'). Please try logging in to continue browsing this wonderful webspace.
+div.login
+		form(action='/users/login', method='POST')
+			p Email: &nbsp
+			input(name='username' required)
+			br
+			br
+			p Password: &nbsp
+			input(name='password'  type='password' required)
+			br
+			br
+			button.generalButton(action='submit') Log in
+			br
+			br
 br
 br

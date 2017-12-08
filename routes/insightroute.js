@@ -6,6 +6,7 @@ const { check, validationResult } = require('express-validator/check');
 
 //GET ROUTES
 router.get('/console', (req,res) => {
+    if (req.isAuthenticated()) {
         Item.find({}, (err,items) => {
             if(err) {
                 console.log(err);
@@ -14,8 +15,11 @@ router.get('/console', (req,res) => {
             items:items
         });
             }
-
+        
     })
+    } else {
+        res.render('notauthenticated');
+    }
 });
 
 router.get('/breakdown', (req,res) => {
@@ -36,6 +40,7 @@ router.get('/breakdown', (req,res) => {
 
 
 router.get('/categorylist', (req,res) => {
+    if (req.isAuthenticated()) {
     if(req.query.search) {
         console.log(req.query.search);
        const regex = new RegExp(escapeRegex(req.query.search),'gi');
@@ -53,6 +58,9 @@ router.get('/categorylist', (req,res) => {
     } else {
         res.render('error');
         }
+    } else {
+        res.render('notauthenticated');
+    }
     });
 
      function escapeRegex(text) {

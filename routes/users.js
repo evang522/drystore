@@ -12,16 +12,25 @@ router.get('/login', (req,res) => {
 
 
 router.get('/register', (req,res) => {
+	if (req.isAuthenticated()) {
 	res.render('register');
+	} else {
+		res.render('notauthenticated');
+	}
 });
 
 router.get('/confirmlogout', (req,res) => {
+	if (req.isAuthenticated) {
 	res.render('confirmlogout');
+	} else {
+		res.render('notauthenticatedd');
+	}
 });
 
 // POST Routes
 
 router.post('/register', (req,res) => {
+	if (req.isAuthenticated) {
 	let name = req.body.name;
 	let email = req.body.email;
 	let password = req.body.password;
@@ -58,6 +67,9 @@ router.post('/register', (req,res) => {
 	});
 
 	}
+} else {
+	res.render('notauthenticated');
+}
 });
 
 

@@ -59,27 +59,16 @@ router.get('/view_item/:id', (req,res) => {
 });
 
 router.get('/edit_item/:id', (req,res) => {
+    if (req.isAuthenticated()) {
     Item.findById({_id:req.params.id}, (err,item) => {
         res.render('edit_item', {
             item:item
         })
     })
+} else {
+    res.render('notauthenticated');
+}
 });
-
-
-
-// Insights Page
-router.get('/insights', (req,res) => {
-    Item.find({}, (err,items) => {
-        if (err) {
-            console.log(err);
-        } else { 
-            res.render('insights');
-        }
-    })
-});
-
-
 
 
 // POST Routes
@@ -141,15 +130,20 @@ router.post('/view_item/del/:id', (req,res) => {
 
 
 router.post('/view_item/confirm/:id', (req,res) => {
+    if (req.isAuthenticated()) {
     Item.findById(req.params.id, (err,item)=> {
         res.render('confirm.pug', {
             item:item
         });
     })
+} else {
+    res.render('notauthenticated');
+}
 });
 
 
 router.post('/edit_item/:id', (req,res) => {
+    if (req.isAuthenticated()) {
     let item = {};
         item.name = req.body.name;
         item.storageUnit = req.body.storageUnit;
@@ -179,7 +173,10 @@ router.post('/edit_item/:id', (req,res) => {
                 }
             })
 		}
-	})
+    })
+} else {
+    res.render('notauthenticated');
+}
 });
 
 function escapeRegex(text) {

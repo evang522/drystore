@@ -8,11 +8,11 @@ if !user
 	div.login
 		form(action='/users/login', method='POST')
 			p Email: &nbsp
-				input(name='username' required)
+			input(name='username' required)
 			br
 			br
-			p Password &nbsp
-				input(name='password'  type='password' required)
+			p Password: &nbsp
+			input(name='password'  type='password' required)
 			br
 			br
 			button.generalButton(action='submit') Log in
@@ -23,14 +23,17 @@ if !user
 		br
 if user
 	br
-	br
 	h3.heading Hey, #{user.name}. You're already logged in! 
+	br
+	br
+	img#crash.smallerImg(src='/img/thumb.png')
+	br
 	br
 	br
 	p.heading Or, at least that what your browser's cookies say.
 	br
 	form(action='/db/storeview')
-		button.generalButton.backTo View Drystore?
+		button.generalButton.wider View Drystore
 	br
 	br
 	

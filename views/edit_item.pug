@@ -30,7 +30,8 @@ div.addItemForm
         br
         p Item Category:
         br
-        select(name='category')
+        select(name='category' required)
+            option(disabled selected value='')
             option(value='Soup') Soup
             option(value='Entree') Entree
             option(value='Entree with Meat') Entree with Meat
@@ -76,7 +77,7 @@ div.addItemForm
         br
         p Additional Details
         br
-        textarea(name='info', cols = '75' rows='10' value=item.info)
+        textarea(name='info', cols = '40' rows='10') #{item.info}
         br
         br
         input(type='hidden', name='editedBy', id='editedBy', value=user.name)

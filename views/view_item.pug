@@ -1,46 +1,52 @@
 include headmenu.pug
-h1.heading Item Details
+h1.heading.larger Item Details
 br
+p.heading #{item.name} | #{item.manufacturer} -- id: #{item._id}
 br
 div.itemInfoCont
-    div.itemInfo
-        h3 Name:
-        p #{item.name}
-    div.itemInfo
-        h3 Manufacturer:
-        p #{item.manufacturer}
-    div.itemInfo
-        h3 Category:
-        p #{item.category}
-    div.itemInfo
-        h3 Quantity:
-        p #{item.quantity}
-    div.itemInfo
-        h3 Servings per Unit
-        p #{item.servings}
-    div.itemInfo
-        h3 Dry Serving Size
-        p #{item.unpreparedserving} cups
-    div.itemInfo
-        h3 Prepared Serving Size
-        p #{item.preparedserving} cups
-    div.itemInfo
-        h3 Unit of Storage
-        p #{item.storageUnit}
-    div.itemInfo
-        h3 Expiration Date
-        p #{item.expiration}
-    div.itemInfo
-        h3 Insights:
-    div.itemInfo
-        h3 Created By:
-        p #{item.submittedBy}
-    div.itemInfo
-        h3 Last Edited By:
-        p #{item.editedBy}
-    div.itemInfo
-        h3 Additional Details:
-        p #{item.info}
+    div.itemInfoUnit
+        div.itemInfo
+            h3 Name:
+            p #{item.name}
+        div.itemInfo
+            h3 Manufacturer:
+            p #{item.manufacturer}
+        div.itemInfo
+            h3 Category:
+            p #{item.category}
+    div.itemInfoUnit
+        div.itemInfo
+            h3 Quantity:
+            p #{item.quantity}
+        div.itemInfo
+            h3 Servings per Unit:
+            p #{item.servings}
+        div.itemInfo
+            h3 Dry Serving Size:
+            p #{item.unpreparedserving} cups
+    div.itemInfoUnit
+        div.itemInfo
+            h3 Prepared Serving Size:
+            p #{item.preparedserving} cups
+        div.itemInfo
+            h3 Unit of Storage:
+            p #{item.storageUnit}
+        div.itemInfo
+            h3 Expiration Date:
+            p #{item.expiration}
+    div.itemInfoUnit
+        div.itemInfo
+            h3 Insights:
+        div.itemInfo
+            h3 Created By:
+            p #{item.submittedBy}
+        div.itemInfo
+            h3 Last Edited By:
+            p #{item.editedBy}
+    div.itemInfoUnit
+        div.itemInfo.last
+            h3 Additional Details:
+            p #{item.info}
 br
 div.change
     form(action='/db/edit_item/' + item.id)
