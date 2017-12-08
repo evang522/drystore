@@ -92,7 +92,7 @@ body {
 .generalButton:hover {
     background-color:#e3e5e8;
     border:1px solid gray;
-    color:black;
+    color:black !important;
 }
 
 .breakDownCont {
@@ -408,6 +408,7 @@ hr {
 
 #warning:hover {
     background-color:#e05353;
+    color:white !important;
 }
 
 #edit {
@@ -556,12 +557,12 @@ hr {
         width:10em;
     }
 
-    .backTo {
-        margin:0;
-        margin:auto;
-    }
     #warning  {
         width:10em;
+    }
+
+    .space {
+        margin:1px auto !important;
     }
 
 }
@@ -662,6 +663,7 @@ hr {
         margin:0 auto;
         margin-top:5px;
     }
+    
     
 }
 
