@@ -3,6 +3,7 @@ let router = express.Router();
 let Item = require('../models/itemModel');
 let expressValidator = require('express-validator');
 const { check, validationResult } = require('express-validator/check');
+let produceCatData = require('../js/insightprocess');
 
 //GET ROUTES
 router.get('/console', (req,res) => {
@@ -28,8 +29,10 @@ router.get('/breakdown', (req,res) => {
         if(err) {
             console.log(err);
         } else {
+            let catData = produceCatData(items);
             res.render('insightBreakdown', {
-                items:items
+                items:items,
+                catData:catData
             })
         }
     })

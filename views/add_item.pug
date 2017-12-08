@@ -37,6 +37,7 @@ form.addItem(action='/db/add' method='POST')
     p Item Category:
     br
     select(name='category' required)
+        option(disabled selected value='')
         option(value='Soup') Soup
         option(value='Entree') Entree
         option(value='Entree with Meat') Entree with Meat
@@ -76,7 +77,7 @@ form.addItem(action='/db/add' method='POST')
     br
     label(for="preparedserving") Prepared Serving Size (Cups)
     br
-    input(name='preparedserving' id='preparedserving')
+    input(name='preparedserving' id='preparedserving' required)
     br
     br
     br
