@@ -9,7 +9,6 @@ let LocalStrategy = require('passport-local').Strategy;
 let session = require('express-session');
 let passport = require('passport');
 let expressValidator = require('express-validator');
-let flash = require('express-flash');
 let insightroute = require('./routes/insightroute')
 
 // Bring in Models for queries
