@@ -1,0 +1,26 @@
+include headmenu.pug
+h1.heading.larger Login to GDB
+br
+br
+p.errFlash #{error}
+br
+div.login
+	form(action='/users/login', method='POST')
+		p Email: &nbsp
+		input(name='username' required)
+		br
+		br
+		p Password: &nbsp
+		input(name='password'  type='password' required)
+		br
+		br
+		button.generalButton(action='submit') Log in
+		br
+		br
+	p This is a private site restricted to authorized users.
+	br
+script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+script.
+	$(function () {
+	$('.errFlash').fadeIn(1500);
+	});

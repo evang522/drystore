@@ -1,9 +1,10 @@
 include headmenu.pug
-h1.heading Drystore Items
+h1.heading.larger Drystore Items
 if user
     br
+    br
     if success
-        p.heading(style='color:green') <b>--#{success}--</b>
+        p.successFlash #{success}
     br
     if items.length == 0
         p.heading No items found.
@@ -51,6 +52,8 @@ if !user
 script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
 script.
   //Fade in info blocks
-  $(function () {
-  $('.storeContents').fadeIn(500);
-  });
+    $(function () {
+    $('.storeContents').fadeIn(500);
+    $('.successFlash').fadeIn(1500);
+    $('.successFlash').fadeOut(1500);
+    });

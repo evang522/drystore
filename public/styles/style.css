@@ -344,6 +344,42 @@ hr {
 }
 
 
+/* Flash messaging */
+
+.errFlash {
+    display:block;
+    max-width:23em;
+    position:fixed;
+    margin:0;
+    background-color:#dd7780;
+    padding:8px;
+    border-radius:10px;
+    color:white;
+    top:8em;
+    text-align:center;
+    left: 50%;
+    transform: translateX(-50%);
+    display:none;
+}
+
+.successFlash {
+    display:block;
+    max-width:23em;
+    position:fixed;
+    margin:0;
+    background-color:#88bc82;
+    padding:8px;
+    border-radius:10px;
+    color:white;
+    top:8em;
+    text-align:center;
+    left: 50%;
+    transform: translateX(-50%);
+    display:none;
+}
+
+
+
 .dryStoreItemCont{
     width:90vw;
     display:flex;

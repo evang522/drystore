@@ -94,7 +94,16 @@ router.post('/add', (req,res) => {
         if (err) {
             console.log(err);
         } else {
-            res.redirect('storeview');
+            Item.find({}, (err,items) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    res.render('storeview', {
+                        items:items,
+                        success: 'Item has been added!'
+                    });
+                }
+            })
         }
     })
     } else {

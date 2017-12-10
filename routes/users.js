@@ -11,6 +11,14 @@ router.get('/login', (req,res) => {
 );
 
 
+router.get('/loginerror', (req,res) => {
+	res.render('loginerror', {
+		error:'There was a problem logging you in with the provided credentials. Please try again!'
+	});
+}
+);
+
+
 router.get('/register', (req,res) => {
 	if (req.isAuthenticated()) {
 	res.render('register');
@@ -105,18 +113,16 @@ passport.serializeUser(function(user, done) {
 
 
   router.post('/login',
-  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login', failureFlash:false}),
+  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/loginerror', failureFlash:false}),
   (req, res) => {
-	res.redirect('/');
+	res.render('/');
   //   res.redirect('/users/' + req.user.username);
   });
   
   
   router.get('/logout', (req,res) => {
 	 	req.logout();
-		res.render('logout', {
-			success: 'You have been Logged out.'
-		});
+		res.render('logout');
   });
       
   
