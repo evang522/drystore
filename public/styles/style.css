@@ -21,7 +21,10 @@ body {
     position:fixed;
     width:100%;
     top:0;
+    z-index: 1;
 }
+
+
 .header ul {
     display:flex;
     justify-content:center;
@@ -310,7 +313,7 @@ hr {
 
 .dsiQuant {
     border-right:1px solid black;
-    width:8.5em;
+    width:9.5em;
     margin:0;
 
 }
@@ -322,7 +325,7 @@ hr {
 
 .dsiExp {
     border-right:1px solid black;
-    width:18em;
+    width:11em;
     margin:0;
 }
 
@@ -565,14 +568,23 @@ hr {
 }
 
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1150px) {
     .dsiManu {
         display:none;
+    }
+
+    .dsiCat {
+        width:20em;
+    }
+    .dsiQUant {
+        width:11.5em;
     }
 }
 
 
 @media screen and (max-width: 800px) {
+
+
     .dsiExp {
         display:none;
     }
@@ -599,6 +611,10 @@ hr {
 
     .space {
         margin:1px auto !important;
+    }
+
+    .dsiName {
+        width:8em;
     }
 
 }
@@ -700,8 +716,14 @@ hr {
         flex-direction:column-reverse
     }
 
+    .successFlash {
+        top:14.5em;
+    }
 
-    
+    .errFlash {
+        top:14.5em;
+    }
+
 
 }
 
@@ -711,8 +733,9 @@ hr {
     }
 
     .dsiName{
-        width:12em;
+        width:9em;
     }
+
 
     .itemInfoUnit {
         flex-direction:column;
