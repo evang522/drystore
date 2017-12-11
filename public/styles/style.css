@@ -671,10 +671,34 @@ hr {
         max-width:17em;
     }
 
-    * {
-        font-family: Helvetica, sans-serif;
+
+    .insightUnit {
+        flex-direction:column;
+        width:95vw;
     }
 
+
+    .insightCont {
+        width:95vw;
+    }
+
+    .insightImage {
+        margin:auto;
+    }
+
+    .insightInfoRight {
+        padding:35px;
+        text-align:center;
+    }
+
+    .insightInfoLeft {
+        padding:35px;
+        text-align:center;
+    }
+
+    .reverse {
+        flex-direction:column-reverse
+    }
 
 
     
