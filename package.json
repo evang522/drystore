@@ -1,7 +1,7 @@
 {
   "name": "drystore",
   "version": "1.0.0",
-  "description": "A Dry-Store food database for Alan and Tami Garrett",
+  "description": "A Dry-Store food database for The Garretts",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
