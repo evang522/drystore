@@ -13,31 +13,39 @@ html(lang='en')
 		if user
 			div.header
 				div
-					img#trigger(src='/img/hamb.png' alt='Menu Icon')
+					button#trigger(src='/img/hamb.png' alt='Menu Icon')
 			div.headerDropDown#hdd
 				ul.headerUl
 					li.headerLi
-						a(href='/') Home&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						form(action='/')
+							button.hov Home
 					li.headerLi  
-						a(href='/db/storeview') View Drystore&nbsp&nbsp&nbsp
+						form(action='/db/storeview')
+							button.hov View Drystore
 					li.headerLi
-						a(href='/db/add') Add Item&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						form(action='/db/add')
+							button.hov Add Item
 					li.headerLi
-						a(href='/insights/console') Insights&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						form(action='/insights/console')
+							button.hov Insights
 					li.headerLi
-						a(href='/users/confirmlogout') Log Out&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						form(action='/users/confirmlogout')
+							button.hov Log Out
 
 		if !user
 			div.header
 				div
-					img#trigger(src='/img/hamb.png' alt='Menu Icon')
+					button#trigger(src='/img/hamb.png' alt='Menu Icon')
 			div.headerDropDown#hdd
 				ul.headerUl.shorter
 					li.headerLi
-						a(href='/') Home
-					li.headerLi  
-						a(href='/users/login') Login
+						form(action='/')
+							button.hov Home
+					li.headerLi
+						form(action='/users/login')
+							button.hov Login
 	div.headBreaker
+	script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
 	script.
 		let hdd = document.getElementById('hdd');
 		let trigger = document.getElementById('trigger');
@@ -47,15 +55,18 @@ html(lang='en')
 			//- console.log('toggleView has run' + 'and i = ' + t);
 			if(t===0) {
 				hdd.style.display = 'block';
+				trigger.style.backgroundColor='#f4b224';
 				t=1;
 			} else if (t===1) {
 				hdd.style.display = 'none';
+				trigger.style.backgroundColor = '#1b3b51';
 				t--;
 			}
 		}
 		let toggleViewWindow = () => {
 			if (t===1 && event.target != trigger) {
 				hdd.style.display = 'none';
+				trigger.style.backgroundColor = '#1b3b51';
 				t--;
 			}
 		}

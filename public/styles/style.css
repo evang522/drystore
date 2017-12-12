@@ -23,12 +23,25 @@ body {
     z-index:1;
 }
 
-
-.header img {
+#trigger {
+    background-image:url('/img/hamb.png');
+    background-size:contain;
     width:2em;
     margin-left:.5em;
     margin-top:.4em;
+    height:2em;
+    border:none;
+    border-radius:5.5px;
+    outline:none;
+    background-repeat:no-repeat;
+    background-color:#1b3b51;
 }
+
+#trigger:hover {
+    background-color:white;
+}
+
+
 .headerDropDown {
     width:10em;
 }
@@ -51,7 +64,7 @@ body {
     left:0;
     width:9em;
     color:white;
-    height:13em;
+    height:14em;
     box-sizing:border-box;
     border-bottom-right-radius:10px;
     border-bottom-left-radius:10px;
@@ -63,25 +76,36 @@ body {
 .headerLi {
     width:8.5em;
     margin:0;
+    padding-left:0;
+    box-sizing:border-box;
+    color:white;
+    height:2.5em;
+    
+}
+
+.headerLi button {
+    width:8.5em;
+    margin:0;
     padding:10px;
     padding-left:0;
     box-sizing:border-box;
     color:white;
-    padding-left:.5em;
+    height:2.5em;
+    background-color:#36588e;
+    border:none;
+    text-align:left;
+    outline:none;
+    padding-left:8px;
+    }
+
 }
 
-.headerLi a:visited{
-    color:white;
-    text-decoration:none;
+
+
+.headerLi hover {
+    background-color:#36588e;
 }
 
-.headerLi a:link {
-    text-decoration:none;
-    color:white;
-}
-.headerLi:hover {
-    background-color:#3b62a0;
-}
 
 .headerUl > a:link,a:visited {
     color:white;
@@ -98,6 +122,7 @@ body {
 .hov:hover {
     background-color:#e3e5e8;
     border:1px solid gray;
+    color:black;
 }
 
 
