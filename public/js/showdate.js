@@ -1,12 +1,9 @@
-var dt = new Date();
-let min = dt.getMinutes();
-if (min < 10) {
-    let stringMin = min.toString();
-    zeroString = '0'+ stringMin;
-    min = stringMin;
-};
 
-let dates = dt.getFullYear() + "/" + (dt.getMonth() + 1) + "/" + dt.getDate() + '<br>' + dt.getHours() + ':' + min;
+let timeP = new Date();
+let zeroVar = timeP.getMinutes().toString();
+if (zeroVar.length == 1) {
+    zeroVar = "0" + zeroVar;
+}
 let text = document.getElementById('homeWelcomeinfo');
-text.innerHTML = dates;
-console.log('hello');
+let message = `${timeP.toDateString()} <br> ${timeP.getHours()}:${zeroVar}`;
+text.innerHTML += message;
