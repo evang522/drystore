@@ -12,29 +12,38 @@ html(lang='en')
 	body
 		if user
 			div.header
-				a(href='#')
-					img#trigger(src='/img/hamb.png')
+				div
+					button#trigger(src='/img/hamb.png' alt='Menu Icon')
 			div.headerDropDown#hdd
 				ul.headerUl
 					li.headerLi
-						a(href='/') Home
+						form(action='/')
+							button.hov Home
 					li.headerLi  
-						a(href='/db/storeview') View Drystore
+						form(action='/db/storeview')
+							button.hov View Drystore
 					li.headerLi
-						a(href='/db/add') Add Item
+						form(action='/db/add')
+							button.hov Add Item
 					li.headerLi
-						a(href='/insights/console') Insights
+						form(action='/insights/console')
+							button.hov Insights
+					li.headerLi
+						form(action='/users/confirmlogout')
+							button.hov Log Out
 
 		if !user
 			div.header
-				a(href='#')
-					img#trigger(src='/img/hamb.png')
+				div
+					button#trigger(src='/img/hamb.png' alt='Menu Icon')
 			div.headerDropDown#hdd
 				ul.headerUl.shorter
 					li.headerLi
-						a(href='/') Home
-					li.headerLi  
-						a(href='/users/login') Login
+						form(action='/')
+							button.hov Home
+					li.headerLi
+						form(action='/users/login')
+							button.hov Login
 		div.headBreaker
 		input#data(type='hidden', value=items)
 		h1.heading.bigHead Insights

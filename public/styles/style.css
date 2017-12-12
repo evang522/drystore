@@ -362,6 +362,9 @@ hr {
     height:2.3em;
 }
 
+canvas {
+    z-index:-1;
+}
 
 .dsiName {
     width:20em;
