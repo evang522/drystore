@@ -13,41 +13,81 @@ body {
 .space {
     margin-bottom:2em;
 }
-/* Global Header CSS */
+
+
 .header {
-    height:2.8em;
+    height:3em;
     background-color:#1b3b51;
-    margin-bottom:3em;
     position:fixed;
     width:100%;
-    top:0;
-    z-index: 1;
+    z-index:1;
 }
 
 
-.header ul {
-    display:flex;
-    justify-content:center;
+.header img {
+    width:2em;
+    margin-left:.5em;
+    margin-top:.4em;
+}
+.headerDropDown {
+    width:10em;
 }
 
-.header li {
+.shorter {
+    height:7em !important;
+    padding-top:1em;
     list-style:none;
-    padding-left:1em;
-    padding-right:1em;
-    margin-top:1em;
 }
 
-.header button {
-    border:none;
-    width:8em;
-    height:2.5em;
-    color:black;
-    font-size:.9em;
-    background-color:#f2f2f2;
-    border-radius:30px;
-    outline:none;
-    border:1px solid gray;
+#hdd {
+    display:none;
 }
+
+.headerUl {
+    width:10em;
+    background-color:#36588e;
+    position:fixed;
+    top:2.4em;
+    left:0;
+    width:9em;
+    color:white;
+    height:13em;
+    box-sizing:border-box;
+    border-bottom-right-radius:10px;
+    border-bottom-left-radius:10px;
+    list-style:none;
+    padding-top:10px;
+    margin-top:10px;
+}
+
+.headerLi {
+    width:8.5em;
+    margin:0;
+    padding:10px;
+    padding-left:0;
+    box-sizing:border-box;
+    color:white;
+    padding-left:.5em;
+}
+
+.headerLi a:visited{
+    color:white;
+    text-decoration:none;
+}
+
+.headerLi a:link {
+    text-decoration:none;
+    color:white;
+}
+.headerLi:hover {
+    background-color:#3b62a0;
+}
+
+.headerUl > a:link,a:visited {
+    color:white;
+    text-decoration:none;
+}
+
 
 .headBreaker {
     height:6em;
@@ -621,18 +661,7 @@ hr {
 
 
 @media screen and (max-width: 700px) {
-    .header button {
-        width:6.5em;
-        font-size:.6em;
-    }
 
-    .header {
-        max-height:7em;
-    }
-
-    .headBreaker {
-        height:12em;
-    }
     .homeCircle {
         margin-top:-4em;
     }
@@ -649,15 +678,6 @@ hr {
     body {
         background-color:#dbdbdb;
     }
-    .header ul {
-        flex-direction:column;
-        padding-top:1em;
-    }
-
-    .header {
-        height:10em;
-        font-size:1.5em;
-    }
 
 
     #homeWelcome {
@@ -668,19 +688,6 @@ hr {
     #homeWelcomeinfo {
         font-size:.8em;
         font-family: Helvetica, sans-serif;
-    }
-
- 
-    .header Button {
-        border-radius:0;
-        height:2em;
-        width:20em;
-    }
-
-    .header li {
-        padding:0;
-        margin:0 auto;
-        border:1px solid black;
     }
 
     input {

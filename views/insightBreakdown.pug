@@ -12,109 +12,109 @@ html(lang='en')
 	body
 		if user
 			div.header
-				ul
-					li
-						form(action='/')
-							button.hov Home
-					li  
-						form(action='/db/storeview')
-							button.hov View DryStore
-					li
-						form(action='/db/add')
-							button.hov Add Item
-					li
-						form(action='/insights/console')
-							button.hov Insights
+				a(href='#')
+					img#trigger(src='/img/hamb.png')
+			div.headerDropDown#hdd
+				ul.headerUl
+					li.headerLi
+						a(href='/') Home
+					li.headerLi  
+						a(href='/db/storeview') View Drystore
+					li.headerLi
+						a(href='/db/add') Add Item
+					li.headerLi
+						a(href='/insights/console') Insights
 
 		if !user
 			div.header
-				ul
-					li
-						form(action='/')
-							button.hov Home
-					li
-						form(action='/users/login')
-							button.hov Login
-	div.headBreaker
-	input#data(type='hidden', value=items)
-	h1.heading.bigHead Insights
-	br
-	ul.insightHeader
-		li.insightHeaderLi
-			a(href='/insights/console') Main
-		hr
-		li
-			a(href='/insights/breakdown') Breakdown
-		hr
-		li
-			a(href='/insights/console') More Analysis
-	br
-	br
-	br
-	#chartContainer(style='height: 300px; width: 100%;')
-	br
-	h1.heading.space Breakdown: Total Prepared Food Available per Category (in Cups)
-	br
-	div.breakDownCont
-		div.breakDownUnit
-			a(href='/insights/categorylist?search=soup')
-				div.breakDownDiv#soup
-			a(href='/insights/categorylist?search=entree')
-				div.breakDownDiv#entree
-			a(href='/insights/categorylist?search=Entree+With+Meat')
-				div.breakDownDiv#entreeWithMeat
-			a(href='/insights/categorylist?search=Meat+Only')
-				div.breakDownDiv#MeatOnly
-			a(href='/insights/categorylist?search=Beans')
-				div.breakDownDiv#Beans
-			a(href='/insights/categorylist?search=Cracker')
-				div.breakDownDiv#Cracker
-			a(href='/insights/categorylist?search=Pasta')
-				div.breakDownDiv#Pasta
-			a(href='/insights/categorylist?search=Potato')
-				div.breakDownDiv#Potato
-			a(href='/insights/categorylist?search=Rice')
-				div.breakDownDiv#Rice
-			a(href='/insights/categorylist?search=Vegetable')
-				div.breakDownDiv#Vegetable
-			a(href='/insights/categorylist?search=Breakfast+Meal')
-				div.breakDownDiv#BreakfastMeal
-			a(href='/insights/categorylist?search=Breakfast+Drink')
-				div.breakDownDiv#BreakfastDrink
-		div.breakDownUnit
-			a(href='/insights/categorylist?search=Breakfast+Meat')
-				div.breakDownDiv#BreakfastMeat
-			a(href='/insights/categorylist?search=Eggs')
-				div.breakDownDiv#Eggs
-			a(href='/insights/categorylist?search=Granola')
-				div.breakDownDiv#Granola
-			a(href='/insights/categorylist?search=Milk')
-				div.breakDownDiv#Milk
-			a(href='/insights/categorylist?search=Oatmeal')
-				div.breakDownDiv#Oatmeal
-			a(href='/insights/categorylist?search=Yogurt')
-				div.breakDownDiv#Yogurt
-			a(href='/insights/categorylist?search=Fruit')
-				div.breakDownDiv#Fruit
-			a(href='/insights/categorylist?search=Gravy')
-				div.breakDownDiv#Gravy
-			a(href='/insights/categorylist?search=Sauce')
-				div.breakDownDiv#Sauce
-			a(href='/insights/categorylist?search=Dessert')
-				div.breakDownDiv#Dessert
-			a(href='/insights/categorylist?search=Spice')
-				div.breakDownDiv#Spice
-			a(href='/insights/categorylist?search=Drink')
-				div.breakDownDiv#Drink
-	br
-	input#getDat(type='hidden' value=catData)
+				a(href='#')
+					img#trigger(src='/img/hamb.png')
+			div.headerDropDown#hdd
+				ul.headerUl.shorter
+					li.headerLi
+						a(href='/') Home
+					li.headerLi  
+						a(href='/users/login') Login
+		div.headBreaker
+		input#data(type='hidden', value=items)
+		h1.heading.bigHead Insights
+		br
+		ul.insightHeader
+			li.insightHeaderLi
+				a(href='/insights/console') Main
+			hr
+			li
+				a(href='/insights/breakdown') Breakdown
+			hr
+			li
+				a(href='/insights/console') More Analysis
+		br
+		br
+		br
+		#chartContainer(style='height: 300px; width: 100%;')
+		br
+		h1.heading.space Breakdown: Total Prepared Food Available per Category (in Cups)
+		br
+		div.breakDownCont
+			div.breakDownUnit
+				a(href='/insights/categorylist?search=soup')
+					div.breakDownDiv#soup
+				a(href='/insights/categorylist?search=entree')
+					div.breakDownDiv#entree
+				a(href='/insights/categorylist?search=Entree+With+Meat')
+					div.breakDownDiv#entreeWithMeat
+				a(href='/insights/categorylist?search=Meat+Only')
+					div.breakDownDiv#MeatOnly
+				a(href='/insights/categorylist?search=Beans')
+					div.breakDownDiv#Beans
+				a(href='/insights/categorylist?search=Cracker')
+					div.breakDownDiv#Cracker
+				a(href='/insights/categorylist?search=Pasta')
+					div.breakDownDiv#Pasta
+				a(href='/insights/categorylist?search=Potato')
+					div.breakDownDiv#Potato
+				a(href='/insights/categorylist?search=Rice')
+					div.breakDownDiv#Rice
+				a(href='/insights/categorylist?search=Vegetable')
+					div.breakDownDiv#Vegetable
+				a(href='/insights/categorylist?search=Breakfast+Meal')
+					div.breakDownDiv#BreakfastMeal
+				a(href='/insights/categorylist?search=Breakfast+Drink')
+					div.breakDownDiv#BreakfastDrink
+			div.breakDownUnit
+				a(href='/insights/categorylist?search=Breakfast+Meat')
+					div.breakDownDiv#BreakfastMeat
+				a(href='/insights/categorylist?search=Eggs')
+					div.breakDownDiv#Eggs
+				a(href='/insights/categorylist?search=Granola')
+					div.breakDownDiv#Granola
+				a(href='/insights/categorylist?search=Milk')
+					div.breakDownDiv#Milk
+				a(href='/insights/categorylist?search=Oatmeal')
+					div.breakDownDiv#Oatmeal
+				a(href='/insights/categorylist?search=Yogurt')
+					div.breakDownDiv#Yogurt
+				a(href='/insights/categorylist?search=Fruit')
+					div.breakDownDiv#Fruit
+				a(href='/insights/categorylist?search=Gravy')
+					div.breakDownDiv#Gravy
+				a(href='/insights/categorylist?search=Sauce')
+					div.breakDownDiv#Sauce
+				a(href='/insights/categorylist?search=Dessert')
+					div.breakDownDiv#Dessert
+				a(href='/insights/categorylist?search=Spice')
+					div.breakDownDiv#Spice
+				a(href='/insights/categorylist?search=Drink')
+					div.breakDownDiv#Drink
+		br
+		input#getDat(type='hidden' value=catData)
 	script.
 		let getDat = document.getElementById('getDat').value;
 		let newDat = (JSON.parse(getDat));
 		let totalQuant = 0;
-		let i;
-		for (i in newDat) {
-			totalQuant += parseInt(newDat[i]);
+		let r;
+		for (r in newDat) {
+			totalQuant += parseInt(newDat[r]);
 		}
 
 		let divi = 100/totalQuant;
@@ -173,11 +173,26 @@ html(lang='en')
 		chart.render();
 
 		}
+	script.
+		let hdd = document.getElementById('hdd');
+		let trigger = document.getElementById('trigger');
+		let q = 0;
+		let toggleView = () => {
+			if(q===0) {
+				hdd.style.display = 'block';
+				q=1;
+				console.log(i);
+			} else if (q===1) {
+				hdd.style.display = 'none';
+				q--;
+				console.log(i);
+			}
+		}
+		trigger.addEventListener('click', toggleView);
 	script(src="https://canvasjs.com/assets/script/canvasjs.min.js")
 	script.
 		let allItemData = document.getElementById('data');
 		let items = JSON.parse(allItemData.value);
-
 		let catTotal = {};
 		catTotal.Soup = 0;
 		catTotal.Entree = 0;
