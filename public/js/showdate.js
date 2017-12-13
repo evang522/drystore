@@ -1,4 +1,4 @@
-
+'use strict';
 let timeP = new Date();
 let zeroVar = timeP.getMinutes().toString();
 if (zeroVar.length == 1) {

@@ -35,6 +35,7 @@ body {
     outline:none;
     background-repeat:no-repeat;
     background-color:#1b3b51;
+    cursor: pointer;
 }
 
 #trigger:hover {
@@ -44,6 +45,7 @@ body {
 
 .headerDropDown {
     width:10em;
+    z-index:1;
 }
 
 .shorter {
