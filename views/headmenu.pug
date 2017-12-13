@@ -46,30 +46,4 @@ html(lang='en')
 							button.hov Login
 	div.headBreaker
 	script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
-	script.
-		let hdd = document.getElementById('hdd');
-		let trigger = document.getElementById('trigger');
-		let entireCont = document.getElementById('homeCircle');
-		let t = 0;
-		let toggleView = () => {
-			//- console.log('toggleView has run' + 'and i = ' + t);
-			if(t===0) {
-				hdd.style.display = 'block';
-				trigger.style.backgroundColor='#f4b224';
-				t=1;
-			} else if (t===1) {
-				hdd.style.display = 'none';
-				trigger.style.backgroundColor = '#1b3b51';
-				t--;
-			}
-		}
-		let toggleViewWindow = () => {
-			if (t===1 && event.target != trigger) {
-				hdd.style.display = 'none';
-				trigger.style.backgroundColor = '#1b3b51';
-				t--;
-			}
-		}
-	
-		trigger.addEventListener('click', toggleView);
-		window.addEventListener('click', toggleViewWindow);
+include dropdownjs.pug

@@ -70,4 +70,21 @@ router.get('/categorylist', (req,res) => {
         return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
     };
 
+
+    router.get('/needscalculator', (req,res) => {
+        if (req.isAuthenticated()) {
+            Item.find({}, (err,items) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    res.render('needcalc', {
+                        items:items
+                    });
+                }
+            })
+    } else {
+        res.render('notauthenticated');
+    }
+    });
+
 module.exports = router;

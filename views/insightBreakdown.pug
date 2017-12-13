@@ -48,16 +48,7 @@ html(lang='en')
 		input#data(type='hidden', value=items)
 		h1.heading.bigHead Insights
 		br
-		ul.insightHeader
-			li.insightHeaderLi
-				a(href='/insights/console') Main
-			hr
-			li
-				a(href='/insights/breakdown') Breakdown
-			hr
-			li
-				a(href='/insights/calculator') Needs Calculator
-		br
+		include insightsubmen.pug
 		br
 		br
 		#chartContainer(style='height: 300px; width: 100%;')
@@ -182,22 +173,7 @@ html(lang='en')
 		chart.render();
 
 		}
-	script.
-		let hdd = document.getElementById('hdd');
-		let trigger = document.getElementById('trigger');
-		let q = 0;
-		let toggleView = () => {
-			if(q===0) {
-				hdd.style.display = 'block';
-				q=1;
-				console.log(i);
-			} else if (q===1) {
-				hdd.style.display = 'none';
-				q--;
-				console.log(i);
-			}
-		}
-		trigger.addEventListener('click', toggleView);
+	include dropdownjs.pug
 	script(src="https://canvasjs.com/assets/script/canvasjs.min.js")
 	script.
 		let allItemData = document.getElementById('data');

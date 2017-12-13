@@ -1,16 +1,7 @@
 include headmenu.pug
 h1.heading.bigHead Insights
 br
-ul.insightHeader
-    li.insightHeaderLi
-        a(href='/insights/console') Main
-    hr
-    li
-        a(href='/insights/breakdown') Breakdown
-    hr
-    li
-        a(href='/insights/console') More Analysis
-br
+include insightsubmen.pug
 input#data(type='hidden', value=items)
 div.insightCont
     div.insightUnit
