@@ -3,6 +3,7 @@
     padding:0;
     font-family: 'Roboto', sans-serif;
     font-size:1.02em;
+    box-sizing:border-box;
 }
 
 body {
@@ -59,12 +60,11 @@ body {
 }
 
 .headerUl {
-    width:10em;
     background-color:#36588e;
     position:fixed;
     top:2.4em;
     left:0;
-    width:9em;
+    width:8em;
     color:white;
     height:14em;
     box-sizing:border-box;
@@ -76,7 +76,7 @@ body {
 }
 
 .headerLi {
-    width:8.5em;
+    width:8em;
     margin:0;
     padding-left:0;
     box-sizing:border-box;
@@ -89,7 +89,6 @@ body {
     width:8.5em;
     margin:0;
     padding:10px;
-    padding-left:0;
     box-sizing:border-box;
     color:white;
     height:2.5em;
@@ -97,9 +96,12 @@ body {
     border:none;
     text-align:left;
     outline:none;
-    padding-left:8px;
+    padding-left:12px;
 }
 
+.headerLi button {
+    font-size:.9em;
+}
 
 
 .headerLi hover {
@@ -454,15 +456,84 @@ canvas {
 
 .fieldcontainer {
     display:flex;
-    flex-direction:row;
-    background-color:#f2f2f2;
+    flex-direction:column;
+    /* background-color:#f2f2f2; */
 }
-.field {
+
+.fieldUnit {
+    display:flex;
+    flex-direction:row;
     padding:1em;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.foodfield {
+    padding:1em;
+    background-color:#2dbc74;
+    color:black;
+      height:70px;
+    border-radius:4px;
+    margin:3px;
+    padding-top:1.2em;
+    text-align:center;
+    box-sizing:border-box;
+    font-size:1.1em;
+}
+
+.spaceAbove {
+    margin-top:10px;
+}
+
+.bold {
+    font-weight:bold;
+}
+.mealfield {
+    font-size:.8em;
+    padding:1em;
+    background-color:#d86d38;
+    border-radius:8px;
+    margin:10px;
+}
+
+.mealfield ul {
+    list-style:none;
+}
+
+.mealfield li {
+    padding-top:3px;
+}
+
+.mealfield input {
+    width:100px;
+    border:none;
+    display:block;
+    margin:auto;
+    margin-top:10px;
+    outline:none;
+    padding:2px;
+    border-radius:10px;
+    text-align:center;
+    background-color:#efa986;
+    
 }
 
 .field ul {
     list-style:none;
+}
+
+.center {
+    text-align:center;
+    margin:auto;
+}
+
+.breakfast {
+    height:250px;
+    display:block;
+    margin:auto;
+    border:1px solid #b2b2b2;
+    box-shadow:2px 3px gray;
+    margin-bottom:2em;
 }
 
 
