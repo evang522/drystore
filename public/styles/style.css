@@ -527,14 +527,23 @@ canvas {
     margin:auto;
 }
 
-.breakfast {
+.mealImg {
     height:250px;
     display:block;
     margin:auto;
     border:1px solid #b2b2b2;
     box-shadow:2px 3px gray;
     margin-bottom:2em;
+    background-color:white;
 }
+
+.lunch {
+    background-color:white;
+    height:250px;
+    margin:auto;
+}
+
+
 
 
 .dryStoreItemCont{
