@@ -1,47 +1,53 @@
 'use strict';
-/*Function of this script:
 
-To calculate how many rendered cups of each food are necessary based on a given variable of how many people are being supported,
-what kinds of meals people eat for breakfast, lunch, and dinner, and what percentage of the time each meal is eaten. 
+// Global Variables
 
-Accordingly, we will be separating the calculations into different meals and providing a list of the different types of food available,
-then allowing for five different types of food combinations to be specified for each meal. Then we will allow the user to specify the percentage that each meal
-will be eaten.
-*/
+// make life easier
+let gebi = (id) => {
+    return document.getElementById(id);
+}
+
+
+// This is the entire function -- executes on button click
 let getAnalytics = () => {
 
-let people = document.getElementById('people').value;
+let people = gebi('people').value;
 
-let bmeal1Perc = (document.getElementById('bmeal1').value.replace('%','') / 100);
-let bmeal2Perc = (document.getElementById('bmeal2').value.replace('%','') / 100);
-let bmeal3Perc = (document.getElementById('bmeal3').value.replace('%','') / 100);
-let bmeal4Perc = (document.getElementById('bmeal4').value.replace('%','') / 100);
-let bmeal5Perc = (document.getElementById('bmeal5').value.replace('%','') / 100);
+// Grabbing the specified percentage value on the DOM for each food. These are hard coded into the HTML, but are customizable from the browser
 
-let lmeal1Perc = (document.getElementById('lmeal1').value.replace('%','') / 100);
-let lmeal2Perc = (document.getElementById('lmeal2').value.replace('%','') / 100);
-let lmeal3Perc = (document.getElementById('lmeal3').value.replace('%','') / 100);
+let bmeal1Perc = (gebi('bmeal1').value.replace('%','') / 100);
+let bmeal2Perc = (gebi('bmeal2').value.replace('%','') / 100);
+let bmeal3Perc = (gebi('bmeal3').value.replace('%','') / 100);
+let bmeal4Perc = (gebi('bmeal4').value.replace('%','') / 100);
+let bmeal5Perc = (gebi('bmeal5').value.replace('%','') / 100);
 
-let dmeal1Perc = (document.getElementById('dmeal1').value.replace('%','') / 100);
-let dmeal2Perc = (document.getElementById('dmeal2').value.replace('%','') / 100);
-let dmeal3Perc = (document.getElementById('dmeal3').value.replace('%','') / 100);
-let dmeal4Perc = (document.getElementById('dmeal4').value.replace('%','') / 100);
-let dmeal5Perc = (document.getElementById('dmeal5').value.replace('%','') / 100);
+let lmeal1Perc = (gebi('lmeal1').value.replace('%','') / 100);
+let lmeal2Perc = (gebi('lmeal2').value.replace('%','') / 100);
+let lmeal3Perc = (gebi('lmeal3').value.replace('%','') / 100);
 
-if ((bmeal1Perc + bmeal2Perc + bmeal3Perc + bmeal4Perc + bmeal5Perc) !== 1) {
-    alert('Sorry, cannot continue. Breakfast percentages don\'t add up to 100%! You can understand why this may cause some problems.');
+let dmeal1Perc = (gebi('dmeal1').value.replace('%','') / 100);
+let dmeal2Perc = (gebi('dmeal2').value.replace('%','') / 100);
+let dmeal3Perc = (gebi('dmeal3').value.replace('%','') / 100);
+let dmeal4Perc = (gebi('dmeal4').value.replace('%','') / 100);
+let dmeal5Perc = (gebi('dmeal5').value.replace('%','') / 100);
+
+
+// Throws an error if the percentages in the DOM do not add up to 100%
+if (!((bmeal1Perc + bmeal2Perc + bmeal3Perc + bmeal4Perc + bmeal5Perc) > .998877 && (bmeal1Perc + bmeal2Perc + bmeal3Perc + bmeal4Perc + bmeal5Perc < 1.00011111))) {
+    alert('Sorry, cannot continue! Breakfast percentages don\'t add up to 100%. You can understand why this may cause some problems.');
 }
 
-if ((lmeal1Perc + lmeal2Perc + lmeal3Perc) != 1) {
-    alert('Sorry, cannot continue. Lunch percentages don\'t add up to 100%! You can understand why this may cause some problems.');
+if (!((lmeal1Perc + lmeal2Perc + lmeal3Perc) > .998877 && (lmeal1Perc + lmeal2Perc + lmeal3Perc < 1.00011111))) {
+    alert('Sorry, cannot continue! Lunch percentages don\'t add up to 100%. You can understand why this may cause some problems.');
 }
 
-if ((dmeal1Perc + dmeal2Perc + dmeal3Perc + dmeal4Perc + dmeal5Perc) !== 1) {
-    alert('Sorry, cannot continue. Dinner percentages don\'t add up to 100%! You can understand why this may cause some problems.');
+if (!((dmeal1Perc + dmeal2Perc + dmeal3Perc + dmeal4Perc + dmeal5Perc) > .998877 && (dmeal1Perc + dmeal2Perc + dmeal3Perc + dmeal4Perc + dmeal5Perc < 1.00011111))) {
+    alert('Sorry, cannot continue! Dinner percentages don\'t add up to 100%. You can understand why this may cause some problems.');
 }
 
-console.log(dmeal4Perc);
 
+// Objects Representing the specified meals available. These generally will not change, but they do grab the percentage value specified from the input fields on the
+// calc page
 
 let breakfast = {
     meal1: {
@@ -118,12 +124,20 @@ let dinner = {
 };
 
 
-let makeTotalNeededVegetables = (breakfast,lunch,dinner) => {
+
+
+
+
+// Creates a key array from the object specified, then iterates through the keys of the object. If the key contains the food specified
+// it will grab the food's cup amount and multiply it by the percentage needed per year, then add it to a provided variable for the total amount of that
+// food needed for one person for one day.
+
+let makeTotalNeededVegetables = (breakfast,lunch,dinner,foodType) => {
 let totalNeeded = 0;
 let dinnerValues = Object.keys(dinner);
 for(let i=0;i<dinnerValues.length;i++) {
-    if (dinner[dinnerValues[i]].vegetable) {
-        totalNeeded += dinner[dinnerValues[i]].vegetable * dinner[dinnerValues[i]].freq;
+    if (dinner[dinnerValues[i]].foodType) {
+        totalNeeded += dinner[dinnerValues[i]].foodType * dinner[dinnerValues[i]].freq;
     }
 }
 let lunchValues = Object.keys(lunch);
@@ -142,7 +156,7 @@ return totalNeeded;
 }
 
 
-let makeTotalNeededEntree = (breakfast,lunch,dinner) => {
+let makeTotalNeededEntree = (breakfast,lunch,dinner,vegetable) => {
     let totalNeeded = 0;
     let dinnerValues = Object.keys(dinner);
     for(let i=0;i<dinnerValues.length;i++) {
@@ -489,6 +503,8 @@ let makeTotalNeededewm = (breakfast,lunch,dinner) => {
     return totalNeeded;
 }
 
+
+// This section produces the total amount of the specified food called for in a day multiplied by the percentage of days per year it is eaten
 let totalewm = makeTotalNeededewm(breakfast,lunch,dinner);
 let totalSauceGravy = makeTotalNeededSauceGravy(breakfast,lunch,dinner);
 let totalMeatOnly = makeTotalNeededMeatOnly(breakfast,lunch,dinner);
@@ -506,17 +522,60 @@ let totalBeans = makeTotalNeededBeans(breakfast,lunch,dinner);
 let totalEntree =  makeTotalNeededEntree(breakfast,lunch,dinner);
 let totalVeg = makeTotalNeededVegetables(breakfast,lunch,dinner);
 
-
+// Calculates Amount of specified food needed for the specified amount of people for one year.
 let calcTotalNeeds = (food) => {
     return food * people * 365;
-}
+    }
 
+// TESTING
 let soupTot = calcTotalNeeds(totalSoup);
-console.log(soupTot);
+console.log('total soup needs : ' + soupTot);
 
-let soupfieldNeed = document.getElementById('soupTotalNeedTarg')
+let soupfieldNeed = gebi('soupTotalNeedTarg')
 
-soupfieldNeed.innerHTML = soupTot.toFixed(2);
+soupfieldNeed.innerHTML = soupTot;
+
+
 }
 
-document.getElementById('trig').addEventListener('click', getAnalytics);
+
+
+let calculateDays = () => {
+// Getting percent info for calculating Days
+let bmeal1Perc = (gebi('bmeal1').value.replace('%','') / 100);
+let bmeal2Perc = (gebi('bmeal2').value.replace('%','') / 100);
+let bmeal3Perc = (gebi('bmeal3').value.replace('%','') / 100);
+let bmeal4Perc = (gebi('bmeal4').value.replace('%','') / 100);
+let bmeal5Perc = (gebi('bmeal5').value.replace('%','') / 100);
+
+let lmeal1Perc = (gebi('lmeal1').value.replace('%','') / 100);
+let lmeal2Perc = (gebi('lmeal2').value.replace('%','') / 100);
+let lmeal3Perc = (gebi('lmeal3').value.replace('%','') / 100);
+
+let dmeal1Perc = (gebi('dmeal1').value.replace('%','') / 100);
+let dmeal2Perc = (gebi('dmeal2').value.replace('%','') / 100);
+let dmeal3Perc = (gebi('dmeal3').value.replace('%','') / 100);
+let dmeal4Perc = (gebi('dmeal4').value.replace('%','') / 100);
+let dmeal5Perc = (gebi('dmeal5').value.replace('%','') / 100);
+
+// function to populate days field;
+
+let bmeal1ResDay = gebi('bmeal1ResDay');
+let bmeal2ResDay = gebi('bmeal2ResDay');
+let bmeal3ResDay = gebi('bmeal3ResDay');
+let bmeal4ResDay = gebi('bmeal4ResDay');
+let bmeal5ResDay = gebi('bmeal5ResDay');
+bmeal1ResDay.value = (bmeal1Perc * 365).toFixed(1);
+bmeal2ResDay.value = (bmeal2Perc * 365).toFixed(1);
+bmeal3ResDay.value = (bmeal3Perc * 365).toFixed(1);
+bmeal4ResDay.value = (bmeal4Perc * 365).toFixed(1);
+bmeal5ResDay.value = (bmeal5Perc * 365).toFixed(1);
+
+}
+
+
+// Event Triggers
+calculateDays();
+setInterval(calculateDays,1200);
+getAnalytics();
+gebi('trig').addEventListener('click', getAnalytics);
