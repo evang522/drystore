@@ -99,26 +99,27 @@ let dinner = {
         freq: dmeal1Perc
     },
     meal2: {
-        entree:1,
+        enm:1,
         vegetable:.5,
         freq:dmeal2Perc
     }, meal3: {
         meatOnly:.75,
         rice:.5,
         vegetable:.5,
-        potato:.25,
+        sauceGravy: .25,
         freq:dmeal3Perc
     }, meal4: {
         meatOnly:.75,
         pasta:.5,
         vegetable:.5,
-        potato:.25,
+        sauceGravy: .25,
         freq:dmeal4Perc
     }, meal5: {
         meatOnly:.75,
         potato:.5,
         vegetable:.5,
         potato:.25,
+        sauceGravy: .25,
         freq:dmeal5Perc
     }
 };
@@ -132,12 +133,12 @@ let dinner = {
 // it will grab the food's cup amount and multiply it by the percentage needed per year, then add it to a provided variable for the total amount of that
 // food needed for one person for one day.
 
-let makeTotalNeededVegetables = (breakfast,lunch,dinner,foodType) => {
+let makeTotalNeededVegetables = (breakfast,lunch,dinner) => {
 let totalNeeded = 0;
 let dinnerValues = Object.keys(dinner);
 for(let i=0;i<dinnerValues.length;i++) {
-    if (dinner[dinnerValues[i]].foodType) {
-        totalNeeded += dinner[dinnerValues[i]].foodType * dinner[dinnerValues[i]].freq;
+    if (dinner[dinnerValues[i]].vegetable) {
+        totalNeeded += dinner[dinnerValues[i]].vegetable * dinner[dinnerValues[i]].freq;
     }
 }
 let lunchValues = Object.keys(lunch);
@@ -155,8 +156,31 @@ for(let i=0;i<breakfastValues.length;i++) {
 return totalNeeded;
 }
 
-
-let makeTotalNeededEntree = (breakfast,lunch,dinner,vegetable) => {
+let makeTotalNeededENM= (breakfast,lunch,dinner) => {
+    let totalNeeded = 0;
+    let dinnerValues = Object.keys(dinner);
+    for(let i=0;i<dinnerValues.length;i++) {
+        if (dinner[dinnerValues[i]].enm) {
+            totalNeeded += dinner[dinnerValues[i]].enm * dinner[dinnerValues[i]].freq;
+        }
+    }
+    let lunchValues = Object.keys(lunch);
+    for(let i=0;i<lunchValues.length;i++) {
+        if (lunch[lunchValues[i]].enm) {
+            totalNeeded += lunch[lunchValues[i]].enm * lunch[lunchValues[i]].freq;
+        }
+    }
+    let breakfastValues = Object.keys(breakfast);
+    for(let i=0;i<breakfastValues.length;i++) {
+        if (breakfast[breakfastValues[i]].enm) {
+            totalNeeded += breakfast[breakfastValues[i]].enm * breakfast[breakfastValues[i]].freq;
+        }
+    }
+    return totalNeeded;
+    }
+    
+    
+let makeTotalNeededEntree = (breakfast,lunch,dinner) => {
     let totalNeeded = 0;
     let dinnerValues = Object.keys(dinner);
     for(let i=0;i<dinnerValues.length;i++) {
@@ -504,36 +528,96 @@ let makeTotalNeededewm = (breakfast,lunch,dinner) => {
 }
 
 
-// This section produces the total amount of the specified food called for in a day multiplied by the percentage of days per year it is eaten
-let totalewm = makeTotalNeededewm(breakfast,lunch,dinner);
-let totalSauceGravy = makeTotalNeededSauceGravy(breakfast,lunch,dinner);
-let totalMeatOnly = makeTotalNeededMeatOnly(breakfast,lunch,dinner);
-let totalbreakfastDrink = makeTotalNeededbreakfastDrink(breakfast,lunch,dinner);
-let totalOats = makeTotalNeededOats(breakfast,lunch,dinner);
-let totalpotato = makeTotalNeededpotato(breakfast,lunch,dinner);
-let totalFruit = makeTotalNeededFruit(breakfast,lunch,dinner);
-let totalEggs = makeTotalNeededEggs(breakfast,lunch,dinner);
-let totalCracker = makeTotalNeededCracker(breakfast,lunch,dinner);
-let totalYogurt = makeTotalNeededYogurt(breakfast,lunch,dinner);
-let totalSoup = makeTotalNeededSoup(breakfast,lunch,dinner);
-let totalPasta = makeTotalNeededPasta(breakfast,lunch,dinner);
-let totalRice = makeTotalNeededRice(breakfast,lunch,dinner);
-let totalBeans = makeTotalNeededBeans(breakfast,lunch,dinner);
-let totalEntree =  makeTotalNeededEntree(breakfast,lunch,dinner);
-let totalVeg = makeTotalNeededVegetables(breakfast,lunch,dinner);
-
-// Calculates Amount of specified food needed for the specified amount of people for one year.
+// Define Function to extrapolate food daily percentages to yearly for the specified amount of people
 let calcTotalNeeds = (food) => {
-    return food * people * 365;
+    let midVar = food * people * 365;
+    return (midVar.toFixed(2) + ' Cups');
     }
 
-// TESTING
-let soupTot = calcTotalNeeds(totalSoup);
-console.log('total soup needs : ' + soupTot);
+// This section produces the total amount of the specified food called for in a day multiplied by the percentage of days per year it is eaten
+let totalewm = calcTotalNeeds(makeTotalNeededewm(breakfast,lunch,dinner));
+let totalSauceGravy = calcTotalNeeds(makeTotalNeededSauceGravy(breakfast,lunch,dinner));
+let totalMeatOnly = calcTotalNeeds(makeTotalNeededMeatOnly(breakfast,lunch,dinner));
+let totalbreakfastDrink = calcTotalNeeds(makeTotalNeededbreakfastDrink(breakfast,lunch,dinner));
+let totalOats = calcTotalNeeds(makeTotalNeededOats(breakfast,lunch,dinner));
+let totalpotato = calcTotalNeeds(makeTotalNeededpotato(breakfast,lunch,dinner));
+let totalFruit = calcTotalNeeds(makeTotalNeededFruit(breakfast,lunch,dinner));
+let totalEggs = calcTotalNeeds(makeTotalNeededEggs(breakfast,lunch,dinner));
+let totalCracker = calcTotalNeeds(makeTotalNeededCracker(breakfast,lunch,dinner));
+let totalYogurt = calcTotalNeeds(makeTotalNeededYogurt(breakfast,lunch,dinner));
+let totalSoup = calcTotalNeeds(makeTotalNeededSoup(breakfast,lunch,dinner));
+let totalPasta = calcTotalNeeds(makeTotalNeededPasta(breakfast,lunch,dinner));
+let totalRice = calcTotalNeeds(makeTotalNeededRice(breakfast,lunch,dinner));
+let totalBeans = calcTotalNeeds(makeTotalNeededBeans(breakfast,lunch,dinner));
+let totalEntree =  calcTotalNeeds(makeTotalNeededEntree(breakfast,lunch,dinner));
+let totalVeg = calcTotalNeeds(makeTotalNeededVegetables(breakfast,lunch,dinner));
+let totalenm = calcTotalNeeds(makeTotalNeededENM(breakfast,lunch,dinner));
 
-let soupfieldNeed = gebi('soupTotalNeedTarg')
 
-soupfieldNeed.innerHTML = soupTot;
+// Grab need field by ID
+let ewmFieldNeed = gebi('ewmTotalNeedTarg')
+let sauceGravyFieldNeed = gebi('sauceGravyTotalNeedTarg')
+let meatOnlyFieldNeed = gebi('meatOnlyTotalNeedTarg')
+let breakfastDrinkFieldNeed = gebi('bfastDrinkTotalNeedTarg')
+let oatsFieldNeed = gebi('oatsTotalNeedTarg')
+let potatoFieldNeed = gebi('potatoTotalNeedTarg')
+let fruitFieldNeed = gebi('fruitTotalNeedTarg')
+let eggFieldNeed = gebi('eggTotalNeedTarg')
+let crackerFieldNeed = gebi('crackerTotalNeedTarg')
+let yogurtFieldNeed = gebi('yogurtTotalNeedTarg')
+let soupFieldNeed = gebi('soupTotalNeedTarg')
+let pastaFieldNeed = gebi('pastaTotalNeedTarg')
+let riceFieldNeed = gebi('riceTotalNeedTarg')
+let beansFieldNeed = gebi('beansTotalNeedTarg')
+let entreeFieldNeed = gebi('entreeTotalNeedTarg')
+let vegFieldNeed = gebi('vegTotalNeedTarg')
+let enmFieldNeed = gebi('enmTotalNeedTarg')
+
+// Interpolate values to need fields
+
+ewmFieldNeed.innerHTML = totalewm;
+sauceGravyFieldNeed.innerHTML = totalSauceGravy;
+meatOnlyFieldNeed.innerHTML = totalMeatOnly;
+breakfastDrinkFieldNeed.innerHTML = totalbreakfastDrink;
+oatsFieldNeed.innerHTML = totalOats;
+potatoFieldNeed.innerHTML = totalpotato;
+fruitFieldNeed.innerHTML = totalFruit;
+eggFieldNeed.innerHTML = totalEggs;
+crackerFieldNeed.innerHTML = totalCracker;
+yogurtFieldNeed.innerHTML = totalYogurt;
+soupFieldNeed.innerHTML = totalSoup;
+pastaFieldNeed.innerHTML = totalPasta;
+riceFieldNeed.innerHTML = totalRice;
+beansFieldNeed.innerHTML = totalBeans;
+entreeFieldNeed.innerHTML = totalEntree;
+vegFieldNeed.innerHTML = totalVeg;
+enmFieldNeed.innerHTML = totalenm;
+
+
+
+eggFieldNeed.innerHTML = totalEggs;
+fruitFieldNeed.innerHTML = totalFruit;
+oatsFieldNeed.innerHTML = totalOats;
+soupFieldNeed.innerHTML = totalSoup;
+
+
+// // Calculate yearly needs from Variables, adjusting for amount of people 
+// let soupTot = calcTotalNeeds(totalSoup);
+// let ewmTot = calcTotalNeeds(totalewm);
+// let sauceGravyTot = calcTotalNeeds(totalSauceGravy);
+// let MeatOnlyTot = calcTotalNeeds(totalMeatOnly);
+// let breakfastDrinkTot = calcTotalNeeds(totalbreakfastDrink);
+// let OatsTot = calcTotalNeeds(totalOats);
+// let potatoTot = calcTotalNeeds(totalpotato);
+// let fruitTot = calcTotalNeeds(totalFruit);
+// let eggsTot = calcTotalNeeds(totalEggs);
+// let crackerTot = calcTotalNeeds(totalCracker);
+// let yogurtTot = calcTotalNeeds(totalYogurt);
+// let pastaTot = calcTotalNeeds(totalPasta);
+// let riceTot = calcTotalNeeds(totalRice);
+// let beansTot = calcTotalNeeds(totalBeans);
+// let entreeTot = calcTotalNeeds(totalEntree);
+// let vegetableTot = calcTotalNeeds(totalSoup);
 
 
 }

@@ -507,6 +507,7 @@ canvas {
     background-color:#c43642;
     color:white;
     text-align:center;
+    width:16em;
 }
 
 .peopleInput {
@@ -519,6 +520,11 @@ canvas {
     border:1px solid black;
     text-align:center;
     outline:none;
+}
+
+.black {
+    font-style:italic;
+    color:black;
 }
 
 .mealfield ul {
