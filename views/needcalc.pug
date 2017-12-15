@@ -4,137 +4,158 @@ br
 include insightsubmen.pug
 br
 br
-p.heading <strong>What is this?</strong>
-br
-p.heading This page is for the purpose of calculating the food needs of people over time. It has customizeable inputs so that you can generate custom data. 
+p.heading <strong>Amount of People Considered:</strong>
+input#people.peopleInput(value='6')
 br
 br
 img.mealImg(src='/img/bfast.png')
 div.fieldContainer
     p.center.larger Breakfast Foods
     div.fieldUnit 
-        div.foodfield Eggs
-        div.foodfield Oats
-        div.foodfield Yogurt
-        div.foodfield Granola
-        div.foodfield Fruit
-        div.foodfield Milk
-        div.foodfield Breakfast Drink
+        div.foodfield.orange Eggs
+        div.foodfield.orange Oats
+        div.foodfield.orange Yogurt
+        div.foodfield.orange Granola
+        div.foodfield.orange Fruit
+        div.foodfield.orange Milk
+        div.foodfield.orange Breakfast Drink
     p.center.larger Breakfast Meal Options
     div.fieldUnit
-        div.mealfield
+        div.mealfield.green
             p.center.bold Meal One
             ul.spaceAbove
                 li Eggs: 1/2 Cup
                 li Fruit: 1/2 Cup
                 li Frequency Eaten:
-                input(value='25%')
-        div.mealfield
+                input#bmeal1(value='25%')
+        div.mealfield.green
             p.center.bold Meal Two
             ul.spaceAbove
                 li Oats: 1/2 Cup
                 li Fruit: 1/4 Cup
                 li Frequency Eaten:
-                input(value='53%')
-        div.mealfield
+                input#bmeal2(value='53%')
+        div.mealfield.green
             p.center.bold Meal Three
             ul.spaceAbove
                 li Oats: 1/2 Cup
                 li Yogurt: 1/2 Cup
                 li Frequency Eaten:
-                input(value='1%')
-        div.mealfield
+                input#bmeal3(value='1%')
+        div.mealfield.green
             p.center.bold Meal Four
             ul.spaceAbove
                 li Oats: 1/2 Granola
                 li Fruit: 1/2 Milk
                 li Frequency Eaten:
-                input(value='11%')
-        div.mealfield
+                input#bmeal4(value='11%')
+        div.mealfield.green
             p.center.bold Meal Five
             ul.spaceAbove
                 li Breakfast Drink: 1/2 Cup
                 li Frequency Eaten:
-                input(value='10%')
+                input#bmeal5(value='10%')
 img.mealImg(src='/img/lunch.png')
 div.fieldContainer
     p.center.larger Lunch Foods
     div.fieldUnit 
-        div.foodfield Beans
-        div.foodfield Pasta
-        div.foodfield Rice
-        div.foodfield Vegetable
-        div.foodfield Soup
-        div.foodfield Cracker
+        div.foodfield.orange Beans
+        div.foodfield.orange Pasta
+        div.foodfield.orange Rice
+        div.foodfield.orange Vegetable
+        div.foodfield.orange Soup
+        div.foodfield.orange Cracker
     p.center.larger Lunch Meal Options
     div.fieldUnit
-        div.mealfield
+        div.mealfield.green
             p.center.bold Meal One
             ul.spaceAbove
                 li Beans: 1/2 Cup
                 li Rice: 1/2 Cup
                 li Vegetable: 1/2 Cup
                 li Frequency Eaten:
-                input(value='60%')
-        div.mealfield
+                input#lmeal1(value='60%')
+        div.mealfield.green
             p.center.bold Meal Two
             ul.spaceAbove
                 li Beans: 1/2 Cup
                 li Pasta: 1/2 Cup
                 li Vegetable: 1/2 Cup
                 li Frequency Eaten:
-                input(value='10%')
-        div.mealfield
+                input#lmeal2(value='10%')
+        div.mealfield.green
             p.center.bold Meal Three
             ul.spaceAbove
                 li Soup: 1 Cup
                 li Cracker: 2 Cups
                 li Frequency Eaten:
-                input(value='30%')
-img.mealImg(src='/img/lunch.png')
+                input#lmeal3(value='30%')
+img.mealImg(src='/img/dinner.png')
 div.fieldContainer
     p.center.larger Dinner Foods
     div.fieldUnit 
-        div.foodfield Eggs
-        div.foodfield Oats
-        div.foodfield Yogurt
-        div.foodfield Granola
-        div.foodfield Fruit
-        div.foodfield Milk
-        div.foodfield Breakfast Drink
+        div.foodfield.orange Entrée with Meat
+        div.foodfield.orange Entrée?
+        div.foodfield.orange Meat Only
+        div.foodfield.orange Rice
+        div.foodfield.orange Pasta
+        div.foodfield.orange Potatoes
+        div.foodfield.orange Vegetable
+        div.foodfield.orange Sauce and Gravy
     p.center.larger Dinner Meal Options
     div.fieldUnit
-        div.mealfield
+        div.mealfield.green
             p.center.bold Meal One
             ul.spaceAbove
-                li Eggs: 1/2 Cup
-                li Fruit: 1/2 Cup
+                li Entrée with meat: 1 Cup
+                li Vegetable: 1/2 Cup
                 li Frequency Eaten:
-                input(value='25%')
-        div.mealfield
+                input#dmeal1(value='40%')
+        div.mealfield.green
             p.center.bold Meal Two
             ul.spaceAbove
-                li Oats: 1/2 Cup
-                li Fruit: 1/4 Cup
+                li Entrée: 1 Cup
+                li Vegetable: 1/2 Cup
                 li Frequency Eaten:
-                input(value='53%')
-        div.mealfield
+                input#dmeal2(value='20%')
+        div.mealfield.green
             p.center.bold Meal Three
             ul.spaceAbove
-                li Oats: 1/2 Cup
-                li Yogurt: 1/2 Cup
+                li Meat Only: 3/4 Cup
+                li Rice: 1/2 Cup
+                li Vegetable: 1/2 Cup
+                li Sauce/Gravy: 1/4 Cup
                 li Frequency Eaten:
-                input(value='1%')
-        div.mealfield
+                input#dmeal3(value='25%')
+        div.mealfield.green
             p.center.bold Meal Four
             ul.spaceAbove
-                li Oats: 1/2 Granola
-                li Fruit: 1/2 Milk
+                li Meat Only: 3/4 Cup
+                li Pasta: 1/2 Cup
+                li Vegetable: 1/2 Cup
+                li Sauce/Gravy: 1/4 Cup
                 li Frequency Eaten:
-                input(value='11%')
-        div.mealfield
+                input#dmeal4(value='5%')
+        div.mealfield.green
             p.center.bold Meal Five
             ul.spaceAbove
-                li Breakfast Drink: 1/2 Cup
+                li Meat Only: 3/4 Cup
+                li Potatoes: 1/2 Cup
+                li Vegetable: 1/2 Cup
+                li Sauce/Gravy: 1/4 Cup
                 li Frequency Eaten:
-                input(value='10%')
+                input#dmeal5(value='10%')
+button#trig Calculate!
+br
+h1.bigHead.center Results
+div.fieldCont
+    div.fieldUnit
+        div.mealfield.red
+            p Total Soup Needed: 
+            p#soupTotalNeedTarg 2
+            p Soup Available:
+            p#soupAvailTarg 3
+            p Soup Deficit
+            p#soupDef
+
+script(src='/js/needcalc.js')

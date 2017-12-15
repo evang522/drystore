@@ -470,7 +470,6 @@ canvas {
 
 .foodfield {
     padding:1em;
-    background-color:#2dbc74;
     color:black;
       height:70px;
     border-radius:4px;
@@ -491,9 +490,35 @@ canvas {
 .mealfield {
     font-size:.8em;
     padding:1em;
-    background-color:#d86d38;
     border-radius:8px;
     margin:10px;
+}
+
+.orange {
+    background-color:#d86d38;
+}
+
+
+.green {
+    background-color:#2dbc74;
+}
+
+.red {
+    background-color:#c43642;
+    color:white;
+    text-align:center;
+}
+
+.peopleInput {
+    display:block;
+    margin:auto;
+    margin-top:1em;
+    width:4em;
+    height:2em;
+    border-radius:10px;
+    border:1px solid black;
+    text-align:center;
+    outline:none;
 }
 
 .mealfield ul {
@@ -541,13 +566,12 @@ canvas {
     background-color:white;
     height:250px;
     margin:auto;
-    width
 }
 
 
 
 
-.dryStoreItemCont{
+.dryStoreItemCont {
     width:90vw;
     display:flex;
     flex-direction:wrap;
@@ -782,9 +806,10 @@ canvas {
     }
 
     .mealImg, .lunch {
-        width:15em;
+        width:19em;
         height:10em;
     }
+
 
 }
 

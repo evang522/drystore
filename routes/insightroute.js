@@ -72,7 +72,6 @@ router.get('/categorylist', (req,res) => {
 
 
     router.get('/needscalculator', (req,res) => {
-        if (req.isAuthenticated()) {
             Item.find({}, (err,items) => {
                 if (err) {
                     console.log(err);
@@ -82,9 +81,6 @@ router.get('/categorylist', (req,res) => {
                     });
                 }
             })
-    } else {
-        res.render('notauthenticated');
-    }
     });
 
 module.exports = router;
