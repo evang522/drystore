@@ -156,6 +156,52 @@ for(let i=0;i<breakfastValues.length;i++) {
 return totalNeeded;
 }
 
+let makeTotalNeededMilk = (breakfast,lunch,dinner) => {
+let totalNeeded = 0;
+let dinnerValues = Object.keys(dinner);
+for(let i=0;i<dinnerValues.length;i++) {
+    if (dinner[dinnerValues[i]].milk) {
+        totalNeeded += dinner[dinnerValues[i]].milk * dinner[dinnerValues[i]].freq;
+    }
+}
+let lunchValues = Object.keys(lunch);
+for(let i=0;i<lunchValues.length;i++) {
+    if (lunch[lunchValues[i]].milk) {
+        totalNeeded += lunch[lunchValues[i]].milk * lunch[lunchValues[i]].freq;
+    }
+}
+let breakfastValues = Object.keys(breakfast);
+for(let i=0;i<breakfastValues.length;i++) {
+    if (breakfast[breakfastValues[i]].milk) {
+        totalNeeded += breakfast[breakfastValues[i]].milk * breakfast[breakfastValues[i]].freq;
+    }
+}
+return totalNeeded;
+}
+
+let makeTotalNeededGranola = (breakfast,lunch,dinner) => {
+let totalNeeded = 0;
+let dinnerValues = Object.keys(dinner);
+for(let i=0;i<dinnerValues.length;i++) {
+    if (dinner[dinnerValues[i]].granola) {
+        totalNeeded += dinner[dinnerValues[i]].granola * dinner[dinnerValues[i]].freq;
+    }
+}
+let lunchValues = Object.keys(lunch);
+for(let i=0;i<lunchValues.length;i++) {
+    if (lunch[lunchValues[i]].granola) {
+        totalNeeded += lunch[lunchValues[i]].granola * lunch[lunchValues[i]].freq;
+    }
+}
+let breakfastValues = Object.keys(breakfast);
+for(let i=0;i<breakfastValues.length;i++) {
+    if (breakfast[breakfastValues[i]].granola) {
+        totalNeeded += breakfast[breakfastValues[i]].granola * breakfast[breakfastValues[i]].freq;
+    }
+}
+return totalNeeded;
+}
+
 let makeTotalNeededENM= (breakfast,lunch,dinner) => {
     let totalNeeded = 0;
     let dinnerValues = Object.keys(dinner);
@@ -552,6 +598,8 @@ let totalBeans = calcTotalNeeds(makeTotalNeededBeans(breakfast,lunch,dinner));
 let totalEntree =  calcTotalNeeds(makeTotalNeededEntree(breakfast,lunch,dinner));
 let totalVeg = calcTotalNeeds(makeTotalNeededVegetables(breakfast,lunch,dinner));
 let totalenm = calcTotalNeeds(makeTotalNeededENM(breakfast,lunch,dinner));
+let totalGranola = calcTotalNeeds(makeTotalNeededGranola(breakfast,lunch,dinner));
+let totalMilk = calcTotalNeeds(makeTotalNeededMilk(breakfast,lunch,dinner));
 
 
 // Grab need field by ID
@@ -572,7 +620,8 @@ let beansFieldNeed = gebi('beansTotalNeedTarg')
 let entreeFieldNeed = gebi('entreeTotalNeedTarg')
 let vegFieldNeed = gebi('vegTotalNeedTarg')
 let enmFieldNeed = gebi('enmTotalNeedTarg')
-
+let granolaFieldNeed = gebi('granolaTotalNeedTarg')
+let milkFieldNeed = gebi('milkTotalNeedTarg')
 // Interpolate values to need fields
 
 ewmFieldNeed.innerHTML = totalewm;
@@ -592,37 +641,14 @@ beansFieldNeed.innerHTML = totalBeans;
 entreeFieldNeed.innerHTML = totalEntree;
 vegFieldNeed.innerHTML = totalVeg;
 enmFieldNeed.innerHTML = totalenm;
-
-
-
 eggFieldNeed.innerHTML = totalEggs;
 fruitFieldNeed.innerHTML = totalFruit;
 oatsFieldNeed.innerHTML = totalOats;
 soupFieldNeed.innerHTML = totalSoup;
-
-
-// // Calculate yearly needs from Variables, adjusting for amount of people 
-// let soupTot = calcTotalNeeds(totalSoup);
-// let ewmTot = calcTotalNeeds(totalewm);
-// let sauceGravyTot = calcTotalNeeds(totalSauceGravy);
-// let MeatOnlyTot = calcTotalNeeds(totalMeatOnly);
-// let breakfastDrinkTot = calcTotalNeeds(totalbreakfastDrink);
-// let OatsTot = calcTotalNeeds(totalOats);
-// let potatoTot = calcTotalNeeds(totalpotato);
-// let fruitTot = calcTotalNeeds(totalFruit);
-// let eggsTot = calcTotalNeeds(totalEggs);
-// let crackerTot = calcTotalNeeds(totalCracker);
-// let yogurtTot = calcTotalNeeds(totalYogurt);
-// let pastaTot = calcTotalNeeds(totalPasta);
-// let riceTot = calcTotalNeeds(totalRice);
-// let beansTot = calcTotalNeeds(totalBeans);
-// let entreeTot = calcTotalNeeds(totalEntree);
-// let vegetableTot = calcTotalNeeds(totalSoup);
-
+granolaFieldNeed.innerHTML = totalGranola;
+milkFieldNeed.innerHTML = totalMilk;
 
 }
-
-
 
 let calculateDays = () => {
 // Getting percent info for calculating Days
@@ -649,12 +675,33 @@ let bmeal2ResDay = gebi('bmeal2ResDay');
 let bmeal3ResDay = gebi('bmeal3ResDay');
 let bmeal4ResDay = gebi('bmeal4ResDay');
 let bmeal5ResDay = gebi('bmeal5ResDay');
+
+let lmeal1ResDay = gebi('lmeal1ResDay');
+let lmeal2ResDay = gebi('lmeal2ResDay');
+let lmeal3ResDay = gebi('lmeal3ResDay');
+
+
+let dmeal1ResDay = gebi('dmeal1ResDay');
+let dmeal2ResDay = gebi('dmeal2ResDay');
+let dmeal3ResDay = gebi('dmeal3ResDay');
+let dmeal4ResDay = gebi('dmeal4ResDay');
+let dmeal5ResDay = gebi('dmeal5ResDay');
+
 bmeal1ResDay.value = (bmeal1Perc * 365).toFixed(1);
 bmeal2ResDay.value = (bmeal2Perc * 365).toFixed(1);
 bmeal3ResDay.value = (bmeal3Perc * 365).toFixed(1);
 bmeal4ResDay.value = (bmeal4Perc * 365).toFixed(1);
 bmeal5ResDay.value = (bmeal5Perc * 365).toFixed(1);
 
+lmeal1ResDay.value = (lmeal1Perc * 365).toFixed(1);
+lmeal2ResDay.value = (lmeal2Perc * 365).toFixed(1);
+lmeal3ResDay.value = (lmeal3Perc * 365).toFixed(1);
+
+dmeal1ResDay.value = (dmeal1Perc * 365).toFixed(1);
+dmeal2ResDay.value = (dmeal2Perc * 365).toFixed(1);
+dmeal3ResDay.value = (dmeal3Perc * 365).toFixed(1);
+dmeal4ResDay.value = (dmeal4Perc * 365).toFixed(1);
+dmeal5ResDay.value = (dmeal5Perc * 365).toFixed(1);
 }
 
 

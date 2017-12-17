@@ -4,6 +4,7 @@
     catTotal.Soup = 0;
     catTotal.Entree = 0;
     catTotal.EntreeWithMeat = 0;
+    catTotal.EntreeWithoutMeat = 0;
     catTotal.MeatOnly = 0;
     catTotal.Beans = 0;
     catTotal.Cracker = 0;
@@ -20,11 +21,11 @@
     catTotal.Oatmeal= 0;
     catTotal.Yogurt = 0;
     catTotal.Fruit = 0;
-    catTotal.Gravy = 0;
-    catTotal.Sauce = 0;
+    catTotal.SauceGravy = 0;
     catTotal.Dessert = 0;
     catTotal.Spice= 0;
     catTotal.Drink= 0;
+    catTotal.Oats= 0;
     for (i=0;i<items.length;i++) {
         if (items[i].category == 'Soup') {
             catTotal.Soup+= (items[i].quantity * items[i].servings * items[i].preparedserving);
@@ -35,8 +36,14 @@
         if (items[i].category == 'Entree with Meat') {
             catTotal.EntreeWithMeat+= (items[i].quantity * items[i].servings * items[i].preparedserving);
             }
+        if (items[i].category == 'Entree without Meat') {
+            catTotal.EntreeWithoutMeat+= (items[i].quantity * items[i].servings * items[i].preparedserving);
+            }
         if (items[i].category == 'Meat Only') {
             catTotal.MeatOnly+= (items[i].quantity * items[i].servings * items[i].preparedserving);
+            }
+        if (items[i].category == 'Oats') {
+            catTotal.Oats+= (items[i].quantity * items[i].servings * items[i].preparedserving);
             }
         if (items[i].category == 'Beans') {
             catTotal.Beans+= (items[i].quantity * items[i].servings * items[i].preparedserving);
@@ -83,11 +90,8 @@
         if (items[i].category == 'Fruit') {
             catTotal.Fruit+= (items[i].quantity * items[i].servings * items[i].preparedserving);
             }
-        if (items[i].category == 'Gravy') {
-            catTotal.Gravy+= (items[i].quantity * items[i].servings * items[i].preparedserving);
-            }
-        if (items[i].category == 'Sauce') {
-            catTotal.Sauce+= (items[i].quantity * items[i].servings * items[i].preparedserving);
+        if (items[i].category == 'SauceGravy') {
+            catTotal.SauceGravy+= (items[i].quantity * items[i].servings * items[i].preparedserving);
             }
         if (items[i].category == 'Dessert') {
             catTotal.Dessert+= (items[i].quantity * items[i].servings * items[i].preparedserving);

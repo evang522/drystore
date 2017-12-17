@@ -504,10 +504,22 @@ canvas {
 }
 
 .red {
-    background-color:#c43642;
+    background-color:#358212;
     color:white;
     text-align:center;
     width:16em;
+}
+
+#trig {
+    border:none;
+    height:3em;
+    width:8em;
+    background-color:orange;
+    border-radius:5px;
+    display:block;
+    margin:auto;
+    font-weight:bold;
+    color:white;
 }
 
 .peopleInput {
@@ -832,11 +844,6 @@ canvas {
         box-shadow:none;
         border:1px solid gray;
         border-radius:0;
-    }
-
-
-    body {
-        background-color:#dbdbdb;
     }
 
 

@@ -76,8 +76,10 @@ router.get('/categorylist', (req,res) => {
                 if (err) {
                     console.log(err);
                 } else {
+                    let catData = produceCatData(items);
                     res.render('needcalc', {
-                        items:items
+                        items:items,
+                        catData:catData
                     });
                 }
             })
