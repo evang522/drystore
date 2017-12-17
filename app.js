@@ -14,6 +14,7 @@ let insightroute = require('./routes/insightroute')
 // Bring in Models for queries
 let Item = require('./models/itemModel');
 let User = require('./models/userModel');
+let Note = require('./models/noteModel');
 
 // Set View Engine 
 app.set('view engine', 'pug');
@@ -81,6 +82,43 @@ app.get('/', (req,res) => {
     })
 
 });
+
+// Notes Route
+app.get('/notes', (req,res) => {
+    if (req.isAuthenticated()) {
+            res.render('notes');
+    } else {
+        res.render('notauthenticated');
+    }
+    });
+
+
+// Notes Post Route
+app.post('/notes', (req,res) => {
+    if (req.isAuthenticated()) {
+        let noteObj = new Note;
+        noteObj.subject = req.body.subject;
+        noteObj.body = req.body.body;
+        noteObj.tags = req.body.tags;
+
+    noteObj.save((err) => {
+        if(err) {
+            console.log(err);
+        } else {
+            Note.find({}, (err,notes) => {
+                if(err) {
+                    console.log(err);
+                } else {
+                    res.render('notes', {
+                        notes:notes
+                    });
+                } 
+            })
+        }
+    })
+    }
+});
+
 
 // DB Route
 app.use('/db', dbroute);
