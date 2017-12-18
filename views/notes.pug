@@ -5,14 +5,13 @@ br
 main(role='main')
     button.generalButton.centerAuto.wideButton#trigButton Create New Note
     div.createNoteCont#CNC
-        h1.larger.above.center Create Note
+        h1.larger.smallSpaceAbove.smallSpaceBelow.center Create Note
         form(action='/notes' method='POST')
             input.noteEntry(placeholder = 'Subject...' name='subject')
             textarea.notebody(placeholder= 'Body...' name='body')
             br
             button(type='submit').generalButton.backTo Create Note
-            br
-        button.generalButton.wideButton#cancel Cancel
+        button.generalButton.smallspaceBelow.wideButton#cancel Cancel
     div.noteCont.above
         each note, k in notes
             div.noteField
