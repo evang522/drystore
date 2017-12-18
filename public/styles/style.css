@@ -804,7 +804,7 @@ canvas {
     left: 50%;
     transform: translateX(-50%);
     bottom:4em;
-    height:80%;
+    min-height:80%;
     width:30em;
     background-color:#f4f4f4;
     border-radius:10px;
