@@ -7,18 +7,18 @@ script.
         //- console.log('toggleView has run' + 'and i = ' + t);
         if(t===0) {
             hdd.style.display = 'block';
-            trigger.style.backgroundColor='#f4b224';
+            trigger.style.backgroundColor='#8e5f07';
             t=1;
         } else if (t===1) {
             hdd.style.display = 'none';
-            trigger.style.backgroundColor = '#1b3b51';
+            trigger.style.backgroundColor = '#34604b';
             t--;
         }
     }
     let toggleViewWindow = () => {
         if (t===1 && event.target != trigger) {
             hdd.style.display = 'none';
-            trigger.style.backgroundColor = '#1b3b51';
+            trigger.style.backgroundColor = '#34604b';
             t--;
         }
     }

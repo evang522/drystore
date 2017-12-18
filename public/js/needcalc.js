@@ -133,445 +133,29 @@ let dinner = {
 // it will grab the food's cup amount and multiply it by the percentage needed per year, then add it to a provided variable for the total amount of that
 // food needed for one person for one day.
 
-let makeTotalNeededVegetables = (breakfast,lunch,dinner) => {
-let totalNeeded = 0;
-let dinnerValues = Object.keys(dinner);
-for(let i=0;i<dinnerValues.length;i++) {
-    if (dinner[dinnerValues[i]].vegetable) {
-        totalNeeded += dinner[dinnerValues[i]].vegetable * dinner[dinnerValues[i]].freq;
-    }
-}
-let lunchValues = Object.keys(lunch);
-for(let i=0;i<lunchValues.length;i++) {
-    if (lunch[lunchValues[i]].vegetable) {
-        totalNeeded += lunch[lunchValues[i]].vegetable * lunch[lunchValues[i]].freq;
-    }
-}
-let breakfastValues = Object.keys(breakfast);
-for(let i=0;i<breakfastValues.length;i++) {
-    if (breakfast[breakfastValues[i]].vegetable) {
-        totalNeeded += breakfast[breakfastValues[i]].vegetable * breakfast[breakfastValues[i]].freq;
-    }
-}
-return totalNeeded;
-}
 
-let makeTotalNeededMilk = (breakfast,lunch,dinner) => {
-let totalNeeded = 0;
-let dinnerValues = Object.keys(dinner);
-for(let i=0;i<dinnerValues.length;i++) {
-    if (dinner[dinnerValues[i]].milk) {
-        totalNeeded += dinner[dinnerValues[i]].milk * dinner[dinnerValues[i]].freq;
-    }
-}
-let lunchValues = Object.keys(lunch);
-for(let i=0;i<lunchValues.length;i++) {
-    if (lunch[lunchValues[i]].milk) {
-        totalNeeded += lunch[lunchValues[i]].milk * lunch[lunchValues[i]].freq;
-    }
-}
-let breakfastValues = Object.keys(breakfast);
-for(let i=0;i<breakfastValues.length;i++) {
-    if (breakfast[breakfastValues[i]].milk) {
-        totalNeeded += breakfast[breakfastValues[i]].milk * breakfast[breakfastValues[i]].freq;
-    }
-}
-return totalNeeded;
-}
-
-let makeTotalNeededGranola = (breakfast,lunch,dinner) => {
-let totalNeeded = 0;
-let dinnerValues = Object.keys(dinner);
-for(let i=0;i<dinnerValues.length;i++) {
-    if (dinner[dinnerValues[i]].granola) {
-        totalNeeded += dinner[dinnerValues[i]].granola * dinner[dinnerValues[i]].freq;
-    }
-}
-let lunchValues = Object.keys(lunch);
-for(let i=0;i<lunchValues.length;i++) {
-    if (lunch[lunchValues[i]].granola) {
-        totalNeeded += lunch[lunchValues[i]].granola * lunch[lunchValues[i]].freq;
-    }
-}
-let breakfastValues = Object.keys(breakfast);
-for(let i=0;i<breakfastValues.length;i++) {
-    if (breakfast[breakfastValues[i]].granola) {
-        totalNeeded += breakfast[breakfastValues[i]].granola * breakfast[breakfastValues[i]].freq;
-    }
-}
-return totalNeeded;
-}
-
-let makeTotalNeededENM= (breakfast,lunch,dinner) => {
+let makeTotalNeeded = (breakfast,lunch,dinner,typeOfFood) => {
     let totalNeeded = 0;
     let dinnerValues = Object.keys(dinner);
     for(let i=0;i<dinnerValues.length;i++) {
-        if (dinner[dinnerValues[i]].enm) {
-            totalNeeded += dinner[dinnerValues[i]].enm * dinner[dinnerValues[i]].freq;
+        if (dinner[dinnerValues[i]][typeOfFood]) {
+            totalNeeded += dinner[dinnerValues[i]][typeOfFood] * dinner[dinnerValues[i]].freq;
         }
     }
     let lunchValues = Object.keys(lunch);
     for(let i=0;i<lunchValues.length;i++) {
-        if (lunch[lunchValues[i]].enm) {
-            totalNeeded += lunch[lunchValues[i]].enm * lunch[lunchValues[i]].freq;
+        if (lunch[lunchValues[i]][typeOfFood]) {
+            totalNeeded += lunch[lunchValues[i]][typeOfFood] * lunch[lunchValues[i]].freq;
         }
     }
     let breakfastValues = Object.keys(breakfast);
     for(let i=0;i<breakfastValues.length;i++) {
-        if (breakfast[breakfastValues[i]].enm) {
-            totalNeeded += breakfast[breakfastValues[i]].enm * breakfast[breakfastValues[i]].freq;
+        if (breakfast[breakfastValues[i]][typeOfFood]) {
+            totalNeeded += breakfast[breakfastValues[i]][typeOfFood] * breakfast[breakfastValues[i]].freq;
         }
     }
     return totalNeeded;
     }
-    
-    
-let makeTotalNeededEntree = (breakfast,lunch,dinner) => {
-    let totalNeeded = 0;
-    let dinnerValues = Object.keys(dinner);
-    for(let i=0;i<dinnerValues.length;i++) {
-        if (dinner[dinnerValues[i]].entree) {
-            totalNeeded += dinner[dinnerValues[i]].entree  * dinner[dinnerValues[i]].freq;
-        }
-    }
-    let lunchValues = Object.keys(lunch);
-    for(let i=0;i<lunchValues.length;i++) {
-        if (lunch[lunchValues[i]].entree) {
-            totalNeeded += lunch[lunchValues[i]].entree * lunch[lunchValues[i]].freq;
-        }
-    }
-    let breakfastValues = Object.keys(breakfast);
-    for(let i=0;i<breakfastValues.length;i++) {
-        if (breakfast[breakfastValues[i]].entree) {
-            totalNeeded += breakfast[breakfastValues[i]].entree * breakfast[breakfastValues[i]].freq;
-        }
-    }
-    return totalNeeded;
-    }
-
-
-let makeTotalNeededBeans = (breakfast,lunch,dinner) => {
-    let totalNeeded = 0;
-    let dinnerValues = Object.keys(dinner);
-    for(let i=0;i<dinnerValues.length;i++) {
-        if (dinner[dinnerValues[i]].beans) {
-            totalNeeded += dinner[dinnerValues[i]].beans  * dinner[dinnerValues[i]].freq;
-        }
-    }
-    let lunchValues = Object.keys(lunch);
-    for(let i=0;i<lunchValues.length;i++) {
-        if (lunch[lunchValues[i]].beans) {
-            totalNeeded += lunch[lunchValues[i]].beans * lunch[lunchValues[i]].freq;
-        }
-    }
-    let breakfastValues = Object.keys(breakfast);
-    for(let i=0;i<breakfastValues.length;i++) {
-        if (breakfast[breakfastValues[i]].beans) {
-            totalNeeded += breakfast[breakfastValues[i]].beans * breakfast[breakfastValues[i]].freq;
-        }
-    }
-    return totalNeeded;
-}
-
-let makeTotalNeededRice = (breakfast,lunch,dinner) => {
-    let totalNeeded = 0;
-    let dinnerValues = Object.keys(dinner);
-    for(let i=0;i<dinnerValues.length;i++) {
-        if (dinner[dinnerValues[i]].rice) {
-            totalNeeded += dinner[dinnerValues[i]].rice  * dinner[dinnerValues[i]].freq;
-        }
-    }
-    let lunchValues = Object.keys(lunch);
-    for(let i=0;i<lunchValues.length;i++) {
-        if (lunch[lunchValues[i]].rice) {
-            totalNeeded += lunch[lunchValues[i]].rice * lunch[lunchValues[i]].freq;
-        }
-    }
-    let breakfastValues = Object.keys(breakfast);
-    for(let i=0;i<breakfastValues.length;i++) {
-        if (breakfast[breakfastValues[i]].rice) {
-            totalNeeded += breakfast[breakfastValues[i]].rice * breakfast[breakfastValues[i]].freq;
-        }
-    }
-    return totalNeeded;
-}
-
-let makeTotalNeededPasta = (breakfast,lunch,dinner) => {
-    let totalNeeded = 0;
-    let dinnerValues = Object.keys(dinner);
-    for(let i=0;i<dinnerValues.length;i++) {
-        if (dinner[dinnerValues[i]].pasta) {
-            totalNeeded += dinner[dinnerValues[i]].pasta  * dinner[dinnerValues[i]].freq;
-        }
-    }
-    let lunchValues = Object.keys(lunch);
-    for(let i=0;i<lunchValues.length;i++) {
-        if (lunch[lunchValues[i]].pasta) {
-            totalNeeded += lunch[lunchValues[i]].pasta * lunch[lunchValues[i]].freq;
-        }
-    }
-    let breakfastValues = Object.keys(breakfast);
-    for(let i=0;i<breakfastValues.length;i++) {
-        if (breakfast[breakfastValues[i]].pasta) {
-            totalNeeded += breakfast[breakfastValues[i]].pasta * breakfast[breakfastValues[i]].freq;
-        }
-    }
-    return totalNeeded;
-}
-
-let makeTotalNeededSoup = (breakfast,lunch,dinner) => {
-    let totalNeeded = 0;
-    let dinnerValues = Object.keys(dinner);
-    for(let i=0;i<dinnerValues.length;i++) {
-        if (dinner[dinnerValues[i]].soup) {
-            totalNeeded += dinner[dinnerValues[i]].soup * dinner[dinnerValues[i]].freq;
-        }
-    }
-    let lunchValues = Object.keys(lunch);
-    for(let i=0;i<lunchValues.length;i++) {
-        if (lunch[lunchValues[i]].soup) {
-            totalNeeded += lunch[lunchValues[i]].soup * lunch[lunchValues[i]].freq;
-        }
-    }
-    let breakfastValues = Object.keys(breakfast);
-    for(let i=0;i<breakfastValues.length;i++) {
-        if (breakfast[breakfastValues[i]].soup) {
-            totalNeeded += breakfast[breakfastValues[i]].soup * breakfast[breakfastValues[i]].freq;
-        }
-    }
-    return totalNeeded;
-}
-
-let makeTotalNeededYogurt = (breakfast,lunch,dinner) => {
-    let totalNeeded = 0;
-    let dinnerValues = Object.keys(dinner);
-    for(let i=0;i<dinnerValues.length;i++) {
-        if (dinner[dinnerValues[i]].yogurt) {
-            totalNeeded += dinner[dinnerValues[i]].yogurt  * dinner[dinnerValues[i]].freq;
-        }
-    }
-    let lunchValues = Object.keys(lunch);
-    for(let i=0;i<lunchValues.length;i++) {
-        if (lunch[lunchValues[i]].yogurt) {
-            totalNeeded += lunch[lunchValues[i]].yogurt * lunch[lunchValues[i]].freq;
-        }
-    }
-    let breakfastValues = Object.keys(breakfast);
-    for(let i=0;i<breakfastValues.length;i++) {
-        if (breakfast[breakfastValues[i]].yogurt) {
-            totalNeeded += breakfast[breakfastValues[i]].yogurt * breakfast[breakfastValues[i]].freq;
-        }
-    }
-    return totalNeeded;
-}
-
-let makeTotalNeededCracker = (breakfast,lunch,dinner) => {
-    let totalNeeded = 0;
-    let dinnerValues = Object.keys(dinner);
-    for(let i=0;i<dinnerValues.length;i++) {
-        if (dinner[dinnerValues[i]].cracker) {
-            totalNeeded += dinner[dinnerValues[i]].cracker  * dinner[dinnerValues[i]].freq;
-        }
-    }
-    let lunchValues = Object.keys(lunch);
-    for(let i=0;i<lunchValues.length;i++) {
-        if (lunch[lunchValues[i]].cracker) {
-            totalNeeded += lunch[lunchValues[i]].cracker * lunch[lunchValues[i]].freq;
-        }
-    }
-    let breakfastValues = Object.keys(breakfast);
-    for(let i=0;i<breakfastValues.length;i++) {
-        if (breakfast[breakfastValues[i]].cracker) {
-            totalNeeded += breakfast[breakfastValues[i]].cracker * breakfast[breakfastValues[i]].freq;
-        }
-    }
-    return totalNeeded;
-}
-
-let makeTotalNeededEggs = (breakfast,lunch,dinner) => {
-    let totalNeeded = 0;
-    let dinnerValues = Object.keys(dinner);
-    for(let i=0;i<dinnerValues.length;i++) {
-        if (dinner[dinnerValues[i]].eggs) {
-            totalNeeded += dinner[dinnerValues[i]].eggs  * dinner[dinnerValues[i]].freq;
-        }
-    }
-    let lunchValues = Object.keys(lunch);
-    for(let i=0;i<lunchValues.length;i++) {
-        if (lunch[lunchValues[i]].eggs) {
-            totalNeeded += lunch[lunchValues[i]].eggs * lunch[lunchValues[i]].freq;
-        }
-    }
-    let breakfastValues = Object.keys(breakfast);
-    for(let i=0;i<breakfastValues.length;i++) {
-        if (breakfast[breakfastValues[i]].eggs) {
-            totalNeeded += breakfast[breakfastValues[i]].eggs * breakfast[breakfastValues[i]].freq;
-        }
-    }
-    return totalNeeded;
-}
-
-let makeTotalNeededFruit = (breakfast,lunch,dinner) => {
-    let totalNeeded = 0;
-    let dinnerValues = Object.keys(dinner);
-    for(let i=0;i<dinnerValues.length;i++) {
-        if (dinner[dinnerValues[i]].fruit) {
-            totalNeeded += dinner[dinnerValues[i]].fruit  * dinner[dinnerValues[i]].freq;
-        }
-    }
-    let lunchValues = Object.keys(lunch);
-    for(let i=0;i<lunchValues.length;i++) {
-        if (lunch[lunchValues[i]].fruit) {
-            totalNeeded += lunch[lunchValues[i]].fruit * lunch[lunchValues[i]].freq;
-        }
-    }
-    let breakfastValues = Object.keys(breakfast);
-    for(let i=0;i<breakfastValues.length;i++) {
-        if (breakfast[breakfastValues[i]].fruit) {
-            totalNeeded += breakfast[breakfastValues[i]].fruit * breakfast[breakfastValues[i]].freq;
-        }
-    }
-    return totalNeeded;
-}
-
-let makeTotalNeededpotato = (breakfast,lunch,dinner) => {
-    let totalNeeded = 0;
-    let dinnerValues = Object.keys(dinner);
-    for(let i=0;i<dinnerValues.length;i++) {
-        if (dinner[dinnerValues[i]].potato) {
-            totalNeeded += dinner[dinnerValues[i]].potato  * dinner[dinnerValues[i]].freq;
-        }
-    }
-    let lunchValues = Object.keys(lunch);
-    for(let i=0;i<lunchValues.length;i++) {
-        if (lunch[lunchValues[i]].potato) {
-            totalNeeded += lunch[lunchValues[i]].potato * lunch[lunchValues[i]].freq;
-        }
-    }
-    let breakfastValues = Object.keys(breakfast);
-    for(let i=0;i<breakfastValues.length;i++) {
-        if (breakfast[breakfastValues[i]].potato) {
-            totalNeeded += breakfast[breakfastValues[i]].potato * breakfast[breakfastValues[i]].freq;
-        }
-    }
-    return totalNeeded;
-}
-
-let makeTotalNeededOats = (breakfast,lunch,dinner) => {
-    let totalNeeded = 0;
-    let dinnerValues = Object.keys(dinner);
-    for(let i=0;i<dinnerValues.length;i++) {
-        if (dinner[dinnerValues[i]].oats) {
-            totalNeeded += dinner[dinnerValues[i]].oats  * dinner[dinnerValues[i]].freq;
-        }
-    }
-    let lunchValues = Object.keys(lunch);
-    for(let i=0;i<lunchValues.length;i++) {
-        if (lunch[lunchValues[i]].oats) {
-            totalNeeded += lunch[lunchValues[i]].oats * lunch[lunchValues[i]].freq;
-       }
-    }
-    let breakfastValues = Object.keys(breakfast);
-    for(let i=0;i<breakfastValues.length;i++) {
-        if (breakfast[breakfastValues[i]].oats) {
-            totalNeeded += breakfast[breakfastValues[i]].oats * breakfast[breakfastValues[i]].freq;
-        }
-    }
-    return totalNeeded;
-}
-
-let makeTotalNeededbreakfastDrink = (breakfast,lunch,dinner) => {
-    let totalNeeded = 0;
-    let dinnerValues = Object.keys(dinner);
-    for(let i=0;i<dinnerValues.length;i++) {
-        if (dinner[dinnerValues[i]].breakfastDrink) {
-            totalNeeded += dinner[dinnerValues[i]].breakfastDrink  * dinner[dinnerValues[i]].freq;
-        }
-    }
-    let lunchValues = Object.keys(lunch);
-    for(let i=0;i<lunchValues.length;i++) {
-        if (lunch[lunchValues[i]].breakfastDrink) {
-            totalNeeded += lunch[lunchValues[i]].breakfastDrink * lunch[lunchValues[i]].freq;
-        }
-    }
-    let breakfastValues = Object.keys(breakfast);
-    for(let i=0;i<breakfastValues.length;i++) {
-        if (breakfast[breakfastValues[i]].breakfastDrink) {
-            totalNeeded += breakfast[breakfastValues[i]].breakfastDrink * breakfast[breakfastValues[i]].freq;
-        }
-    }
-    return totalNeeded;
-}
-
-
-let makeTotalNeededMeatOnly = (breakfast,lunch,dinner) => {
-    let totalNeeded = 0;
-    let dinnerValues = Object.keys(dinner);
-    for(let i=0;i<dinnerValues.length;i++) {
-        if (dinner[dinnerValues[i]].meatOnly) {
-            totalNeeded += dinner[dinnerValues[i]].meatOnly  * dinner[dinnerValues[i]].freq;
-        }
-    }
-    let lunchValues = Object.keys(lunch);
-    for(let i=0;i<lunchValues.length;i++) {
-        if (lunch[lunchValues[i]].meatOnly) {
-            totalNeeded += lunch[lunchValues[i]].meatOnly * lunch[lunchValues[i]].freq;
-        }
-    }
-    let breakfastValues = Object.keys(breakfast);
-    for(let i=0;i<breakfastValues.length;i++) {
-        if (breakfast[breakfastValues[i]].meatOnly) {
-            totalNeeded += breakfast[breakfastValues[i]].meatOnly * breakfast[breakfastValues[i]].freq;
-        }
-    }
-    return totalNeeded;
-}
-
-let makeTotalNeededSauceGravy = (breakfast,lunch,dinner) => {
-    let totalNeeded = 0;
-    let dinnerValues = Object.keys(dinner);
-    for(let i=0;i<dinnerValues.length;i++) {
-        if (dinner[dinnerValues[i]].sauceGravy) {
-            totalNeeded += dinner[dinnerValues[i]].sauceGravy * dinner[dinnerValues[i]].freq;
-        }
-    }
-    let lunchValues = Object.keys(lunch);
-    for(let i=0;i<lunchValues.length;i++) {
-        if (lunch[lunchValues[i]].sauceGravy) {
-            totalNeeded += lunch[lunchValues[i]].sauceGravy * lunch[lunchValues[i]].freq;
-        }
-    }
-    let breakfastValues = Object.keys(breakfast);
-    for(let i=0;i<breakfastValues.length;i++) {
-        if (breakfast[breakfastValues[i]].sauceGravy) {
-            totalNeeded += breakfast[breakfastValues[i]]  * breakfast[breakfastValues[i]].freq;
-        }
-    }
-    return totalNeeded;
-}
-
-let makeTotalNeededewm = (breakfast,lunch,dinner) => {
-    let totalNeeded = 0;
-    let dinnerValues = Object.keys(dinner);
-    for(let i=0;i<dinnerValues.length;i++) {
-        if (dinner[dinnerValues[i]].ewm) {
-            totalNeeded += dinner[dinnerValues[i]].ewm  * dinner[dinnerValues[i]].freq;
-        }
-    }
-    let lunchValues = Object.keys(lunch);
-    for(let i=0;i<lunchValues.length;i++) {
-        if (lunch[lunchValues[i]].ewm) {
-            totalNeeded += lunch[lunchValues[i]].ewm * lunch[lunchValues[i]].freq;
-        }
-    }
-    let breakfastValues = Object.keys(breakfast);
-    for(let i=0;i<breakfastValues.length;i++) {
-        if (breakfast[breakfastValues[i]].ewm) {
-            totalNeeded += breakfast[breakfastValues[i]].ewm * breakfast[breakfastValues[i]].freq;
-        }
-    }
-    return totalNeeded;
-}
 
 
 // Define Function to extrapolate food daily percentages to yearly for the specified amount of people
@@ -581,25 +165,31 @@ let calcTotalNeeds = (food) => {
     }
 
 // This section produces the total amount of the specified food called for in a day multiplied by the percentage of days per year it is eaten
-let totalewm = calcTotalNeeds(makeTotalNeededewm(breakfast,lunch,dinner));
-let totalSauceGravy = calcTotalNeeds(makeTotalNeededSauceGravy(breakfast,lunch,dinner));
-let totalMeatOnly = calcTotalNeeds(makeTotalNeededMeatOnly(breakfast,lunch,dinner));
-let totalbreakfastDrink = calcTotalNeeds(makeTotalNeededbreakfastDrink(breakfast,lunch,dinner));
-let totalOats = calcTotalNeeds(makeTotalNeededOats(breakfast,lunch,dinner));
-let totalpotato = calcTotalNeeds(makeTotalNeededpotato(breakfast,lunch,dinner));
-let totalFruit = calcTotalNeeds(makeTotalNeededFruit(breakfast,lunch,dinner));
-let totalEggs = calcTotalNeeds(makeTotalNeededEggs(breakfast,lunch,dinner));
-let totalCracker = calcTotalNeeds(makeTotalNeededCracker(breakfast,lunch,dinner));
-let totalYogurt = calcTotalNeeds(makeTotalNeededYogurt(breakfast,lunch,dinner));
-let totalSoup = calcTotalNeeds(makeTotalNeededSoup(breakfast,lunch,dinner));
-let totalPasta = calcTotalNeeds(makeTotalNeededPasta(breakfast,lunch,dinner));
-let totalRice = calcTotalNeeds(makeTotalNeededRice(breakfast,lunch,dinner));
-let totalBeans = calcTotalNeeds(makeTotalNeededBeans(breakfast,lunch,dinner));
-let totalEntree =  calcTotalNeeds(makeTotalNeededEntree(breakfast,lunch,dinner));
-let totalVeg = calcTotalNeeds(makeTotalNeededVegetables(breakfast,lunch,dinner));
-let totalenm = calcTotalNeeds(makeTotalNeededENM(breakfast,lunch,dinner));
-let totalGranola = calcTotalNeeds(makeTotalNeededGranola(breakfast,lunch,dinner));
-let totalMilk = calcTotalNeeds(makeTotalNeededMilk(breakfast,lunch,dinner));
+
+
+let testVar = makeTotalNeeded(breakfast,lunch,dinner,'vegetable');
+console.log('results of test function: ' + (testVar * 6 * 365));
+
+
+let totalewm = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'ewm'));
+let totalSauceGravy = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'sauceGravy'));
+let totalMeatOnly = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'meatOnly'));
+let totalbreakfastDrink = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'breakfastDrink'));
+let totalOats = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'oats'));
+let totalpotato = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'potato'));
+let totalFruit = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'fruit'));
+let totalEggs = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'eggs'));
+let totalCracker = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'cracker'));
+let totalYogurt = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'yogurt'));
+let totalSoup = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'soup'));
+let totalPasta = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'pasta'));
+let totalRice = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'rice'));
+let totalBeans = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'beans'));
+// let totalEntree =  calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'entree'));
+let totalVeg = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'vegetable'));
+let totalenm = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'enm'));
+let totalGranola = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'granola'));
+let totalMilk = calcTotalNeeds(makeTotalNeeded(breakfast,lunch,dinner,'milk'));
 
 
 // Grab need field by ID
@@ -617,7 +207,7 @@ let soupFieldNeed = gebi('soupTotalNeedTarg')
 let pastaFieldNeed = gebi('pastaTotalNeedTarg')
 let riceFieldNeed = gebi('riceTotalNeedTarg')
 let beansFieldNeed = gebi('beansTotalNeedTarg')
-let entreeFieldNeed = gebi('entreeTotalNeedTarg')
+// let entreeFieldNeed = gebi('entreeTotalNeedTarg')
 let vegFieldNeed = gebi('vegTotalNeedTarg')
 let enmFieldNeed = gebi('enmTotalNeedTarg')
 let granolaFieldNeed = gebi('granolaTotalNeedTarg')
@@ -638,12 +228,11 @@ soupFieldNeed.innerHTML = totalSoup;
 pastaFieldNeed.innerHTML = totalPasta;
 riceFieldNeed.innerHTML = totalRice;
 beansFieldNeed.innerHTML = totalBeans;
-entreeFieldNeed.innerHTML = totalEntree;
+// entreeFieldNeed.innerHTML = totalEntree;
 vegFieldNeed.innerHTML = totalVeg;
 enmFieldNeed.innerHTML = totalenm;
 eggFieldNeed.innerHTML = totalEggs;
 fruitFieldNeed.innerHTML = totalFruit;
-oatsFieldNeed.innerHTML = totalOats;
 soupFieldNeed.innerHTML = totalSoup;
 granolaFieldNeed.innerHTML = totalGranola;
 milkFieldNeed.innerHTML = totalMilk;

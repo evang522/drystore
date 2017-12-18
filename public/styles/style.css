@@ -1,7 +1,8 @@
 * {
     margin:0;
     padding:0;
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Source Sans Pro', sans-serif;
     font-size:1.02em;
     box-sizing:border-box;
 }
@@ -30,24 +31,25 @@ body {
 
 .header {
     height:3em;
-    background-color:#1b3b51;
+    /* background-color:#1b3b51; */
+    background-color:#34604b;
     position:fixed;
     width:100%;
     z-index:1;
 }
 
 #trigger {
-    background-image:url('/img/hamb.png');
+    background-image:url('/img/hamb1.png');
     background-size:contain;
-    width:2em;
+    width:34px;
     margin-left:.5em;
     margin-top:.4em;
-    height:2em;
+    height:34px;
     border:none;
     border-radius:5.5px;
     outline:none;
     background-repeat:no-repeat;
-    background-color:#1b3b51;
+    background-color:#34604b;
     cursor: pointer;
 }
 
@@ -108,7 +110,7 @@ body {
     box-sizing:border-box;
     color:white;
     height:2.5em;
-    background-color:#36588e;
+    background-color:#518c70;
     border:none;
     text-align:left;
     outline:none;
@@ -124,7 +126,7 @@ body {
 
 
 .headerLi hover {
-    background-color:#36588e;
+    background-color:#c0e2d2;
 }
 
 
@@ -172,7 +174,7 @@ body {
     font-size:1.1em;
     display:block;
     margin:0 auto;
-    background-color:#1b3b51;  
+    background-color:#4D8C6D;  
     color:white;
     /* box-shadow: 1px 1px #b6b8ba; */
     border-radius:4px;
@@ -790,7 +792,7 @@ canvas {
 .backTo {
     /* margin-right:10px; */
     width: 8em;
-    background-color:#358212;
+    background-color:#34604b;
     outline:none;
 }
 
@@ -874,6 +876,8 @@ canvas {
 .gray {
     color:gray;
 }
+
+
 @media screen and (max-width: 1150px) {
     .dsiManu {
         display:none;
@@ -944,6 +948,8 @@ canvas {
     .notebody {
         height:10em
     }
+
+
 }
 
 
@@ -1036,6 +1042,13 @@ canvas {
         margin-top:5px;
     }
     
+    .shorterLetterSpace {
+        letter-spacing:-1px;  
+    }
+
+    .muchShorterLetterSpace {
+        letter-spacing:-2px;
+    }
     
 }
 
