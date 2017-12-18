@@ -170,6 +170,10 @@ body {
     border-radius:4px;
 }
 
+.wideButton {
+    width: 8em;
+}
+
 .generalButton:hover {
     background-color:#e3e5e8;
     border:1px solid gray;
@@ -791,7 +795,7 @@ canvas {
     width:90%;
     background-color:white;
     height:80%;
-    margin:auto;
+    margin:0 auto;
     border-radius:5px;
 }
 
@@ -800,15 +804,59 @@ canvas {
     left: 50%;
     transform: translateX(-50%);
     bottom:4em;
-    height:90%;
-    width:80%;
-    background-color:white;
+    height:80%;
+    width:30em;
+    background-color:#f4f4f4;
     border-radius:10px;
     border:1px solid gray;
     top:5em;
+    display:none;
+    overflow-y:auto;
+}
+
+.noteEntry {
+    background-color:white;
+    width:90%;
+    height:10%;
+    display:block;
+    margin:auto;
+    border:1px solid black;
+    padding:10px;
+    border-radius:4px;
+}
+
+.noteBody {
+    height:12em;
+    width:80%;
+    margin:auto;
+    display:block;
+    border:1px solid gray;
+    box-sizing:border-box;
+    border-radius:4px;
+    padding:10px;
+    margin-top:10px;
 }
 
 
+.noteField {
+    border-bottom:1px solid black;
+    height:5em;
+    padding:10px;
+    overflow:hidden;
+}
+
+.smaller {
+    font-size:.9em;
+}
+
+.restrictOneLine {
+    white-space:nowrap;
+    overflow:hidden;
+}
+
+.gray {
+    color:gray;
+}
 @media screen and (max-width: 1150px) {
     .dsiManu {
         display:none;

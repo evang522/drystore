@@ -3,6 +3,47 @@ h1.center.bigHead Notes
 h3.center A place to stash your plans, ideas, and other relevant information.
 br
 main(role='main')
-    button.generalButton.centerAuto.backTo Create New Note
-    div.createNoteCont
+    button.generalButton.centerAuto.wideButton#trigButton Create New Note
+    div.createNoteCont#CNC
+        h1.larger.above.center Create Note
+        form(action='/notes' method='POST')
+            input.noteEntry(placeholder = 'Subject...' name='subject')
+            textarea.notebody(placeholder= 'Body...' name='body')
+            br
+            button(type='submit').generalButton.backTo Create Note
+            br
+        button.generalButton.wideButton#cancel Cancel
     div.noteCont.above
+        each note, k in notes
+            div.noteField
+                p.bold= note.subject
+                br
+                p.restrictOneLine.smaller.gray= note.body
+
+
+
+
+
+
+
+script.
+    let trigButton = document.getElementById('trigButton');
+    let popUp = document.getElementById('CNC');
+    let cancel = document.getElementById('cancel');
+    let u = 0;
+    let toggleNoteCont = () => {
+        if(u===0) {
+            popUp.style.display = 'block';
+            u=1;
+        }
+    };
+    let toggleAwayNoteCont = () => {
+        if(u===1) {
+            popUp.style.display = 'none';
+            u=0;
+        }
+    };
+
+    trigButton.addEventListener('click',toggleNoteCont);
+    cancel.addEventListener('click',toggleAwayNoteCont);
+

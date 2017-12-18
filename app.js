@@ -86,8 +86,16 @@ app.get('/', (req,res) => {
 // Notes Route
 app.get('/notes', (req,res) => {
     if (req.isAuthenticated()) {
-            res.render('notes');
-    } else {
+        Note.find({}, (err,notes) => {
+            if(err) {
+                console.log(err);
+            } else {
+                res.render('notes', {
+                    notes:notes
+                });
+            } 
+        })
+     } else {
         res.render('notauthenticated');
     }
     });
