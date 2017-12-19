@@ -68,7 +68,7 @@ let breakfast = {
         milk:.5,
         freq:bmeal4Perc
     }, meal5: {
-        breakfastDrink:.5,
+        breakfastDrink:1,
         freq:bmeal5Perc
     }
 };
@@ -81,7 +81,7 @@ let lunch = {
         freq:lmeal1Perc
     },meal2: {
         beans:.5,
-        pasta:.25,
+        pasta:.5,
         vegetable:.5,
         freq:lmeal2Perc
     }, meal3: {
@@ -94,7 +94,7 @@ let lunch = {
 
 let dinner = {
     meal1: {
-        ewm: .5,
+        ewm: 1,
         vegetable: .5,
         freq: dmeal1Perc
     },
@@ -118,7 +118,6 @@ let dinner = {
         meatOnly:.75,
         potato:.5,
         vegetable:.5,
-        potato:.25,
         sauceGravy: .25,
         freq:dmeal5Perc
     }
