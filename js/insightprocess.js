@@ -105,5 +105,4 @@
     }
     return catTotal;
 }
-
 module.exports = produceCatData;

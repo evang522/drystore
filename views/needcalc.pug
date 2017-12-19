@@ -1,307 +1,395 @@
-include headmenu.pug
-h1.heading.bigHead Insights
-br
-include insightsubmen.pug
-br
-br
-p.heading <strong>Amount of People Considered:</strong>
-input#people.peopleInput(value='6')
-br
-br
-img.mealImg(src='/img/bfast.png')
-div.fieldContainer
-    p.center.larger Breakfast Foods
-    div.fieldUnit 
-        div.foodfield.orange Eggs
-        div.foodfield.orange Oats
-        div.foodfield.orange Yogurt
-        div.foodfield.orange Granola
-        div.foodfield.orange Fruit
-        div.foodfield.orange Milk
-        div.foodfield.orange Breakfast Drink
-    p.center.larger Breakfast Meal Options
-    div.fieldUnit
-        div.mealfield.green
-            p.center.bold Meal One
-            ul.spaceAbove
-                li Eggs: 1/2 Cup
-                li Fruit: 1/2 Cup
-                li Frequency Eaten:
-                input#bmeal1(value='25%')
-                li Resulting Days Eaten:
-                input#bmeal1ResDay
-        div.mealfield.green
-            p.center.bold Meal Two
-            ul.spaceAbove
-                li Oats: 1/2 Cup
-                li Fruit: 1/4 Cup
-                li Frequency Eaten:
-                input#bmeal2(value='53%')
-                li Resulting Days Eaten:
-                input#bmeal2ResDay
-        div.mealfield.green
-            p.center.bold Meal Three
-            ul.spaceAbove
-                li Oats: 1/2 Cup
-                li Yogurt: 1/2 Cup
-                li Frequency Eaten:
-                input#bmeal3(value='1%')
-                li Resulting Days Eaten:
-                input#bmeal3ResDay
-        div.mealfield.green
-            p.center.bold Meal Four
-            ul.spaceAbove
-                li Granola: 1/2 Cup
-                li Milk: 1/2 Cup
-                li Frequency Eaten:
-                input#bmeal4(value='11%')
-                li Resulting Days Eaten:
-                input#bmeal4ResDay
-        div.mealfield.green
-            p.center.bold Meal Five
-            ul.spaceAbove
-                li Breakfast Drink: 1 Cup
-                li Frequency Eaten:
-                input#bmeal5(value='10%')
-                li Resulting Days Eaten:
-                input#bmeal5ResDay
-img.mealImg(src='/img/lunch.png')
-div.fieldContainer
-    p.center.larger Lunch Foods
-    div.fieldUnit 
-        div.foodfield.orange Beans
-        div.foodfield.orange Pasta
-        div.foodfield.orange Rice
-        div.foodfield.orange Vegetable
-        div.foodfield.orange Soup
-        div.foodfield.orange Cracker
-    p.center.larger Lunch Meal Options
-    div.fieldUnit
-        div.mealfield.green
-            p.center.bold Meal One
-            ul.spaceAbove
-                li Beans: 1/2 Cup
-                li Rice: 1/2 Cup
-                li Vegetable: 1/2 Cup
-                li Frequency Eaten:
-                input#lmeal1(value='60%')
-                li Resulting Days Eaten:
-                input#lmeal1ResDay
-        div.mealfield.green
-            p.center.bold Meal Two
-            ul.spaceAbove
-                li Beans: 1/2 Cup
-                li Pasta: 1/2 Cup
-                li Vegetable: 1/2 Cup
-                li Frequency Eaten:
-                input#lmeal2(value='10%')
-                li Resulting Days Eaten:
-                input#lmeal2ResDay
-        div.mealfield.green
-            p.center.bold Meal Three
-            ul.spaceAbove
-                li Soup: 1 Cup
-                li Cracker: 2 Cups
-                li Frequency Eaten:
-                input#lmeal3(value='30%')
-                li Resulting Days Eaten:
-                input#lmeal3ResDay
-img.mealImg(src='/img/dinner.png')
-div.fieldContainer
-    p.center.larger Dinner Foods
-    div.fieldUnit 
-        div.foodfield.orange Entrée with Meat
-        div.foodfield.orange Entrée without Meat
-        div.foodfield.orange Entrée?
-        div.foodfield.orange Meat Only
-        div.foodfield.orange Rice
-        div.foodfield.orange Pasta
-        div.foodfield.orange Potatoes
-        div.foodfield.orange Vegetable
-        div.foodfield.orange Sauce and Gravy
-    p.center.larger Dinner Meal Options
-    div.fieldUnit
-        div.mealfield.green
-            p.center.bold Meal One
-            ul.spaceAbove
-                li Entrée with meat: 1 Cup
-                li Vegetable: 1/2 Cup
-                li Frequency Eaten:
-                input#dmeal1(value='40%')
-                li Resulting Days Eaten:
-                input#dmeal1ResDay
-        div.mealfield.green
-            p.center.bold Meal Two
-            ul.spaceAbove
-                li Entrée Without Meat: 1 Cup
-                li Vegetable: 1/2 Cup
-                li Frequency Eaten:
-                input#dmeal2(value='20%')
-                li Resulting Days Eaten:
-                input#dmeal2ResDay
-        div.mealfield.green
-            p.center.bold Meal Three
-            ul.spaceAbove
-                li Meat Only: 3/4 Cup
-                li Rice: 1/2 Cup
-                li Vegetable: 1/2 Cup
-                li Sauce/Gravy: 1/4 Cup
-                li Frequency Eaten:
-                input#dmeal3(value='25%')
-                li Resulting Days Eaten:
-                input#dmeal3ResDay
-        div.mealfield.green
-            p.center.bold Meal Four
-            ul.spaceAbove
-                li Meat Only: 3/4 Cup
-                li Pasta: 1/2 Cup
-                li Vegetable: 1/2 Cup
-                li Sauce/Gravy: 1/4 Cup
-                li Frequency Eaten:
-                input#dmeal4(value='5%')
-                li Resulting Days Eaten:
-                input#dmeal4ResDay
-        div.mealfield.green
-            p.center.bold Meal Five
-            ul.spaceAbove
-                li Meat Only: 3/4 Cup
-                li Potatoes: 1/2 Cup
-                li Vegetable: 1/2 Cup
-                li Sauce/Gravy: 1/4 Cup
-                li Frequency Eaten:
-                input#dmeal5(value='10%')
-                li Resulting Days Eaten:
-                input#dmeal5ResDay
-button#trig Calculate!
-br
-h1.bigHead.center Results
-div.fieldCont
-    div.fieldUnit
-        div.mealfield.red
-            p.larger Total Eggs Needed: 
-            p.black#eggTotalNeedTarg -Not Calculated-
-            p Eggs Available:
-            p.black#eggAvailTarg= catData.Eggs + ' Cups'
-            p Eggs Deficit:
-            p.black#soupDef Not Calculated
-        div.mealfield.red
-            p.larger Total Fruit Needed: 
-            p.black#fruitTotalNeedTarg -Not Calculated-
-            p Fruit Available:
-            p.black#fruitAvailTarg= catData.Fruit + ' Cups'
-            p Fruit Deficit:
-            p.black#fruitDef -Not Calculated-
-        div.mealfield.red
-            p.larger Total Oats Needed: 
-            p.black#oatsTotalNeedTarg -Not Calculated-
-            p Oats Available:
-            p.black#oatsAvailTarg= catData.Oats + ' Cups'
-            p Oats Deficit:
-            p.black#oatsDef -Not Calculated-
-        div.mealfield.red
-            p.larger Total Milk Needed: 
-            p.black#milkTotalNeedTarg -Not Calculated-
-            p Milk Available:
-            p.black#milkAvailTarg= catData.Milk + ' Cups'
-            p Milk Deficit:
-            p.black#milkDef -Not Calculated-
-        div.mealfield.red
-            p.larger Total Yogurt Needed: 
-            p.black#yogurtTotalNeedTarg -Not Calculated-
-            p Yogurt Available:
-            p.black#yogurtAvailTarg= catData.Yogurt + ' Cups'
-            p Yogurt Deficit:
-            p.black#yogurtDef -Not Calculated-
-        div.mealfield.red
-            p.larger Total Granola Needed: 
-            p.black#granolaTotalNeedTarg -Not Calculated-
-            p Granola Available:
-            p.black#granolaAvailTarg= catData.Granola + ' Cups'
-            p Granola Deficit:
-            p.black#granolaDef -Not Calculated-
-        div.mealfield.red
-            p.larger Total Breakfast Drink Needed: 
-            p.black#bfastDrinkTotalNeedTarg -Not Calculated-
-            p Breakfast Drink Available:
-            p.black#bfastDrinkAvailTarg= catData.BreakfastDrink + ' Cups'
-            p Breakfast Drink Deficit:
-            p.black#bfastDrinkDef -Not Calculated-
-        div.mealfield.red
-            p.larger Total Beans Needed: 
-            p.black#beansTotalNeedTarg -Not Calculated-
-            p Beans Available:
-            p.black#beansAvailTarg= catData.Beans + ' Cups'
-            p Beans Deficit:
-            p.black#beansDef -Not Calculated-
-        div.mealfield.red
-            p.larger Total Pasta Needed: 
-            p.black#pastaTotalNeedTarg -Not Calculated-
-            p Pasta Available:
-            p.black#pastaAvailTarg= catData.Pasta + ' Cups'
-            p Pasta Deficit:
-            p.black#pastaDef -Not Calculated-
-        div.mealfield.red
-            p.larger Total Rice Needed: 
-            p.black#riceTotalNeedTarg -Not Calculated-
-            p Rice Available:
-            p.black#riceAvailTarg= catData.Rice + ' Cups'
-            p Rice Deficit:
-            p.black#riceDef -Not Calculated-
-        div.mealfield.red
-            p.larger Total Vegetable Needed: 
-            p.black#vegTotalNeedTarg -Not Calculated-
-            p Vegetable Available:
-            p.black#vegAvailTarg= catData.Vegetable + ' Cups'
-            p Vegetable Deficit:
-            p.black#vegDef -Not Calculated-
-        div.mealfield.red
-            p.larger Total Soup Needed: 
-            p.black#soupTotalNeedTarg -Not Calculated-
-            p Soup Available:
-            p.black#soupAvailTarg= catData.Soup + ' Cups'
-            p Soup Deficit:
-            p.black#soupDef -Not Calculated-
-        div.mealfield.red
-            p.larger Total Cracker Needed: 
-            p.black#crackerTotalNeedTarg -Not Calculated-
-            p Cracker Available:
-            p.black#crackerAvailTarg= catData.Cracker + ' Cups'
-            p Cracker Deficit:
-            p.black#crackerDef -Not Calculated-
-        div.mealfield.red
-            p.larger Total Entrée with Meat Needed: 
-            p.black#ewmTotalNeedTarg -Not Calculated-
-            p Entrée with Meat Available:
-            p.black#ewmAvailTarg= catData.EntreeWithMeat + ' Cups'
-            p Entrée with Meat Deficit:
-            p.black#ewmDef -Not Calculated-
-        div.mealfield.red
-            p.larger Total Entrée Without Meat: 
-            p.black#enmTotalNeedTarg -Not Calculated-
-            p Entrée Without Meat Available:
-            p.black#enmAvailTarg= catData.EntreeWithoutMeat + ' Cups'
-            p Entrée Without Meat Deficit:
-            p.black#enmDef -Not Calculated-
-        div.mealfield.red
-            p.larger Total Meat Only Needed: 
-            p.black#meatOnlyTotalNeedTarg -Not Calculated-
-            p Meat OnlyAvailable:
-            p.black#meatOnlyAvailTarg= catData.MeatOnly + ' Cups'
-            p Meat Only Deficit:
-            p.black#meatOnlyDef -Not Calculated-
-        div.mealfield.red
-            p.larger Total Potatoes Needed: 
-            p.black#potatoTotalNeedTarg -Not Calculated-
-            p Potatoes Available:
-            p.black#potatoAvailTarg= catData.Potato + ' Cups'
-            p Potatoes Deficit:
-            p.black#potatoDef -Not Calculated-
-        div.mealfield.red
-            p.larger Total Sauce/Gravy Needed: 
-            p.black#sauceGravyTotalNeedTarg -Not Calculated-
-            p Sauce and Gravy Available:
-            p.black#sauceGravyAvailTarg= catData.SauceGravy + ' Cups'
-            p Sauce and Gravy Deficit:
-            p.black#sauceGravyDef -Not Calculated-
+html(lang='en')
+	head
+		//- link(rel='stylesheet' type='text/css' href='https://meyerweb.com/eric/tools/css/reset/reset.css')
+		link(rel='stylesheet' type='text/css' href='/styles/style.css')
+		link(href='https://fonts.googleapis.com/css?family=Montserrat|Source+Sans+Pro|Roboto', rel='stylesheet')
+		title Garrett Drystore
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		meta(name='description' content='A Database for storing food goods')
+		meta(name='author' content='Evan Garrett')
+		meta(name='keywords' content='Database, Drystore, Evan, Garrett')
+		link(rel ='shortcut icon' href='/img/favicon.ico')
+	body
+		if user
+			div.header
+				div
+					button#trigger(src='/img/hamb.png' alt='Menu Icon')
+			div.headerDropDown#hdd
+				ul.headerUl
+					li.headerLi
+						form(action='/')
+							button.hov Home
+					li.headerLi  
+						form(action='/db/storeview')
+							button.hov View Drystore
+					li.headerLi
+						form(action='/db/add')
+							button.hov Add Item
+					li.headerLi
+						form(action='/insights/console')
+							button.hov Insights
+					li.headerLi
+						form(action='/notes')
+							button.hov Notes
+					li.headerLi
+						form(action='/users/confirmlogout')
+							button.hov Log Out
+
+
+		if !user
+			div.header
+				div
+					button#trigger(src='/img/hamb.png' alt='Menu Icon')
+			div.headerDropDown#hdd
+				ul.headerUl.shorter
+					li.headerLi
+						form(action='/')
+							button.hov Home
+					li.headerLi
+						form(action='/users/login')
+							button.hov Login
+	div.headBreaker
+	script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+include dropdownjs.pug
+		h1.heading.bigHead Insights
+		br
+		include insightsubmen.pug
+		br
+		br
+		p.heading <strong>Amount of People Considered:</strong>
+		input#people.peopleInput(value='6')
+		br
+		br
+		img.mealImg(src='/img/bfast.png')
+		div.fieldContainer
+			p.center.larger Breakfast Foods
+			div.fieldUnit 
+				div.foodfield.orange Eggs
+				div.foodfield.orange Oats
+				div.foodfield.orange Yogurt
+				div.foodfield.orange Granola
+				div.foodfield.orange Fruit
+				div.foodfield.orange Milk
+				div.foodfield.orange Breakfast Drink
+			p.center.larger Breakfast Meal Options
+			div.fieldUnit
+				div.mealfield.green
+					p.center.bold Meal One
+					ul.spaceAbove
+						li Eggs: 1/2 Cup
+						li Fruit: 1/2 Cup
+						li Frequency Eaten:
+						input#bmeal1(value='25%')
+						li Resulting Days Eaten:
+						input#bmeal1ResDay
+				div.mealfield.green
+					p.center.bold Meal Two
+					ul.spaceAbove
+						li Oats: 1/2 Cup
+						li Fruit: 1/4 Cup
+						li Frequency Eaten:
+						input#bmeal2(value='53%')
+						li Resulting Days Eaten:
+						input#bmeal2ResDay
+				div.mealfield.green
+					p.center.bold Meal Three
+					ul.spaceAbove
+						li Oats: 1/2 Cup
+						li Yogurt: 1/2 Cup
+						li Frequency Eaten:
+						input#bmeal3(value='1%')
+						li Resulting Days Eaten:
+						input#bmeal3ResDay
+				div.mealfield.green
+					p.center.bold Meal Four
+					ul.spaceAbove
+						li Granola: 1/2 Cup
+						li Milk: 1/2 Cup
+						li Frequency Eaten:
+						input#bmeal4(value='11%')
+						li Resulting Days Eaten:
+						input#bmeal4ResDay
+				div.mealfield.green
+					p.center.bold Meal Five
+					ul.spaceAbove
+						li Breakfast Drink: 1 Cup
+						li Frequency Eaten:
+						input#bmeal5(value='10%')
+						li Resulting Days Eaten:
+						input#bmeal5ResDay
+		img.mealImg(src='/img/lunch.png')
+		div.fieldContainer
+			p.center.larger Lunch Foods
+			div.fieldUnit 
+				div.foodfield.orange Beans
+				div.foodfield.orange Pasta
+				div.foodfield.orange Rice
+				div.foodfield.orange Vegetable
+				div.foodfield.orange Soup
+				div.foodfield.orange Cracker
+			p.center.larger Lunch Meal Options
+			div.fieldUnit
+				div.mealfield.green
+					p.center.bold Meal One
+					ul.spaceAbove
+						li Beans: 1/2 Cup
+						li Rice: 1/2 Cup
+						li Vegetable: 1/2 Cup
+						li Frequency Eaten:
+						input#lmeal1(value='60%')
+						li Resulting Days Eaten:
+						input#lmeal1ResDay
+				div.mealfield.green
+					p.center.bold Meal Two
+					ul.spaceAbove
+						li Beans: 1/2 Cup
+						li Pasta: 1/2 Cup
+						li Vegetable: 1/2 Cup
+						li Frequency Eaten:
+						input#lmeal2(value='10%')
+						li Resulting Days Eaten:
+						input#lmeal2ResDay
+				div.mealfield.green
+					p.center.bold Meal Three
+					ul.spaceAbove
+						li Soup: 1 Cup
+						li Cracker: 2 Cups
+						li Frequency Eaten:
+						input#lmeal3(value='30%')
+						li Resulting Days Eaten:
+						input#lmeal3ResDay
+		img.mealImg(src='/img/dinner.png')
+		div.fieldContainer
+			p.center.larger Dinner Foods
+			div.fieldUnit 
+				div.foodfield.orange Entrée with Meat
+				div.foodfield.orange Entrée without Meat
+				div.foodfield.orange Entrée?
+				div.foodfield.orange Meat Only
+				div.foodfield.orange Rice
+				div.foodfield.orange Pasta
+				div.foodfield.orange Potatoes
+				div.foodfield.orange Vegetable
+				div.foodfield.orange Sauce and Gravy
+			p.center.larger Dinner Meal Options
+			div.fieldUnit
+				div.mealfield.green
+					p.center.bold Meal One
+					ul.spaceAbove
+						li Entrée with meat: 1 Cup
+						li Vegetable: 1/2 Cup
+						li Frequency Eaten:
+						input#dmeal1(value='40%')
+						li Resulting Days Eaten:
+						input#dmeal1ResDay
+				div.mealfield.green
+					p.center.bold Meal Two
+					ul.spaceAbove
+						li Entrée Without Meat: 1 Cup
+						li Vegetable: 1/2 Cup
+						li Frequency Eaten:
+						input#dmeal2(value='20%')
+						li Resulting Days Eaten:
+						input#dmeal2ResDay
+				div.mealfield.green
+					p.center.bold Meal Three
+					ul.spaceAbove
+						li Meat Only: 3/4 Cup
+						li Rice: 1/2 Cup
+						li Vegetable: 1/2 Cup
+						li Sauce/Gravy: 1/4 Cup
+						li Frequency Eaten:
+						input#dmeal3(value='25%')
+						li Resulting Days Eaten:
+						input#dmeal3ResDay
+				div.mealfield.green
+					p.center.bold Meal Four
+					ul.spaceAbove
+						li Meat Only: 3/4 Cup
+						li Pasta: 1/2 Cup
+						li Vegetable: 1/2 Cup
+						li Sauce/Gravy: 1/4 Cup
+						li Frequency Eaten:
+						input#dmeal4(value='5%')
+						li Resulting Days Eaten:
+						input#dmeal4ResDay
+				div.mealfield.green#anchorresults
+					p.center.bold Meal Five
+					ul.spaceAbove
+						li Meat Only: 3/4 Cup
+						li Potatoes: 1/2 Cup
+						li Vegetable: 1/2 Cup
+						li Sauce/Gravy: 1/4 Cup
+						li Frequency Eaten:
+						input#dmeal5(value='10%')
+						li Resulting Days Eaten:
+						input#dmeal5ResDay
+		button#trig Calculate!
+		br
+		h1.bigHead.center Results
+		div.fieldCont
+			div.fieldUnit
+				div.mealfield.red
+					p.larger Total Eggs Needed: 
+					p.black#eggTotalNeedTarg -Not Calculated-
+					p Eggs Available:
+					p.black#eggAvailTarg= catData.Eggs + ' Cups'
+					p Eggs Deficit:
+					p.black#soupDef Not Calculated
+				div.mealfield.red
+					p.larger Total Fruit Needed: 
+					p.black#fruitTotalNeedTarg -Not Calculated-
+					p Fruit Available:
+					p.black#fruitAvailTarg= catData.Fruit + ' Cups'
+					p Fruit Deficit:
+					p.black#fruitDef -Not Calculated-
+				div.mealfield.red
+					p.larger Total Oats Needed: 
+					p.black#oatsTotalNeedTarg -Not Calculated-
+					p Oats Available:
+					p.black#oatsAvailTarg= catData.Oats + ' Cups'
+					p Oats Deficit:
+					p.black#oatsDef -Not Calculated-
+				div.mealfield.red
+					p.larger Total Milk Needed: 
+					p.black#milkTotalNeedTarg -Not Calculated-
+					p Milk Available:
+					p.black#milkAvailTarg= catData.Milk + ' Cups'
+					p Milk Deficit:
+					p.black#milkDef -Not Calculated-
+				div.mealfield.red
+					p.larger Total Yogurt Needed: 
+					p.black#yogurtTotalNeedTarg -Not Calculated-
+					p Yogurt Available:
+					p.black#yogurtAvailTarg= catData.Yogurt + ' Cups'
+					p Yogurt Deficit:
+					p.black#yogurtDef -Not Calculated-
+				div.mealfield.red
+					p.larger Total Granola Needed: 
+					p.black#granolaTotalNeedTarg -Not Calculated-
+					p Granola Available:
+					p.black#granolaAvailTarg= catData.Granola + ' Cups'
+					p Granola Deficit:
+					p.black#granolaDef -Not Calculated-
+				div.mealfield.red
+					p.larger Total Breakfast Drink Needed: 
+					p.black#bfastDrinkTotalNeedTarg -Not Calculated-
+					p Breakfast Drink Available:
+					p.black#bfastDrinkAvailTarg= catData.BreakfastDrink + ' Cups'
+					p Breakfast Drink Deficit:
+					p.black#bfastDrinkDef -Not Calculated-
+				div.mealfield.red
+					p.larger Total Beans Needed: 
+					p.black#beansTotalNeedTarg -Not Calculated-
+					p Beans Available:
+					p.black#beansAvailTarg= catData.Beans + ' Cups'
+					p Beans Deficit:
+					p.black#beansDef -Not Calculated-
+				div.mealfield.red
+					p.larger Total Pasta Needed: 
+					p.black#pastaTotalNeedTarg -Not Calculated-
+					p Pasta Available:
+					p.black#pastaAvailTarg= catData.Pasta + ' Cups'
+					p Pasta Deficit:
+					p.black#pastaDef -Not Calculated-
+				div.mealfield.red
+					p.larger Total Rice Needed: 
+					p.black#riceTotalNeedTarg -Not Calculated-
+					p Rice Available:
+					p.black#riceAvailTarg= catData.Rice + ' Cups'
+					p Rice Deficit:
+					p.black#riceDef -Not Calculated-
+				div.mealfield.red
+					p.larger Total Vegetable Needed: 
+					p.black#vegTotalNeedTarg -Not Calculated-
+					p Vegetable Available:
+					p.black#vegAvailTarg= catData.Vegetable + ' Cups'
+					p Vegetable Deficit:
+					p.black#vegDef -Not Calculated-
+				div.mealfield.red
+					p.larger Total Soup Needed: 
+					p.black#soupTotalNeedTarg -Not Calculated-
+					p Soup Available:
+					p.black#soupAvailTarg= catData.Soup + ' Cups'
+					p Soup Deficit:
+					p.black#soupDef -Not Calculated-
+				div.mealfield.red
+					p.larger Total Cracker Needed: 
+					p.black#crackerTotalNeedTarg -Not Calculated-
+					p Cracker Available:
+					p.black#crackerAvailTarg= catData.Cracker + ' Cups'
+					p Cracker Deficit:
+					p.black#crackerDef -Not Calculated-
+				div.mealfield.red
+					p.larger Total Entrée with Meat Needed: 
+					p.black#ewmTotalNeedTarg -Not Calculated-
+					p Entrée with Meat Available:
+					p.black#ewmAvailTarg= catData.EntreeWithMeat + ' Cups'
+					p Entrée with Meat Deficit:
+					p.black#ewmDef -Not Calculated-
+				div.mealfield.red
+					p.larger Total Entrée Without Meat: 
+					p.black#enmTotalNeedTarg -Not Calculated-
+					p Entrée Without Meat Available:
+					p.black#enmAvailTarg= catData.EntreeWithoutMeat + ' Cups'
+					p Entrée Without Meat Deficit:
+					p.black#enmDef -Not Calculated-
+				div.mealfield.red
+					p.larger Total Meat Only Needed: 
+					p.black#meatOnlyTotalNeedTarg -Not Calculated-
+					p Meat OnlyAvailable:
+					p.black#meatOnlyAvailTarg= catData.MeatOnly + ' Cups'
+					p Meat Only Deficit:
+					p.black#meatOnlyDef -Not Calculated-
+				div.mealfield.red
+					p.larger Total Potatoes Needed: 
+					p.black#potatoTotalNeedTarg -Not Calculated-
+					p Potatoes Available:
+					p.black#potatoAvailTarg= catData.Potato + ' Cups'
+					p Potatoes Deficit:
+					p.black#potatoDef -Not Calculated-
+				div.mealfield.red
+					p.larger Total Sauce/Gravy Needed: 
+					p.black#sauceGravyTotalNeedTarg -Not Calculated-
+					p Sauce and Gravy Available:
+					p.black#sauceGravyAvailTarg= catData.SauceGravy + ' Cups'
+					p Sauce and Gravy Deficit:
+					p.black#sauceGravyDef -Not Calculated-
+		div.fieldCont
+			div.fieldUnit
+				div.waterInfo
+					h1.larger.center.smallSpaceBelow Water Information
+					p Storing a large amount of dry food to be prepared in the future is predicated upon the assumption that sufficient water will be available to prepared the food.
+					br
+					|   It will also be necessary to provide water for the individuals to drink on top of eating their food.
+					|   Use this guide to determine if you have sufficient water to pull this off.
+					
+					h2.center.above.smallSpaceBelow How Much Water Is Needed?
+					p.center.blueFont calculated from food preparation needs
+					p.bigHead.center.greenFont#prepWaterNeeds= waterData.preparedSum - waterData.drySum + ' Cups'
+					p.larger.center.greenFont= ' + '
+					p.center.blueFont calculated from average person's daily water consumption 
+					p.bigHead.center.greenFont= 13.5 * 365 + ' cups'
+					p.center.greenFont per year per person
+					p.center.blueFont.bigHead x
+					input.centerAuto#waterInput.center
+					p.center.blueFont people
+					p.center.greenFont.bigHead#waterTarget
+
+
 
 script(src='/js/needcalc.js')
+script.
+	let populateWaterInfo = () => {
+	let waterInput = document.getElementById('waterInput');
+	let peopleInp = document.getElementById('people')
+	let waterTarget = document.getElementById('waterTarget');
+	let prepWaterNeeds = document.getElementById('prepWaterNeeds');
+
+	waterInput.value = peopleInp.value;
+	waterTarget.innerHTML = (parseInt(prepWaterNeeds.innerHTML) + (peopleInp.value * (13.5 *365))) + ' cups in total'
+
+	}
+
+	populateWaterInfo();
+	setInterval(populateWaterInfo,1000);

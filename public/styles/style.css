@@ -877,6 +877,33 @@ canvas {
     color:gray;
 }
 
+.greenFont {
+    color:green;
+    font-weight:bold;
+}
+
+.blueFont {
+    color:navy;
+
+}
+
+
+.waterInfo {
+    background-color:lightblue;
+    height:50em;
+    width:30em;
+    border-radius:20px;
+    padding:40px;
+}
+
+#waterInput {
+    width:2em;
+    height:2em;
+    border-radius:3px;
+    border:none;
+    background-color:#2558aa;
+    color:white;
+}
 
 @media screen and (max-width: 1150px) {
     .dsiManu {
@@ -1041,9 +1068,9 @@ canvas {
         margin:0 auto;
         margin-top:5px;
     }
-    
-    .shorterLetterSpace {
-        letter-spacing:-1px;  
+
+    * {
+        letter-spacing:-.5px;  
     }
 
     .muchShorterLetterSpace {

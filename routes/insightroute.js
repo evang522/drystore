@@ -4,7 +4,7 @@ let Item = require('../models/itemModel');
 let expressValidator = require('express-validator');
 const { check, validationResult } = require('express-validator/check');
 let produceCatData = require('../js/insightprocess');
-
+let produceWaterData = require('../js/waterProcess');
 //GET ROUTES
 router.get('/console', (req,res) => {
     if (req.isAuthenticated()) {
@@ -32,7 +32,7 @@ router.get('/breakdown', (req,res) => {
             let catData = produceCatData(items);
             res.render('insightBreakdown', {
                 items:items,
-                catData:catData
+                catData:catData,
             })
         }
     })
@@ -77,10 +77,12 @@ router.get('/categorylist', (req,res) => {
                     console.log(err);
                 } else {
                     let catData = produceCatData(items);
+                    let waterData = produceWaterData(items);
                     res.render('needcalc', {
                         items:items,
-                        catData:catData
-                    });
+                        catData:catData,
+                        waterData:waterData
+                    })
                 }
             })
     });
