@@ -127,6 +127,21 @@ app.post('/notes', (req,res) => {
     }
 });
 
+app.get('/notes/view_note/:id', (req,res) => {
+    if (req.isAuthenticated()) {
+    Note.findById({_id:req.params.id}, (err,notes) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.render('view_note', {
+                notes:notes
+                });
+            }
+        })
+    } else {
+        res.render('notauthenticated');
+    }
+})
 
 // DB Route
 app.use('/db', dbroute);

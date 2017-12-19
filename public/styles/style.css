@@ -87,6 +87,7 @@ body {
     list-style:none;
     padding-top:10px;
     margin-top:10px;
+    z-index:2;
 }
 
 .centerAuto {
@@ -805,7 +806,6 @@ canvas {
 
 .noteCont {
     position:relative;
-    z-index:-1;
     margin:0 !important;
     left: 50%;
     transform: translateX(-50%);
@@ -815,6 +815,10 @@ canvas {
     min-height:60%;
     border-radius:5px;
     margin-top:1em !important;
+}
+
+.noteCont a {
+    z-index:3;
 }
 
 .createNoteCont {
@@ -830,6 +834,7 @@ canvas {
     top:5em;
     display:none;
     overflow-y:auto;
+    z-index:2;
 }
 
 .noteEntry {
@@ -854,7 +859,6 @@ canvas {
     padding:10px;
     margin-top:10px;
 }
-
 
 .noteField {
     border-bottom:1px solid gray;
@@ -887,6 +891,29 @@ canvas {
 
 }
 
+
+.viewNoteSubject {
+    background-color:white;
+    height:2.5em;
+    width:20em;
+    margin:auto;
+    padding:10px;
+    text-align:center;
+    border-radius:10px;
+
+}
+
+
+.viewNoteBody {
+    background-color:white;
+    height:60%;
+    width:75%;
+    margin:auto;
+    padding:10px;
+    text-align:center;
+    border-radius:10px;
+
+}
 
 .waterInfo {
     background-color:lightblue;
@@ -936,6 +963,10 @@ canvas {
     }
     .dsiQUant {
         width:11.5em;
+    }
+
+    * {
+        letter-spacing:-.5px;  
     }
 }
 
@@ -1090,9 +1121,6 @@ canvas {
         margin-top:5px;
     }
 
-    * {
-        letter-spacing:-.5px;  
-    }
 
     .muchShorterLetterSpace {
         letter-spacing:-2px;

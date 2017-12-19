@@ -7,18 +7,17 @@ main(role='main')
     div.createNoteCont#CNC
         h1.larger.smallSpaceAbove.smallSpaceBelow.center Create Note
         form(action='/notes' method='POST')
-            input.noteEntry(placeholder = 'Subject...' name='subject')
-            textarea.notebody(placeholder= 'Body...' name='body')
+            input.noteEntry(placeholder = 'Subject...' name='subject' required)
+            textarea.notebody(placeholder= 'Body...' name='body' required)
             br
             button(type='submit').generalButton.backTo Create Note
         button.generalButton.smallspaceBelow.wideButton#cancel Cancel
     div.noteCont.above
         each note, k in notes
             div.noteField
-                p.bold= note.subject
+                a.bold(href='/notes/view_note/' + note.id, bold)= note.subject
                 br
                 p.restrictOneLine.smaller.gray= note.body
-
 
 
 

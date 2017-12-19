@@ -1,1 +1,8 @@
 include headmenu.pug
+header
+    h1.bigHead.center View Note
+main.above
+    div.viewNoteSubject= notes.subject
+    div.above.viewNoteBody= notes.body
+form.above(action='/notes')
+    button.space.generalButton(type='submit') Back to Notes    
