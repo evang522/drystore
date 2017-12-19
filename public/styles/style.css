@@ -890,7 +890,7 @@ canvas {
 
 .waterInfo {
     background-color:lightblue;
-    height:50em;
+    height:41em;
     width:30em;
     border-radius:20px;
     padding:40px;
@@ -903,6 +903,27 @@ canvas {
     border:none;
     background-color:#2558aa;
     color:white;
+}
+
+.hoverLinkCont {
+    background-color:#61967c;
+    margin:5px;
+    position:fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    padding:10px;
+    border-radius:10px;
+    top:1em;
+    z-index:1;
+}
+
+.hoverLink:link, .hoverlink:visited {
+    color:white;
+    text-decoration:none;
+}
+
+.hoverLink {
+    margin:5px;
 }
 
 @media screen and (max-width: 1150px) {

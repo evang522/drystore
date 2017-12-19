@@ -6,11 +6,13 @@ br
 div.addItemForm
     form.addItem(action='/db/edit_item/'+ item.id, method='POST')
         label(for='name') Name of Item:
+        br
         input#name(name='name' value=item.name)
         br
         br
         br
         label(for='manufacturer') Manufacturer
+        br
         input#manufacturer(name='manufacturer', value=item.manufacturer)
         br
         br
@@ -70,10 +72,12 @@ div.addItemForm
         br
         br
         label(for='unpreparedserving') Dry Serving Size (Cups)
+        br
         input#unpreparedserving(name='unpreparedserving' value=item.unpreparedserving)
         br
         br
         label(for='preparedserving') Prepared Serving Size
+        br
         input#preparedserving(name='preparedserving' value=item.preparedserving)
         br
         br
