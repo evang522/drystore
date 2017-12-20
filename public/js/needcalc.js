@@ -230,11 +230,70 @@ beansFieldNeed.innerHTML = totalBeans;
 // entreeFieldNeed.innerHTML = totalEntree;
 vegFieldNeed.innerHTML = totalVeg;
 enmFieldNeed.innerHTML = totalenm;
-eggFieldNeed.innerHTML = totalEggs;
-fruitFieldNeed.innerHTML = totalFruit;
-soupFieldNeed.innerHTML = totalSoup;
 granolaFieldNeed.innerHTML = totalGranola;
 milkFieldNeed.innerHTML = totalMilk;
+
+
+
+
+let eggAvailTar = gebi('eggAvailTarg')
+let fruitAvailTar = gebi('fruitAvailTarg')
+let oatsAvailTar = gebi('oatsAvailTarg')
+let milkAvailTar = gebi('milkAvailTarg')
+let yogurtAvailTar = gebi('yogurtAvailTarg')
+let granolaAvailTar = gebi('granolaAvailTarg')
+let bfastDrinkAvailTar = gebi('bfastDrinkAvailTarg')
+let beansAvailTar = gebi('beansAvailTarg')
+let pastaAvailTar = gebi('pastaAvailTarg')
+let riceAvailTar = gebi('riceAvailTarg')
+let vegAvailTar = gebi('vegAvailTarg')
+let soupAvailTar = gebi('soupAvailTarg')
+let crackerAvailTar = gebi('crackerAvailTarg')
+let ewmAvailTar = gebi('ewmAvailTarg')
+let enmAvailTar = gebi('enmAvailTarg')
+let meatOnlyAvailTar = gebi('meatOnlyAvailTarg')
+let potatoAvailTar = gebi('potatoAvailTarg')
+let sauceGravyAvailTar = gebi('sauceGravyAvailTarg')
+
+let eggDef = gebi('eggDef')
+let fruitDef = gebi('fruitDef')
+let oatsDef = gebi('oatsDef')
+let milkDef = gebi('milkDef')
+let yogurtDef = gebi('yogurtDef')
+let granolaDef = gebi('granolaDef')
+let bfastDrinkDef = gebi('bfastDrinkDef')
+let beansDef = gebi('beansDef')
+let pastaDef = gebi('pastaDef')
+let riceDef = gebi('riceDef')
+let vegetableDef = gebi('vegetableDef')
+let soupDef = gebi('soupDef')
+let crackerDef = gebi('crackerDef')
+let ewmDef = gebi('ewmDef')
+let enmDef = gebi('enmDef')
+let meatOnlyDef = gebi('meatOnlyDef')
+let potatoDef = gebi('potatoDef')
+let sauceGravyDef = gebi('sauceGravyDef')
+
+
+
+eggDef.innerHTML = (parseFloat(eggFieldNeed.innerHTML)   - parseFloat(eggAvailTar.innerHTML)).toFixed(2) + ' Cups'
+fruitDef.innerHTML =  (parseFloat(fruitFieldNeed.innerHTML) - parseFloat(fruitAvailTar.innerHTML)).toFixed(2) + ' Cups'   
+oatsDef.innerHTML = (parseFloat(oatsFieldNeed.innerHTML)  - parseFloat(oatsAvailTar.innerHTML)).toFixed(2) + ' Cups'   
+milkDef.innerHTML = (parseFloat(milkFieldNeed.innerHTML)  - parseFloat(milkAvailTar.innerHTML)).toFixed(2) + ' Cups'   
+yogurtDef.innerHTML =   (parseFloat(yogurtFieldNeed.innerHTML) - parseFloat(yogurtAvailTar.innerHTML)).toFixed(2) + ' Cups' 
+granolaDef.innerHTML =     (parseFloat(granolaFieldNeed.innerHTML) - parseFloat(granolaAvailTar.innerHTML)).toFixed(2) + ' Cups'   
+bfastDrinkDef.innerHTML =       (parseFloat(breakfastDrinkFieldNeed.innerHTML) - parseFloat(bfastDrinkAvailTar.innerHTML)).toFixed(2) + ' Cups'       
+beansDef.innerHTML =  (parseFloat(beansFieldNeed.innerHTML) - parseFloat(beansAvailTar.innerHTML)).toFixed(2) + ' Cups'     
+pastaDef.innerHTML =  (parseFloat(pastaFieldNeed.innerHTML) - parseFloat(pastaAvailTar.innerHTML)).toFixed(2) + ' Cups'    
+riceDef.innerHTML = (parseFloat(riceFieldNeed.innerHTML)  - parseFloat(riceAvailTar.innerHTML)).toFixed(2) + ' Cups'       
+vegDef.innerHTML =      (parseFloat(vegFieldNeed.innerHTML) - parseFloat(vegAvailTar.innerHTML)).toFixed(2) + ' Cups'         
+soupDef.innerHTML = (parseFloat(soupFieldNeed.innerHTML)  - parseFloat(soupAvailTar.innerHTML)).toFixed(2) + ' Cups'     
+crackerDef.innerHTML =    (parseFloat(crackerFieldNeed.innerHTML) - parseFloat(crackerAvailTar.innerHTML)).toFixed(2) + ' Cups' 
+ewmDef.innerHTML = (parseFloat(ewmFieldNeed.innerHTML)  - parseFloat(ewmAvailTar.innerHTML)).toFixed(2) + ' Cups'   
+enmDef.innerHTML = (parseFloat(enmFieldNeed.innerHTML) - parseFloat(enmAvailTar.innerHTML)).toFixed(2) + ' Cups'   
+meatOnlyDef.innerHTML = (parseFloat(meatOnlyFieldNeed.innerHTML) - parseFloat(meatOnlyAvailTar.innerHTML)).toFixed(2) + ' Cups'   
+potatoDef.innerHTML =   (parseFloat(potatoFieldNeed.innerHTML)  - parseFloat(potatoAvailTar.innerHTML)).toFixed(2) + ' Cups'    
+sauceGravyDef.innerHTML =       (parseFloat(sauceGravyFieldNeed.innerHTML) - parseFloat(sauceGravyAvailTar.innerHTML)).toFixed(2) + ' Cups'
 
 }
 
@@ -290,8 +349,10 @@ dmeal2ResDay.value = (dmeal2Perc * 365).toFixed(1);
 dmeal3ResDay.value = (dmeal3Perc * 365).toFixed(1);
 dmeal4ResDay.value = (dmeal4Perc * 365).toFixed(1);
 dmeal5ResDay.value = (dmeal5Perc * 365).toFixed(1);
-}
 
+
+
+}
 
 // Event Triggers
 calculateDays();
