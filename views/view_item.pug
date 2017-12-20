@@ -1,7 +1,7 @@
 include headmenu.pug
 h1.heading.larger.muchShorterLetterSpace Item Details
 br
-p.heading #{item.name} | #{item.manufacturer} -- id: #{item._id}
+p.heading.bold #{item.name} | #{item.manufacturer} -- id: #{item._id}
 br
 div.itemInfoCont
     div.itemInfoUnit
@@ -48,11 +48,10 @@ div.itemInfoCont
             h3 Additional Details:
             p #{item.info}
 br
-div.change
+div.change.space
     form(action='/db/edit_item/' + item.id)
         button.generalButton#edit.space(action='submit') Edit Item
     form(action='/db/storeview/')
         button.generalButton.backTo.space(action='submit') Back to Drystore
     form(action='/db/view_item/confirm/' + item.id, method='POST')
         button.generalButton#warning.space(action='submit') Remove Item
-br

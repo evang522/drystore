@@ -37,8 +37,8 @@ div.addItemForm
         br
         p Item Category:
         br
-        select(name='category' required)
-            option(disabled selected value='')
+        select(name='category')
+            option(selected value=item.category)= 'Current Value: ' + item.category
             option(value='Soup') Soup
             option(value='Entree') Entree
             option(value='Entree with Meat') Entree with Meat

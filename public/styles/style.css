@@ -368,6 +368,12 @@ hr {
 .leftSpace {
     padding-left:5px;
 }
+
+.rightSpace {
+    margin-left:5px;
+}
+
+
 .dryStoreItem {
     
     background-color:white;
