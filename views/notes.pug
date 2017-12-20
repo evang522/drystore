@@ -1,4 +1,6 @@
 include headmenu.pug
+if success
+    p.successFlash
 h1.center.bigHead Notes
 h3.center A place to stash your plans, ideas, and other relevant information.
 br
@@ -15,9 +17,9 @@ main(role='main')
     div.noteCont.above
         each note, k in notes
             div.noteField
-                a.bold(href='/notes/view_note/' + note.id, bold)= note.subject
+                a.bold(href='/notes/view_note/' + note.id,)= note.subject
                 br
-                p.restrictOneLine.smaller.gray= note.body
+                p.smallSpaceAbove.restrictOneLine.smaller.gray= note.body
 
 
 

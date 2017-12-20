@@ -1,6 +1,5 @@
 include headmenu.pug
-h1.heading.larger Login to GDB
-br
+h1.heading.bigHead Login
 br
 p.heading(style='color:green') #{success}
 br
@@ -8,11 +7,11 @@ if !user
 	div.login
 		form(action='/users/login', method='POST')
 			p Email: &nbsp
-			input(name='username' required)
+			input.leftSpace(name='username' required)
 			br
 			br
 			p Password: &nbsp
-			input(name='password'  type='password' required)
+			input.leftSpace(name='password'  type='password' required)
 			br
 			br
 			button.generalButton(action='submit') Log in

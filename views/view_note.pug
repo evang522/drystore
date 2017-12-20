@@ -5,4 +5,6 @@ main.above
     div.viewNoteSubject= notes.subject
     div.above.viewNoteBody= notes.body
 form.above(action='/notes')
-    button.space.generalButton(type='submit') Back to Notes    
+    button.space.generalButton(type='submit') Back to Notes
+form(action='/notes/delete/' + notes.id, method='POST')
+    button.generalButton.orange(type='submit') Delete Note

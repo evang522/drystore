@@ -117,9 +117,7 @@ app.post('/notes', (req,res) => {
                 if(err) {
                     console.log(err);
                 } else {
-                    res.render('notes', {
-                        notes:notes
-                    });
+                    res.redirect('/notes');
                 } 
             })
         }
@@ -134,7 +132,8 @@ app.get('/notes/view_note/:id', (req,res) => {
             console.log(err);
         } else {
             res.render('view_note', {
-                notes:notes
+                notes:notes,
+                success:'Item Removed'
                 });
             }
         })
@@ -142,6 +141,30 @@ app.get('/notes/view_note/:id', (req,res) => {
         res.render('notauthenticated');
     }
 })
+
+
+// Delete note Route
+app.post('/notes/delete/:id', (req,res) => {
+    Note.findByIdAndRemove({_id:req.params.id}, (err) => {
+        if(err) {
+            console.log(err);
+            } else {
+                Note.find({}, (err,notes) => {
+                    if(err) {
+                        console.log(err)
+                    } else {
+                        res.render('notes', {
+                            notes:notes
+                        })
+                    }
+                }
+            )
+        }    
+    })
+});
+
+
+
 
 // DB Route
 app.use('/db', dbroute);

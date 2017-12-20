@@ -4,6 +4,7 @@
     /* font-family: 'Roboto', sans-serif; */
     font-family: 'Source Sans Pro', sans-serif;
     font-size:1.02em;
+    font-weight:normal;
     box-sizing:border-box;
 }
 
@@ -363,6 +364,10 @@ hr {
     list-style:none;
 }
 
+
+.leftSpace {
+    padding-left:5px;
+}
 .dryStoreItem {
     
     background-color:white;
@@ -442,9 +447,21 @@ canvas {
 
 .larger {
     font-size:1.5em;
+    letter-spacing:-1;
+}
+
+* {
+    letter-spacing:-.5;
 }
 
 
+.hoverLink {
+    background-color:olive;
+    padding:3px;
+    border-radius:10px;
+    padding-left:8px;
+    padding-right:8px;
+}
 /* Flash messaging */
 
 .errFlash {
@@ -748,7 +765,10 @@ canvas {
 
 .bigHead {
     font-size:2em;
+    letter-spacing:-1.5;
 }
+
+
 
 .change {
     display:flex;
@@ -835,12 +855,13 @@ canvas {
     display:none;
     overflow-y:auto;
     z-index:2;
+    font-size:.8em;
 }
 
 .noteEntry {
     background-color:white;
     width:90%;
-    height:10%;
+    height:2em;
     display:block;
     margin:auto;
     border:1px solid black;
@@ -849,8 +870,8 @@ canvas {
 }
 
 .noteBody {
-    height:12em;
-    width:80%;
+    height:55%;
+    width:90%;
     margin:auto;
     display:block;
     border:1px solid gray;
@@ -858,6 +879,7 @@ canvas {
     border-radius:4px;
     padding:10px;
     margin-top:10px;
+    overflow-x:hidden;
 }
 
 .noteField {
@@ -868,6 +890,9 @@ canvas {
     border-radius:2px;
 }
 
+.notefield a:link,a:visited{
+    color:black;
+}
 .smaller {
     font-size:.9em;
 }
@@ -940,7 +965,9 @@ canvas {
     transform: translateX(-50%);
     padding:10px;
     border-radius:10px;
-    top:1em;
+    top:0em;
+    width:14.5em;
+    text-align:center;
     z-index:1;
 }
 
@@ -965,9 +992,7 @@ canvas {
         width:11.5em;
     }
 
-    * {
-        letter-spacing:-.5px;  
-    }
+
 }
 
 
@@ -1124,6 +1149,11 @@ canvas {
 
     .muchShorterLetterSpace {
         letter-spacing:-2px;
+    }
+
+    .waterInfo {
+        background-color:lightblue;
+        height:50em;
     }
     
 }
