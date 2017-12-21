@@ -183,5 +183,5 @@ app.get('*', (req,res) => {
 
 
 // Start Server 
-app.listen(443);
-console.log('Now listening on Port 443!');
+app.listen(80);
+console.log('Now listening on Port 80!');
