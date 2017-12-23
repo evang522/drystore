@@ -35,7 +35,7 @@ let Item = require('./models/itemModel');
 let User = require('./models/userModel');
 let Note = require('./models/noteModel');
 
-// Set View Engine 
+// Set View Engine
 app.set('view engine', 'pug');
 app.set('views', './views');
 
@@ -64,7 +64,7 @@ app.use(expressValidator({
         var namespace = param.split('.')
         , root    = namespace.shift()
         , formParam = root;
-  
+
       while(namespace.length) {
         formParam += '[' + namespace.shift() + ']';
       }
@@ -80,7 +80,7 @@ app.use(expressValidator({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//Global Variables 
+//Global Variables
 app.use((req,res,next) => {
     res.locals.user = req.user || null;
     next();
@@ -93,7 +93,7 @@ app.get('/', (req,res) => {
     Item.find({}, (err,items)=> {
         if(err) {
             console.log(err);
-        } else { 
+        } else {
             res.render('home.pug', {
                 items:items
             });
@@ -112,7 +112,7 @@ app.get('/notes', (req,res) => {
                 res.render('notes', {
                     notes:notes
                 });
-            } 
+            }
         })
      } else {
         res.render('notauthenticated');
@@ -137,7 +137,7 @@ app.post('/notes', (req,res) => {
                     console.log(err);
                 } else {
                     res.redirect('/notes');
-                } 
+                }
             })
         }
     })
@@ -178,7 +178,7 @@ app.post('/notes/delete/:id', (req,res) => {
                     }
                 }
             )
-        }    
+        }
     })
 });
 
@@ -201,6 +201,6 @@ app.get('*', (req,res) => {
 
 
 
-// Start Server 
-//app.listen(80);
-//console.log('Now listening on Port 80!');
+// Start Server
+// app.listen(80);
+// console.log('Now listening on Port 80!');

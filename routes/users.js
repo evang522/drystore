@@ -4,7 +4,7 @@ let User = require('../models/userModel');
 let LocalStrategy = require('passport-local').Strategy;
 let passport = require('passport');
 
-// GET Routes 
+// GET Routes
 router.get('/login', (req,res) => {
         res.render('login');
     }
@@ -20,11 +20,7 @@ router.get('/loginerror', (req,res) => {
 
 
 router.get('/register', (req,res) => {
-	if (req.isAuthenticated()) {
 	res.render('register');
-	} else {
-		res.render('notauthenticated');
-	}
 });
 
 router.get('/confirmlogout', (req,res) => {
@@ -38,7 +34,6 @@ router.get('/confirmlogout', (req,res) => {
 // POST Routes
 
 router.post('/register', (req,res) => {
-	if (req.isAuthenticated) {
 	let name = req.body.name;
 	let email = req.body.email;
 	let password = req.body.password;
@@ -50,7 +45,7 @@ router.post('/register', (req,res) => {
 	req.checkBody('email', 'Please enter a valid email address').isEmail();
 	req.checkBody('password', 'Password is required').notEmpty();
 	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
-	
+
 	let errors = req.validationErrors();
 
 
@@ -75,9 +70,6 @@ router.post('/register', (req,res) => {
 	});
 
 	}
-} else {
-	res.render('notauthenticated');
-}
 });
 
 
@@ -104,7 +96,7 @@ passport.use(new LocalStrategy(
 passport.serializeUser(function(user, done) {
 	done(null, user.id);
   });
-  
+
   passport.deserializeUser(function(id, done) {
 	User.getUserById(id, function(err, user) {
 	  done(err, user);
@@ -118,13 +110,13 @@ passport.serializeUser(function(user, done) {
 	res.render('/');
   //   res.redirect('/users/' + req.user.username);
   });
-  
-  
+
+
   router.get('/logout', (req,res) => {
 	 	req.logout();
 		res.render('logout');
   });
-      
-  
+
+
 
 module.exports = router;

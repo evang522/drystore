@@ -102,7 +102,7 @@ body {
     padding-left:0;
     box-sizing:border-box;
     color:white;
-    height:2.5em;   
+    height:2.5em;
 }
 
 .headerLi button {
@@ -176,7 +176,7 @@ body {
     font-size:1.1em;
     display:block;
     margin:0 auto;
-    background-color:#4D8C6D;  
+    background-color:#4D8C6D;
     color:white;
     /* box-shadow: 1px 1px #b6b8ba; */
     border-radius:4px;
@@ -324,13 +324,13 @@ hr {
    font-size:1.2em;
    text-align:center;
    background-color:white;
-    
+
 }
 
 .addItem  select{
     font-size:1.2em;
     text-align:center;
-     
+
  }
 
  .addItem  textarea{
@@ -345,7 +345,7 @@ hr {
     background-color:#5f7a89;
     margin-bottom:0;
 }
- 
+
 .input {
     display:block;
     margin:0 auto;
@@ -375,13 +375,13 @@ hr {
 
 
 .dryStoreItem {
-    
+
     background-color:white;
     display:block;
-    border:none; 
+    border:none;
     font-size:.8em;
     box-sizing:border-box;
-    margin-left:auto; 
+    margin-left:auto;
     margin-right:auto;
     height:2.4em;
     width:10em;
@@ -441,7 +441,7 @@ canvas {
 
 .dsiButt {
     background-color:gray;
-    border-bottom-right-radius:1em;    
+    border-bottom-right-radius:1em;
     margin:0;
 }
 .dryStoreItem button {
@@ -609,7 +609,7 @@ canvas {
     border-radius:10px;
     text-align:center;
     background-color:#efa986;
-    
+
 }
 
 .field ul {
@@ -672,7 +672,7 @@ canvas {
     display:flex;
     flex-direction:row;
     justify-content:center;
-    
+
 }
 .itemInfo {
     padding:1.8em;
@@ -832,7 +832,7 @@ canvas {
 
 .noteCont {
     position:relative;
-    margin:0 !important;
+    margin:0;
     left: 50%;
     transform: translateX(-50%);
     display:block;
@@ -841,6 +841,7 @@ canvas {
     min-height:60%;
     border-radius:5px;
     margin-top:1em !important;
+    margin-bottom:1em;
 }
 
 .noteCont a {
@@ -986,6 +987,10 @@ canvas {
     margin:5px;
 }
 
+.left {
+  margin-left:5px;
+}
+
 @media screen and (max-width: 1150px) {
     .dsiManu {
         display:none;
@@ -1042,22 +1047,6 @@ canvas {
         height:10em;
     }
 
-    .createNoteCont {
-        width:18em;
-        height:25em;
-    }
-
-    .createNoteCont h1 {
-        font-size:1.1em;
-    }
-
-    .createNoteCont input {
-        height:2em;
-    }
-
-    .notebody {
-        height:10em
-    }
 
 
 }
@@ -1150,6 +1139,7 @@ canvas {
         width:80%;
         margin:0 auto;
         margin-top:5px;
+        min-height:8em;
     }
 
 
@@ -1161,7 +1151,26 @@ canvas {
         background-color:lightblue;
         height:50em;
     }
-    
+
+    .createNoteCont {
+        width:22em;
+        height:28em;
+    }
+
+    .createNoteCont button {
+        width:7em;
+        height:2em;
+    }
+
+    .createNoteCont input {
+        height:2em;
+    }
+
+    .notebody {
+        height:11em
+    }
+
+
 }
 
 
