@@ -10,6 +10,25 @@ let session = require('express-session');
 let passport = require('passport');
 let expressValidator = require('express-validator');
 let insightroute = require('./routes/insightroute')
+let fs = require('fs');
+let https = require('https');
+let sslPath = '/etc/letsencrypt/live/drystore.haus.world/';
+
+let http = require('http');
+http.createServer(app).listen(80);
+let forceSsl = require('express-force-ssl');
+
+
+app.use(forceSsl);
+
+
+let options = {
+key:fs.readFileSync(sslPath + 'privkey.pem'),
+cert: fs.readFileSync(sslPath + 'fullchain.pem')
+}
+
+https.createServer(options,app).listen(443);
+
 
 // Bring in Models for queries
 let Item = require('./models/itemModel');
@@ -183,5 +202,5 @@ app.get('*', (req,res) => {
 
 
 // Start Server 
-app.listen(80);
-console.log('Now listening on Port 80!');
+//app.listen(80);
+//console.log('Now listening on Port 80!');
