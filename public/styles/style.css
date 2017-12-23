@@ -28,8 +28,19 @@ body {
 .above {
     margin-top:2em !important;
 }
+.contain {
+  width:70%;
+}
+
+.bold {
+  font-weight:bold;
+}
 
 
+.packImage {
+  width:210;
+  height:140;
+}
 .header {
     height:3em;
     /* background-color:#1b3b51; */

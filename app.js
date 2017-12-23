@@ -183,6 +183,10 @@ app.post('/notes/delete/:id', (req,res) => {
 });
 
 
+app.get('/about', (req,res) => {
+  res.render('about');
+})
+
 
 
 // DB Route
