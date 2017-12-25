@@ -51,7 +51,7 @@ html(lang='en')
 		include insightsubmen.pug
 		br
 		br
-		#chartContainer(style='height: 300px; width: 100%;')
+		//- #chartContainer(style='height: 300px; width: 100%;')
 		br
 		h1.heading.space Breakdown: Total Prepared Food Available per Category (in Cups)
 		br
@@ -90,16 +90,14 @@ html(lang='en')
 					div.breakDownDiv#Granola
 				a(href='/insights/categorylist?search=Milk')
 					div.breakDownDiv#Milk
-				a(href='/insights/categorylist?search=Oatmeal')
-					div.breakDownDiv#Oatmeal
+				a(href='/insights/categorylist?search=Oats')
+					div.breakDownDiv#Oats
 				a(href='/insights/categorylist?search=Yogurt')
 					div.breakDownDiv#Yogurt
 				a(href='/insights/categorylist?search=Fruit')
 					div.breakDownDiv#Fruit
-				a(href='/insights/categorylist?search=Gravy')
-					div.breakDownDiv#Gravy
-				a(href='/insights/categorylist?search=Sauce')
-					div.breakDownDiv#Sauce
+				a(href='/insights/categorylist?search=SauceGravy')
+					div.breakDownDiv#SauceGravy
 				a(href='/insights/categorylist?search=Dessert')
 					div.breakDownDiv#Dessert
 				a(href='/insights/categorylist?search=Spice')
@@ -109,72 +107,73 @@ html(lang='en')
 		br
 		input#getDat(type='hidden' value=catData)
 	script.
-		let getDat = document.getElementById('getDat').value;
-		let newDat = (JSON.parse(getDat));
-		let totalQuant = 0;
-		let r;
-		for (r in newDat) {
-			totalQuant += parseInt(newDat[r]);
-		}
+		//- let getDat = document.getElementById('getDat').value;
+		//- let newDat = (JSON.parse(getDat));
+		//- let totalQuant = 0;
+		//- let r;
+		//- for (r in newDat) {
+		//- 	totalQuant += parseInt(newDat[r]);
+		//- }
 
-		let divi = 100/totalQuant;
+		//- let divi = 100/totalQuant;
 		
-		let percentize = (value) => {
-			let mittel = value*divi
-			return mittel.toFixed(2)
-		}
-		window.onload = function() {
+		//- let percentize = (value) => {
+		//- 	let mittel = value*divi
+		//- 	return mittel.toFixed(2)
+		//- }
+		      
+		//- window.onload = function() {
 
-		var chart = new CanvasJS.Chart("chartContainer", {
-			theme: "light2", // "light1", "light2", "dark1", "dark2"
-			exportEnabled: true,
-			animationEnabled: true,
-			title: {
-				text: "Drystore Renderable Contents"
-			},
-			data: [{
-				type: "pie",
-				startAngle: 25,
-				toolTipContent: "<b>{label}</b>: {y}%",
-				showInLegend: "true",
-				legendText: "{label}",
-				indexLabelFontSize: 16,
-				indexLabel: "{label} - {y}%",
-				dataPoints: [
-					{ y: percentize(newDat.Beans), label: "Beans" },
-					{ y: percentize(newDat.BreakfastDrink), label: "Breakfast Drink" },
-					{ y: percentize(newDat.BreakfastMeal), label: "Breakfast Meals" },
-					{ y: percentize(newDat.Soup), label: "Soup" },
-					{ y: percentize(newDat.BreakfastMeal), label: "Breakfast Meals" },
-					{ y: percentize(newDat.BreakfastMeat), label: "Breakfast Meat" },
-					{ y: percentize(newDat.Cracker), label: "Crackers" },
-					{ y: percentize(newDat.Dessert), label: "Dessert" },
-					{ y: percentize(newDat.Drink), label: "Drink" },
-					{ y: percentize(newDat.Eggs), label: "Eggs" },
-					{ y: percentize(newDat.Entree), label: "Entree" },
-					{ y: percentize(newDat.EntreeWithMeat), label: "Entrees With Meat" },
-					{ y: percentize(newDat.Fruit), label: "Fruit" },				
-					{ y: percentize(newDat.Granola), label: "Granola" },
-					{ y: percentize(newDat.Gravy), label: "Gravy" },
-					{ y: percentize(newDat.MeatOnly), label: "Meat Only" },
-					{ y: percentize(newDat.Milk), label: "Milk" },
-					{ y: percentize(newDat.Oatmeal), label: "Oatmeal" },
-					{ y: percentize(newDat.Pasta), label: "Pasta" },
-					{ y: percentize(newDat.Potato), label: "Potato" },
-					{ y: percentize(newDat.Rice), label: "Rice" },
-					{ y: percentize(newDat.Sauce), label: "Sauce" },
-					{ y: percentize(newDat.Spice), label: "Spice" },
-					{ y: percentize(newDat.Vegetable), label: "Vegetable" },
-					{ y: percentize(newDat.Yogurt), label: "Yogurt" },
-					{ y: 0, label: "Others" }
-				]
-			}]
-		});
-		chart.render();
+		//- var chart = new CanvasJS.Chart("chartContainer", {
+		//- 	theme: "light2", // "light1", "light2", "dark1", "dark2"
+		//- 	exportEnabled: true,
+		//- 	animationEnabled: true,
+		//- 	title: {
+		//- 		text: "Drystore Renderable Contents"
+		//- 	},
+		//- 	data: [{
+		//- 		type: "pie",
+		//- 		startAngle: 25,
+		//- 		toolTipContent: "<b>{label}</b>: {y}%",
+		//- 		showInLegend: "true",
+		//- 		legendText: "{label}",
+		//- 		indexLabelFontSize: 16,
+		//- 		indexLabel: "{label} - {y}%",
+		//- 		dataPoints: [
+		//- 			{ y: percentize(newDat.Beans), label: "Beans" },
+		//- 			{ y: percentize(newDat.BreakfastDrink), label: "Breakfast Drink" },
+		//- 			{ y: percentize(newDat.BreakfastMeal), label: "Breakfast Meals" },
+		//- 			{ y: percentize(newDat.Soup), label: "Soup" },
+		//- 			{ y: percentize(newDat.BreakfastMeal), label: "Breakfast Meals" },
+		//- 			{ y: percentize(newDat.BreakfastMeat), label: "Breakfast Meat" },
+		//- 			{ y: percentize(newDat.Cracker), label: "Crackers" },
+		//- 			{ y: percentize(newDat.Dessert), label: "Dessert" },
+		//- 			{ y: percentize(newDat.Drink), label: "Drink" },
+		//- 			{ y: percentize(newDat.Eggs), label: "Eggs" },
+		//- 			{ y: percentize(newDat.Entree), label: "Entree" },
+		//- 			{ y: percentize(newDat.EntreeWithMeat), label: "Entrees With Meat" },
+		//- 			{ y: percentize(newDat.Fruit), label: "Fruit" },				
+		//- 			{ y: percentize(newDat.Granola), label: "Granola" },
+		//- 			{ y: percentize(newDat.Gravy), label: "Gravy" },
+		//- 			{ y: percentize(newDat.MeatOnly), label: "Meat Only" },
+		//- 			{ y: percentize(newDat.Milk), label: "Milk" },
+		//- 			{ y: percentize(newDat.Oats), label: "Oats" },
+		//- 			{ y: percentize(newDat.Pasta), label: "Pasta" },
+		//- 			{ y: percentize(newDat.Potato), label: "Potato" },
+		//- 			{ y: percentize(newDat.Rice), label: "Rice" },
+		//- 			{ y: percentize(newDat.Sauce), label: "Sauce" },
+		//- 			{ y: percentize(newDat.Spice), label: "Spice" },
+		//- 			{ y: percentize(newDat.Vegetable), label: "Vegetable" },
+		//- 			{ y: percentize(newDat.Yogurt), label: "Yogurt" },
+		//- 			{ y: 0, label: "Others" }
+		//- 		]
+		//- 	}]
+		//- });
+		//- chart.render();
 
-		}
+		//- }
 	include dropdownjs.pug
-	script(src="https://canvasjs.com/assets/script/canvasjs.min.js")
+	//- script(src="https://canvasjs.com/assets/script/canvasjs.min.js")
 	script.
 		let allItemData = document.getElementById('data');
 		let items = JSON.parse(allItemData.value);
@@ -195,11 +194,10 @@ html(lang='en')
 		catTotal.Eggs = 0;
 		catTotal.Granola = 0;
 		catTotal.Milk = 0;
-		catTotal.Oatmeal= 0;
+		catTotal.Oats= 0;
 		catTotal.Yogurt = 0;
 		catTotal.Fruit = 0;
-		catTotal.Gravy = 0;
-		catTotal.Sauce = 0;
+		catTotal.SauceGravy = 0;
 		catTotal.Dessert = 0;
 		catTotal.Spice= 0;
 		catTotal.Drink= 0;
@@ -252,8 +250,8 @@ html(lang='en')
 			if (items[i].category == 'Milk') {
 				catTotal.Milk+= (items[i].quantity * items[i].servings * items[i].preparedserving);
 				}
-			if (items[i].category == 'Oatmeal') {
-				catTotal.Oatmeal+= (items[i].quantity * items[i].servings * items[i].preparedserving);
+			if (items[i].category == 'Oats') {
+				catTotal.Oats+= (items[i].quantity * items[i].servings * items[i].preparedserving);
 				}
 			if (items[i].category == 'Yogurt') {
 				catTotal.Yogurt+= (items[i].quantity * items[i].servings * items[i].preparedserving);
@@ -261,11 +259,8 @@ html(lang='en')
 			if (items[i].category == 'Fruit') {
 				catTotal.Fruit+= (items[i].quantity * items[i].servings * items[i].preparedserving);
 				}
-			if (items[i].category == 'Gravy') {
-				catTotal.Gravy+= (items[i].quantity * items[i].servings * items[i].preparedserving);
-				}
-			if (items[i].category == 'Sauce') {
-				catTotal.Sauce+= (items[i].quantity * items[i].servings * items[i].preparedserving);
+			if (items[i].category == 'SauceGravy') {
+				catTotal.SauceGravy+= (items[i].quantity * items[i].servings * items[i].preparedserving);
 				}
 			if (items[i].category == 'Dessert') {
 				catTotal.Dessert+= (items[i].quantity * items[i].servings * items[i].preparedserving);
@@ -294,11 +289,10 @@ html(lang='en')
 		document.getElementById('Eggs').innerHTML = '<h1>Eggs:</h1> ' + catTotal.Eggs + ' cups';
 		document.getElementById('Granola').innerHTML = '<h1>Granola:</h1> ' + catTotal.Granola + ' cups';
 		document.getElementById('Milk').innerHTML = '<h1>Milk:</h1> ' + catTotal.Milk + ' cups';
-		document.getElementById('Oatmeal').innerHTML = '<h1>Oatmeal:</h1> ' + catTotal.Oatmeal + ' cups';
+		document.getElementById('Oats').innerHTML = '<h1>Oats:</h1> ' + catTotal.Oats + ' cups';
 		document.getElementById('Yogurt').innerHTML = '<h1>Yogurt:</h1> ' + catTotal.Yogurt + ' cups';
 		document.getElementById('Fruit').innerHTML = '<h1>Fruit:</h1> ' + catTotal.Fruit + ' cups';
-		document.getElementById('Gravy').innerHTML = '<h1>Gravy:</h1> ' + catTotal.Gravy + ' cups';
-		document.getElementById('Sauce').innerHTML = '<h1>Sauce:</h1> ' + catTotal.Sauce + ' cups';
+		document.getElementById('SauceGravy').innerHTML = '<h1>Sauce/Gravy:</h1> ' + catTotal.SauceGravy + ' cups';
 		document.getElementById('Dessert').innerHTML = '<h1>Dessert:</h1> ' + catTotal.Dessert + ' cups';
 		document.getElementById('Spice').innerHTML = '<h1>Spice:</h1> ' + catTotal.Spice + ' cups';
 		document.getElementById('Drink').innerHTML = '<h1>Drink:</h1> ' + catTotal.Drink + ' cups';

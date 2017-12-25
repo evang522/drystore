@@ -4,11 +4,13 @@ let produceWaterData = (items) => {
     waterData.drySum = 0;
     waterData.preparedSum = 0;
     for(i=0;i<items.length;i++) {
-   waterData.drySum +=  items[i]['unpreparedserving'];
-}
+        if (items[i].unpreparedserving) {
+    waterData.drySum += (items[i]['unpreparedserving'] * items[i]['servings'] * items[i]['quantity']);
+        }
+    }
     for(i=0;i<items.length;i++) {
         if (items[i].preparedserving) {
-        waterData.preparedSum +=  items[i]['preparedserving'];
+    waterData.preparedSum += (items[i]['preparedserving'] * items[i]['servings'] * items[i]['quantity']);
         }
     }
 
