@@ -20,7 +20,11 @@ router.get('/loginerror', (req,res) => {
 
 
 router.get('/register', (req,res) => {
+	if (req.isAuthenticated) {
 	res.render('register');
+	} else {
+		res.render('notauthenticated')
+	}
 });
 
 router.get('/confirmlogout', (req,res) => {
@@ -34,6 +38,7 @@ router.get('/confirmlogout', (req,res) => {
 // POST Routes
 
 router.post('/register', (req,res) => {
+		if(req.isAuthenticated) {
 	let name = req.body.name;
 	let email = req.body.email;
 	let password = req.body.password;
@@ -70,6 +75,9 @@ router.post('/register', (req,res) => {
 	});
 
 	}
+		} else {
+			res.render('notauthenticated');
+		}
 });
 
 
