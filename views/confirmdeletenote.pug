@@ -1,0 +1,7 @@
+include headmenu.pug
+h1.center.bigHead.space Confirm Note Deletion
+p.center.smallSpaceAbove Are you sure you want to delete this note?
+form(action='/notes/')
+    button.generalButton.above Nevermind
+form(action='/notes/delete/' + note.id, method='POST')
+    button.generalButton#warning.smallSpaceAbove Delete Note

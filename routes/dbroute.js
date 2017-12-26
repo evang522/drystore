@@ -141,7 +141,7 @@ router.post('/view_item/del/:id', (req,res) => {
 router.post('/view_item/confirm/:id', (req,res) => {
     if (req.isAuthenticated()) {
     Item.findById(req.params.id, (err,item)=> {
-        res.render('confirm.pug', {
+        res.render('confirmdeleteitem', {
             item:item
         });
     })

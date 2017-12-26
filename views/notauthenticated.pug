@@ -1,6 +1,5 @@
 include headmenu.pug
-br
-img#crash.smallerImg(src='/img/baby.png')
+img#crash.smallerImg(src='/img/cat.jpg')
 br
 h1.heading.larger Sorry, you need to Log in!  
 br
@@ -8,11 +7,11 @@ br
 div.login
 		form(action='/users/login', method='POST')
 			p Email: &nbsp
-			input(name='username' required)
+			input.leftSpace(name='username' required)
 			br
 			br
 			p Password: &nbsp
-			input(name='password'  type='password' required)
+			input.leftSpace(name='password'  type='password' required)
 			br
 			br
 			button.generalButton(action='submit') Log in
