@@ -20,7 +20,7 @@ router.get('/loginerror', (req,res) => {
 
 
 router.get('/register', (req,res) => {
-	if (req.isAuthenticated) {
+	if (req.isAuthenticated()) {
 	res.render('register');
 	} else {
 		res.render('notauthenticated')
@@ -28,10 +28,43 @@ router.get('/register', (req,res) => {
 });
 
 router.get('/confirmlogout', (req,res) => {
-	if (req.isAuthenticated) {
+	if (req.isAuthenticated()) {
 	res.render('confirmlogout');
 	} else {
 		res.render('notauthenticatedd');
+	}
+});
+
+router.get('/manage', (req,res) => {
+	if (req.isAuthenticated()) {
+		User.find({}, (err,users) => {
+			res.render('usermanage', {
+				users:users
+			})
+		})
+		} else {
+			res.render('notauthenticated');
+	}
+});
+
+
+router.get('/manage/delete/:id', (req,res) => {
+	if (req.isAuthenticated()) {
+		User.find({}, (err,users) => {
+		if (users.length == 1) {
+			res.send('Sorry, cannot delete last user. Please create a new user in order to delete this user');
+			} else {
+		User.findByIdAndRemove({_id:req.params.id}, (err) => {
+			 if (err) {
+				console.log(err)
+			} else {
+				res.redirect('/users/manage');
+				}
+			})
+			}
+		})
+	} else {
+		res.render('notauthenticated')
 	}
 });
 

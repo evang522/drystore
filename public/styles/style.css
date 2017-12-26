@@ -1004,6 +1004,38 @@ canvas {
   margin-left:5px;
 }
 
+
+
+/* User Management */
+
+.userCont {
+    width:40em;
+    min-height:20em;
+    background-color:#34604b;
+    margin:0 auto;
+    border-radius:5px;
+}
+
+.userField {
+        background-color:#447c62;
+        height:3em;
+        padding:10px;
+        color:white;
+        margin-bottom:1px;
+        display:flex;
+        border-radius:5px;
+}
+
+
+.userFieldSub {
+    padding-left:20px;
+}
+
+.UserButton {
+    border:none;
+    height:2em !important;
+    border-radius:5px;
+}
 @media screen and (max-width: 1150px) {
     .dsiManu {
         display:none;

@@ -1,0 +1,16 @@
+include headmenu.pug
+header
+    h1.bigHead.center.space User Management
+main
+    section(role='region')
+        div.userCont
+            each user, j in users
+                div.userField
+                    div.userFieldSub= 'Username: ' + user.name
+                    div.userFieldSub= 'Email: ' + user.email
+                    div.userFieldSub
+                        form(action='/users/manage/viewuser')
+                            button.generalButton.UserButton View User
+                    div.userFieldSub
+                        form(action='/users/manage/delete/'+ user.id, method='GET')
+                            button#warning.UserButton(type='submit') Remove User
