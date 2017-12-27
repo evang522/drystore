@@ -8,6 +8,11 @@
     box-sizing:border-box;
 }
 
+body {
+    background-color:#383838;
+    color:white;
+}
+
 
 .space {
     margin-bottom:2em !important;
@@ -40,7 +45,7 @@
 .header {
     height:3em;
     /* background-color:#1b3b51; */
-    background-color:#34604b;
+    background-color:#b56f26;
     position:fixed;
     width:100%;
     z-index:1;
@@ -57,7 +62,7 @@
     border-radius:5.5px;
     outline:none;
     background-repeat:no-repeat;
-    background-color:#34604b;
+    background-color:black;
     cursor: pointer;
 }
 
@@ -119,7 +124,7 @@
     box-sizing:border-box;
     color:white;
     height:2.5em;
-    background-color:#518c70;
+    background-color:#d8a736;
     border:none;
     text-align:left;
     outline:none;
@@ -183,7 +188,7 @@
     font-size:1.1em;
     display:block;
     margin:0 auto;
-    background-color:#4D8C6D;
+    background-color:#d8a736;
     color:white;
     /* box-shadow: 1px 1px #b6b8ba; */
     border-radius:4px;
@@ -260,8 +265,18 @@ hr {
 }
 
 
+
 .insightHeader li {
     padding:10px;
+    color:black;
+}
+
+.insightHeaderLi a:link{
+    color:black !important;
+}
+
+.insightHeaderLi a:visited {
+    color:black !important;
 }
 
 /* Global Heading*/
@@ -291,8 +306,8 @@ hr {
 
 
 .homeCircle {
-    color:black;
-    background-color:#f9f9f9;
+    color:white;
+    background-color:gray;
     width:22em;
     height:20em;
     margin:0 auto;
@@ -312,8 +327,12 @@ hr {
 }
 
 
-.homeLinks a:link, a:visited{
-    color:black;
+.homeLinks a:link {
+    color:white;
+}
+
+.homeLinks a:visited {
+    color:white;
 }
 
 /* Add Item Form Styles */
@@ -400,6 +419,7 @@ hr {
     line-height:26px;
     overflow:hidden;
     border:1px solid gray;
+    color:black;
 }
 
 .dryStoreButton {
@@ -672,7 +692,7 @@ canvas {
     display:flex;
     flex-direction:column;
     flex-wrap:wrap;
-    background-color:#f2f2f2;
+    background-color:black;
     padding:1em;
 
 }
@@ -829,7 +849,7 @@ canvas {
 .backTo {
     /* margin-right:10px; */
     width: 8em;
-    background-color:#34604b;
+    background-color:#d8a736;
     outline:none;
 }
 
@@ -852,6 +872,23 @@ canvas {
     border-radius:5px;
     margin-top:1em !important;
     margin-bottom:1em;
+}
+
+
+.viewNoteSubject {
+    color:black;
+}
+
+.viewNoteBody {
+    color:black;
+}
+
+a:link.subject {
+    color:black !important;
+}
+
+a:visited.subject {
+    color:black;
 }
 
 .noteCont a {
@@ -1015,8 +1052,9 @@ canvas {
 
 
 .blueButton {
-    background-color:#474f91;
+    background-color:#d8a736;
 }
+
 .userField {
         background-color:#447c62;
         height:3em;
@@ -1101,9 +1139,6 @@ canvas {
 
 @media screen and (max-width: 700px) {
 
-    .homeCircle {
-        margin-top:-4em;
-    }
 
     .homeCircle {
         width:100vw;
@@ -1111,6 +1146,7 @@ canvas {
         box-shadow:none;
         border:1px solid gray;
         border-radius:0;
+        margin-top:-4em;
     }
 
 
@@ -1187,9 +1223,8 @@ canvas {
         margin:0 auto;
         margin-top:5px;
         min-height:8em;
-        color:black !important;
+        color:black;
     }
-
 
 
     .muchShorterLetterSpace {

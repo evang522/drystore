@@ -17,7 +17,7 @@ main(role='main')
     div.noteCont.above
         each note, k in notes
             div.noteField
-                a.bold(href='/notes/view_note/' + note.id,)= note.subject
+                a.bold.subject(href='/notes/view_note/' + note.id,)= note.subject
                 br
                 p.smallSpaceAbove.restrictOneLine.smaller.gray= note.body
 

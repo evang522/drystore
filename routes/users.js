@@ -95,7 +95,7 @@ router.post('/register', (req,res) => {
 		let newUser = new User({
 			name:name,
 			email:email,
-			password:password
+			password:password,
 		});
 
 	User.createUser(newUser, (err,user) => {

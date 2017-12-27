@@ -1,6 +1,7 @@
 html(lang='en')
 	head
-		//- link(rel='stylesheet' type='text/css' href='https://meyerweb.com/eric/tools/css/reset/reset.css')
+		//- link(rel='stylesheet' type='text/css' href='https://meyerweb.com/eric/tools/css/reset/reset.css') 
+		//- link(rel='stylesheet' type='text/css' href='/styles/dark.css')
 		link(rel='stylesheet' type='text/css' href='/styles/style.css')
 		link(href='https://fonts.googleapis.com/css?family=Montserrat|Source+Sans+Pro|Roboto', rel='stylesheet')
 		title Garrett Drystore
@@ -31,6 +32,9 @@ html(lang='en')
 					li.headerLi
 						form(action='/notes')
 							button.hov Notes
+					//- li.headerLi
+					//- 	form(action='/users/preferences')
+					//- 		button.hov Preferences
 					li.headerLi
 						form(action='/users/confirmlogout')
 							button.hov Log Out
