@@ -22,10 +22,10 @@ script.
             t--;
         }
     }
-    if (navigator.userAgent.includes('iOS') || navigator.userAgent.includes('iPad')) {
-        trigger.addEventListener('touchend', toggleView)
+   //- if (navigator.userAgent.includes('iOS') || navigator.userAgent.includes('iPad')) {
+        //- trigger.addEventListener('touchend', toggleView)
         //- window.addEventListener('touchend', toggleViewWindow);
-    } else {
+ 
     trigger.addEventListener('click', toggleView);
     window.addEventListener('click', toggleViewWindow);
-    }
+  
