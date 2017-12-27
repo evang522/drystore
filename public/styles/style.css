@@ -1197,6 +1197,9 @@ canvas {
         letter-spacing:-2px;
     }
 
+    .shorterLetterSpace {
+        letter-spacing:-1px;
+    }
     .waterInfo {
         background-color:lightblue;
         height:50em;
