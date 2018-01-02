@@ -2,7 +2,7 @@ include headmenu.pug
 header
     h1.bigHead.center Edit Note
 main.editNoteForm
-    form(action='/notes/edit_note/update' method='POST')
+    form(action='/notes/edit_note/update/' + note.id method='POST')
         textarea.editNoteSubject(name='subject')= note.subject
         textarea.above.editNoteBody(name='body')= note.body
         button.above.generalButton(type='submit') Update Note
