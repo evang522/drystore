@@ -1,10 +1,12 @@
 include headmenu.pug
 header
     h1.bigHead.center View Note
-main
-    div.viewNoteSubject= notes.subject
-    div.above.viewNoteBody= notes.body
-form.above(action='/notes')
-    button.space.generalButton(type='submit') Back to Notes
-form.below(action='/notes/confirmdelete/' + notes.id, method='GET')
-    button.smallSpaceBelow.generalButton.orange(type='submit') Delete Note
+main.editNoteForm
+    textarea.editNoteSubject(name='subject')= notes.subject
+    textarea.above.editNoteBody(name='body')= notes.body
+    form.above(action='/notes')
+        button.space.generalButton(type='submit') Back to Notes
+    form.below(action='/notes/edit_note/' + notes.id, + notes.id, method='GET')
+        button.generalButton.blueButton(type='submit') Edit Note
+    form.below(action='/notes/confirmdelete/' + notes.id, method='GET')
+        button.smallSpaceBelow.generalButton.orange(type='submit') Delete Note

@@ -11,23 +11,23 @@ let passport = require('passport');
 let expressValidator = require('express-validator');
 let insightroute = require('./routes/insightroute')
 let fs = require('fs');
-let https = require('https');
-let sslPath = '/etc/letsencrypt/live/drystore.haus.world/';
+// let https = require('https');
+// let sslPath = '/etc/letsencrypt/live/drystore.haus.world/';
 
 let http = require('http'); 
 http.createServer(app).listen(80);
-let forceSsl = require('express-force-ssl');
+// let forceSsl = require('express-force-ssl');
  
 
-app.use(forceSsl);
+// app.use(forceSsl);
 
 
-let options = {
-	key:fs.readFileSync(sslPath + 'privkey.pem'),
-    cert: fs.readFileSync(sslPath + 'fullchain.pem')
- }
+// let options = {
+// 	key:fs.readFileSync(sslPath + 'privkey.pem'),
+//     cert: fs.readFileSync(sslPath + 'fullchain.pem')
+//  }
 
- https.createServer(options,app).listen(443);
+//  https.createServer(options,app).listen(443);
 
 
 // Bring in Models for queries
@@ -119,6 +119,22 @@ app.get('/notes', (req,res) => {
     }
     });
 
+app.get('/notes/edit_note/:id', (req,res) => {
+    if (req.isAuthenticated()) {
+        Note.findById({_id:req.params.id}, (err,note) => {
+            if(err) {
+                console.log(err);
+            } else {
+            res.render('edit_note', {
+                note:note,
+            });
+        }
+        })
+    } else {
+        res.render('notauthenticated');
+    }
+})
+
 
 // Notes Post Route
 app.post('/notes', (req,res) => {
@@ -150,8 +166,10 @@ app.get('/notes/view_note/:id', (req,res) => {
         if(err) {
             console.log(err);
         } else {
+            let formattedBody = notes.body.replace(/\n/g, "\n");
             res.render('view_note', {
                 notes:notes,
+                formattedBody:formattedBody,
                 success:'Item Removed'
                 });
             }
@@ -194,15 +212,29 @@ app.post('/notes/delete/:id', (req,res) => {
     })
 });
 
+// Edit Note Route
+
+app.post('/notes/edit_note/update', (req,res) => {
+    if (req.isAuthenticated()) {
+        let note = {};
+        note.subject = req.body.subject;
+        note.body = req.body.body;
+        let query = req.params.id;
+        Note.update(query,note,(err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.redirect('/notes')
+            }
+        })
+    } else {
+        res.redirect('notes');
+    }
+});
 
 app.get('/about', (req,res) => {
   res.render('about');
 })
-
-app.get('/test', (req,res) => {
-    console.log(req.user['name']);
-})
-
 
 // DB Route
 app.use('/db', dbroute);

@@ -1,0 +1,12 @@
+include headmenu.pug
+header
+    h1.bigHead.center Edit Note
+main.editNoteForm
+    form(action='/notes/edit_note/update' method='POST')
+        textarea.editNoteSubject(name='subject')= note.subject
+        textarea.above.editNoteBody(name='body')= note.body
+        button.above.generalButton(type='submit') Update Note
+    form(action='/notes')
+        button.generalButton.blueButton(type='submit') Back to Notes
+    form.below(action='/notes/confirmdelete/' + note.id, method='GET')
+        button.smallSpaceBelow.generalButton.orange(type='submit') Delete Note

@@ -946,20 +946,49 @@ canvas {
     padding:10px;
     text-align:center;
     border-radius:10px;
-
 }
 
 
 .viewNoteBody {
     background-color:white;
-    height:60%;
+    height:20em;
     width:75%;
     margin:auto;
     padding:10px;
     text-align:center;
     border-radius:10px;
-
+    cursor:pointer;
 }
+
+.editNoteSubject {
+    background-color:white;
+    height:2.5em;
+    width:20em;
+    margin:auto;
+    padding:10px;
+    text-align:center;
+    border-radius:10px;
+    border:none;
+    display:block;
+}
+
+.editNoteForm button {
+    margin:3px auto;
+}
+
+.editNoteBody {
+    background-color:white;
+    height:20em;
+    width:75%;
+    margin:auto;
+    padding:10px;
+    text-align:left;
+    border-radius:10px;
+    border:none;
+    display:block;
+    cursor:default;
+}
+
 
 .waterInfo {
     background-color:lightblue;
