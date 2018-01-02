@@ -214,7 +214,7 @@ app.post('/notes/delete/:id', (req,res) => {
 
 // Edit Note Route
 
-app.post('/notes/edit_note/update', (req,res) => {
+app.post('/notes/edit_note/update/:id', (req,res) => {
     if (req.isAuthenticated()) {
         let note = {};
         note.subject = req.body.subject;
