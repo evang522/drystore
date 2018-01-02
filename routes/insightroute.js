@@ -12,8 +12,10 @@ router.get('/console', (req,res) => {
             if(err) {
                 console.log(err);
             } else {
+        let catData = produceCatData(items);
         res.render('insights', {
-            items:items
+            items:items,
+            catData:catData
         });
             }
         
