@@ -12,7 +12,7 @@ if !user
 			br
 			div.js-hidePassword
 				p Password: &nbsp
-				input.leftSpace.radius(name='password'  type='password' required)
+				input.leftSpace.radius.js-newFocus(name='password'  type='password' required)
 				br
 				br
 				button.generalButton(action='submit') Log in
@@ -40,6 +40,7 @@ script.
 	$('.js-hidetrigger').keydown(function () {
 		if (event.key == 'Enter') {
 			event.preventDefault();
-			$('.js-hidepassword').slideDown();
+			$('.js-hidepassword').slideDown('slow');
+			$('.js-newFocus').focus();
 		}
 	})
