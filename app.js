@@ -16,7 +16,7 @@ let sslPath = '/etc/letsencrypt/live/drystore.haus.world/';
 
 let http = require('http'); 
 http.createServer(app).listen(80);
-// let forceSsl = require('express-force-ssl');
+let forceSsl = require('express-force-ssl');
  
 
 app.use(forceSsl);
