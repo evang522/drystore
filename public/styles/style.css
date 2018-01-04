@@ -36,6 +36,13 @@ body {
   font-weight:bold;
 }
 
+.js-hidePassword {
+    display:none;
+}
+
+.radius {
+    border-radius:5px;
+}
 
 .packImage {
   width:210;

@@ -1,20 +1,21 @@
 include headmenu.pug
-h1.heading.bigHead Login
+h1.heading.bigHead Drystore Login
 br
 p.heading(style='color:green') #{success}
 br
 if !user
 	div.login
 		form(action='/users/login', method='POST')
-			p Email: &nbsp
-			input.leftSpace(name='username' required)
+			p Please enter your Email Address if you've been Registered: &nbsp
+			input.smallSpaceAbove.js-hidetrigger.leftSpace.radius(name='username' required)
 			br
 			br
-			p Password: &nbsp
-			input.leftSpace(name='password'  type='password' required)
-			br
-			br
-			button.generalButton(action='submit') Log in
+			div.js-hidePassword
+				p Password: &nbsp
+				input.leftSpace.radius(name='password'  type='password' required)
+				br
+				br
+				button.generalButton(action='submit') Log in
 			br
 			br
 		p This is a private site restricted to authorized users.
@@ -35,4 +36,10 @@ if user
 		button.generalButton.wider View Drystore
 	br
 	br
-	
+script.
+	$('.js-hidetrigger').keydown(function () {
+		if (event.key == 'Enter') {
+			event.preventDefault();
+			$('.js-hidepassword').slideDown();
+		}
+	})
