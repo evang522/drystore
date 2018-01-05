@@ -15,9 +15,10 @@ if user
     br
     div.beside
         form(action='/db/storeview' method='GET')
-            input.input(placeholder='Search DB by Name...' name='search')
-            br
-            button.generalButton(action='/submit') Search DB
+            div.js-hideInput
+                input.input(placeholder='Search DB by Name...' name='search')
+                br
+            button.generalButton.js-SearchDB(action='/submit') Search DB
     br
     div.storeContents
 
@@ -57,3 +58,12 @@ script.
     $('.successFlash').fadeIn(1500);
     $('.successFlash').fadeOut(1500);
     });
+
+    let m=0;
+    $('.js-SearchDB').click(()=> {
+        if (m === 0) {
+            event.preventDefault();
+        $('.js-hideInput').slideToggle('slow');
+        m++;
+        }
+    })

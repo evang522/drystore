@@ -17,6 +17,9 @@ body {
     margin-bottom:2em !important;
 }
 
+.js-hideInput {
+    display:none;
+}
 .smallSpaceAbove {
     margin-top:1em !important;
 }
