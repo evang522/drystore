@@ -13,175 +13,177 @@ input#people.peopleInput(value='6')
 br
 button.generalButton.wideButton.blue.showMealsButton Show Meal Info
 br
-section.mealInfoSection
-	img.mealImg(src='/img/bfast.png')
-	div.fieldContainer
-		p.center.larger Breakfast Foods
-		div.fieldUnit 
-			div.foodfield.orange Eggs
-			div.foodfield.orange Oats
-			div.foodfield.orange Yogurt
-			div.foodfield.orange Granola
-			div.foodfield.orange Fruit
-			div.foodfield.orange Milk
-			div.foodfield.orange Breakfast Drink
-		p.center.larger Breakfast Meal Options
-		div.fieldUnit
-			div.mealfield.green
-				p.center.bold Meal One
-				ul.spaceAbove
-					li Eggs: 1/2 Cup
-					li Fruit: 1/2 Cup
-					li Frequency Eaten:
-					input#bmeal1(value='25%')
-					li Resulting Days Eaten:
-					input#bmeal1ResDay
-			div.mealfield.green
-				p.center.bold Meal Two
-				ul.spaceAbove
-					li Oats: 1/2 Cup
-					li Fruit: 1/4 Cup
-					li Frequency Eaten:
-					input#bmeal2(value='53%')
-					li Resulting Days Eaten:
-					input#bmeal2ResDay
-			div.mealfield.green
-				p.center.bold Meal Three
-				ul.spaceAbove
-					li Oats: 1/2 Cup
-					li Yogurt: 1/2 Cup
-					li Frequency Eaten:
-					input#bmeal3(value='1%')
-					li Resulting Days Eaten:
-					input#bmeal3ResDay
-			div.mealfield.green
-				p.center.bold Meal Four
-				ul.spaceAbove
-					li Granola: 1/2 Cup
-					li Milk: 1/2 Cup
-					li Frequency Eaten:
-					input#bmeal4(value='11%')
-					li Resulting Days Eaten:
-					input#bmeal4ResDay
-			div.mealfield.green
-				p.center.bold Meal Five
-				ul.spaceAbove
-					li Breakfast Drink: 1 Cup
-					li Frequency Eaten:
-					input#bmeal5(value='10%')
-					li Resulting Days Eaten:
-					input#bmeal5ResDay
-	img.mealImg(src='/img/lunch.png')
-	div.fieldContainer
-		p.center.larger Lunch Foods
-		div.fieldUnit 
-			div.foodfield.orange Beans
-			div.foodfield.orange Pasta
-			div.foodfield.orange Rice
-			div.foodfield.orange Vegetable
-			div.foodfield.orange Soup
-			div.foodfield.orange Cracker
-		p.center.larger Lunch Meal Options
-		div.fieldUnit
-			div.mealfield.green
-				p.center.bold Meal One
-				ul.spaceAbove
-					li Beans: 1/2 Cup
-					li Rice: 1/2 Cup
-					li Vegetable: 1/2 Cup
-					li Frequency Eaten:
-					input#lmeal1(value='60%')
-					li Resulting Days Eaten:
-					input#lmeal1ResDay
-			div.mealfield.green
-				p.center.bold Meal Two
-				ul.spaceAbove
-					li Beans: 1/2 Cup
-					li Pasta: 1/2 Cup
-					li Vegetable: 1/2 Cup
-					li Frequency Eaten:
-					input#lmeal2(value='10%')
-					li Resulting Days Eaten:
-					input#lmeal2ResDay
-			div.mealfield.green
-				p.center.bold Meal Three
-				ul.spaceAbove
-					li Soup: 1 Cup
-					li Cracker: 2 Cups
-					li Frequency Eaten:
-					input#lmeal3(value='30%')
-					li Resulting Days Eaten:
-					input#lmeal3ResDay
-	img.mealImg(src='/img/dinner.png')
-	div.fieldContainer
-		p.center.larger Dinner Foods
-		div.fieldUnit 
-			div.foodfield.orange Entrée with Meat
-			div.foodfield.orange Entrée without Meat
-			div.foodfield.orange Entrée?
-			div.foodfield.orange Meat Only
-			div.foodfield.orange Rice
-			div.foodfield.orange Pasta
-			div.foodfield.orange Potatoes
-			div.foodfield.orange Vegetable
-			div.foodfield.orange Sauce and Gravy
-		p.center.larger Dinner Meal Options
-		div.fieldUnit
-			div.mealfield.green
-				p.center.bold Meal One
-				ul.spaceAbove
-					li Entrée with meat: 1 Cup
-					li Vegetable: 1/2 Cup
-					li Frequency Eaten:
-					input#dmeal1(value='40%')
-					li Resulting Days Eaten:
-					input#dmeal1ResDay
-			div.mealfield.green
-				p.center.bold Meal Two
-				ul.spaceAbove
-					li Entrée Without Meat: 1 Cup
-					li Vegetable: 1/2 Cup
-					li Frequency Eaten:
-					input#dmeal2(value='20%')
-					li Resulting Days Eaten:
-					input#dmeal2ResDay
-			div.mealfield.green
-				p.center.bold Meal Three
-				ul.spaceAbove
-					li Meat Only: 3/4 Cup
-					li Rice: 1/2 Cup
-					li Vegetable: 1/2 Cup
-					li Sauce/Gravy: 1/4 Cup
-					li Frequency Eaten:
-					input#dmeal3(value='25%')
-					li Resulting Days Eaten:
-					input#dmeal3ResDay
-			div.mealfield.green
-				p.center.bold Meal Four
-				ul.spaceAbove
-					li Meat Only: 3/4 Cup
-					li Pasta: 1/2 Cup
-					li Vegetable: 1/2 Cup
-					li Sauce/Gravy: 1/4 Cup
-					li Frequency Eaten:
-					input#dmeal4(value='5%')
-					li Resulting Days Eaten:
-					input#dmeal4ResDay
-			div.mealfield.green
-				p.center.bold Meal Five
-				ul.spaceAbove
-					li Meat Only: 3/4 Cup
-					li Potatoes: 1/2 Cup
-					li Vegetable: 1/2 Cup
-					li Sauce/Gravy: 1/4 Cup
-					li Frequency Eaten:
-					input#dmeal5(value='10%')
-					li Resulting Days Eaten:
-					input#dmeal5ResDay
-	a(name='anchorResults')
+form(action='/insights/needscalculator/mealprefs/' + user.id, method='POST') 
+	section.mealInfoSection
+		img.mealImg(src='/img/bfast.png')
+		div.fieldContainer
+			p.center.larger Breakfast Foods
+			div.fieldUnit 
+				div.foodfield.orange Eggs
+				div.foodfield.orange Oats
+				div.foodfield.orange Yogurt
+				div.foodfield.orange Granola
+				div.foodfield.orange Fruit
+				div.foodfield.orange Milk
+				div.foodfield.orange Breakfast Drink
+			p.center.larger Breakfast Meal Options
+			div.fieldUnit
+				div.mealfield.green
+					p.center.bold Meal One
+					ul.spaceAbove
+						li Eggs: 1/2 Cup
+						li Fruit: 1/2 Cup
+						li Frequency Eaten:
+						input#bmeal1(value=user.mealprefs.bmeal1, name='bmeal1')
+						li Resulting Days Eaten:
+						input#bmeal1ResDay
+				div.mealfield.green
+					p.center.bold Meal Two
+					ul.spaceAbove
+						li Oats: 1/2 Cup
+						li Fruit: 1/4 Cup
+						li Frequency Eaten:
+						input#bmeal2(value=user.mealprefs.bmeal2, name='bmeal2')
+						li Resulting Days Eaten:
+						input#bmeal2ResDay
+				div.mealfield.green
+					p.center.bold Meal Three
+					ul.spaceAbove
+						li Oats: 1/2 Cup
+						li Yogurt: 1/2 Cup
+						li Frequency Eaten:
+						input#bmeal3(value=user.mealprefs.bmeal3, name='bmeal3')
+						li Resulting Days Eaten:
+						input#bmeal3ResDay
+				div.mealfield.green
+					p.center.bold Meal Four
+					ul.spaceAbove
+						li Granola: 1/2 Cup
+						li Milk: 1/2 Cup
+						li Frequency Eaten:
+						input#bmeal4(value=user.mealprefs.bmeal4, name='bmeal4')
+						li Resulting Days Eaten:
+						input#bmeal4ResDay
+				div.mealfield.green
+					p.center.bold Meal Five
+					ul.spaceAbove
+						li Breakfast Drink: 1 Cup
+						li Frequency Eaten:
+						input#bmeal5(value=user.mealprefs.bmeal5, name='bmeal5')
+						li Resulting Days Eaten:
+						input#bmeal5ResDay
+		img.mealImg(src='/img/lunch.png')
+		div.fieldContainer
+			p.center.larger Lunch Foods
+			div.fieldUnit 
+				div.foodfield.orange Beans
+				div.foodfield.orange Pasta
+				div.foodfield.orange Rice
+				div.foodfield.orange Vegetable
+				div.foodfield.orange Soup
+				div.foodfield.orange Cracker
+			p.center.larger Lunch Meal Options
+			div.fieldUnit
+				div.mealfield.green
+					p.center.bold Meal One
+					ul.spaceAbove
+						li Beans: 1/2 Cup
+						li Rice: 1/2 Cup
+						li Vegetable: 1/2 Cup
+						li Frequency Eaten:
+						input#lmeal1(value=user.mealprefs.lmeal1, name='lmeal1')
+						li Resulting Days Eaten:
+						input#lmeal1ResDay
+				div.mealfield.green
+					p.center.bold Meal Two
+					ul.spaceAbove
+						li Beans: 1/2 Cup
+						li Pasta: 1/2 Cup
+						li Vegetable: 1/2 Cup
+						li Frequency Eaten:
+						input#lmeal2(value=user.mealprefs.lmeal2, name='lmeal2')
+						li Resulting Days Eaten:
+						input#lmeal2ResDay
+				div.mealfield.green
+					p.center.bold Meal Three
+					ul.spaceAbove
+						li Soup: 1 Cup
+						li Cracker: 2 Cups
+						li Frequency Eaten:
+						input#lmeal3(value=user.mealprefs.lmeal3, name='lmeal3')
+						li Resulting Days Eaten:
+						input#lmeal3ResDay
+		img.mealImg(src='/img/dinner.png')
+		div.fieldContainer
+			p.center.larger Dinner Foods
+			div.fieldUnit 
+				div.foodfield.orange Entrée with Meat
+				div.foodfield.orange Entrée without Meat
+				div.foodfield.orange Meat Only
+				div.foodfield.orange Rice
+				div.foodfield.orange Pasta
+				div.foodfield.orange Potatoes
+				div.foodfield.orange Vegetable
+				div.foodfield.orange Sauce and Gravy
+			p.center.larger Dinner Meal Options
+			div.fieldUnit
+				div.mealfield.green
+					p.center.bold Meal One
+					ul.spaceAbove
+						li Entrée with meat: 1 Cup
+						li Vegetable: 1/2 Cup
+						li Frequency Eaten:
+						input#dmeal1(value=user.mealprefs.dmeal1 name='dmeal1' )
+						li Resulting Days Eaten:
+						input#dmeal1ResDay
+				div.mealfield.green
+					p.center.bold Meal Two
+					ul.spaceAbove
+						li Entrée Without Meat: 1 Cup
+						li Vegetable: 1/2 Cup
+						li Frequency Eaten:
+						input#dmeal2(value=user.mealprefs.dmeal2, name='dmeal2')
+						li Resulting Days Eaten:
+						input#dmeal2ResDay
+				div.mealfield.green
+					p.center.bold Meal Three
+					ul.spaceAbove
+						li Meat Only: 3/4 Cup
+						li Rice: 1/2 Cup
+						li Vegetable: 1/2 Cup
+						li Sauce/Gravy: 1/4 Cup
+						li Frequency Eaten:
+						input#dmeal3(value=user.mealprefs.dmeal3, name='dmeal3')
+						li Resulting Days Eaten:
+						input#dmeal3ResDay
+				div.mealfield.green
+					p.center.bold Meal Four
+					ul.spaceAbove
+						li Meat Only: 3/4 Cup
+						li Pasta: 1/2 Cup
+						li Vegetable: 1/2 Cup
+						li Sauce/Gravy: 1/4 Cup
+						li Frequency Eaten:
+						input#dmeal4(value=user.mealprefs.dmeal4 name='dmeal4')
+						li Resulting Days Eaten:
+						input#dmeal4ResDay
+				div.mealfield.green
+					p.center.bold Meal Five
+					ul.spaceAbove
+						li Meat Only: 3/4 Cup
+						li Potatoes: 1/2 Cup
+						li Vegetable: 1/2 Cup
+						li Sauce/Gravy: 1/4 Cup
+						li Frequency Eaten:
+						input#dmeal5(value=user.mealprefs.dmeal5 name='dmeal5')
+						li Resulting Days Eaten:
+						input#dmeal5ResDay
+		a(name='anchorResults')
+		button.smallSpaceBelow.savePercentages.generalButton.orange.wideButton(type='submit') Save Percentages
+		br
 button.smallSpaceBelow.generalButton.wideButton.calcResultsButton View Calculation Results
 div.calcResults
-	button#trig Calculate!
+	button#trig Calculate Results!
 	br
 	h1.bigHead.center Calculation Results
 	div.fieldCont
@@ -367,3 +369,7 @@ script.
 	$('.waterNeedsButton').click(function() {
 		$('.waterNeeds').slideToggle();
 	})
+
+	//- $('#trig').click(() => {
+	//- 	console.log('ouch!');
+	//- });

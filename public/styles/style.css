@@ -651,6 +651,11 @@ canvas {
     background-color:white;
 }
 
+
+.savePercentages {
+    font-size:.7em;
+}
+
 .lunch {
     background-color:white;
     height:250px;

@@ -17,6 +17,10 @@ let UserSchema = mongoose.Schema( {
     email: {
         type:String,
     },
+    mealprefs: {
+        type:Object,
+    },
+
 });
 
 let User = module.exports = mongoose.model('User', UserSchema);

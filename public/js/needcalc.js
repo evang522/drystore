@@ -2,6 +2,7 @@
 
 // Global Variables
 
+
 // make life easier
 let gebi = (id) => {
     return document.getElementById(id);
@@ -86,7 +87,7 @@ let lunch = {
         freq:lmeal2Perc
     }, meal3: {
         soup:1,
-        cracker:2,
+        cracker:1,
         freq:lmeal3Perc
     }
 };
@@ -160,7 +161,7 @@ let makeTotalNeeded = (breakfast,lunch,dinner,typeOfFood) => {
 // Define Function to extrapolate food daily percentages to yearly for the specified amount of people
 let calcTotalNeeds = (food) => {
     let midVar = food * people * 365;
-    return (midVar.toFixed(2) + ' Cups');
+    return (midVar.toFixed(3) + ' Cups');
     }
 
 // This section produces the total amount of the specified food called for in a day multiplied by the percentage of days per year it is eaten
@@ -276,24 +277,24 @@ let sauceGravyDef = gebi('sauceGravyDef')
 
 
 
-eggDef.innerHTML = (parseFloat(eggFieldNeed.innerHTML)   - parseFloat(eggAvailTar.innerHTML)).toFixed(2) + ' Cups'
-fruitDef.innerHTML =  (parseFloat(fruitFieldNeed.innerHTML) - parseFloat(fruitAvailTar.innerHTML)).toFixed(2) + ' Cups'   
-oatsDef.innerHTML = (parseFloat(oatsFieldNeed.innerHTML)  - parseFloat(oatsAvailTar.innerHTML)).toFixed(2) + ' Cups'   
-milkDef.innerHTML = (parseFloat(milkFieldNeed.innerHTML)  - parseFloat(milkAvailTar.innerHTML)).toFixed(2) + ' Cups'   
-yogurtDef.innerHTML =   (parseFloat(yogurtFieldNeed.innerHTML) - parseFloat(yogurtAvailTar.innerHTML)).toFixed(2) + ' Cups' 
-granolaDef.innerHTML =     (parseFloat(granolaFieldNeed.innerHTML) - parseFloat(granolaAvailTar.innerHTML)).toFixed(2) + ' Cups'   
-bfastDrinkDef.innerHTML =       (parseFloat(breakfastDrinkFieldNeed.innerHTML) - parseFloat(bfastDrinkAvailTar.innerHTML)).toFixed(2) + ' Cups'       
-beansDef.innerHTML =  (parseFloat(beansFieldNeed.innerHTML) - parseFloat(beansAvailTar.innerHTML)).toFixed(2) + ' Cups'     
-pastaDef.innerHTML =  (parseFloat(pastaFieldNeed.innerHTML) - parseFloat(pastaAvailTar.innerHTML)).toFixed(2) + ' Cups'    
-riceDef.innerHTML = (parseFloat(riceFieldNeed.innerHTML)  - parseFloat(riceAvailTar.innerHTML)).toFixed(2) + ' Cups'       
-vegDef.innerHTML =      (parseFloat(vegFieldNeed.innerHTML) - parseFloat(vegAvailTar.innerHTML)).toFixed(2) + ' Cups'         
-soupDef.innerHTML = (parseFloat(soupFieldNeed.innerHTML)  - parseFloat(soupAvailTar.innerHTML)).toFixed(2) + ' Cups'     
-crackerDef.innerHTML =    (parseFloat(crackerFieldNeed.innerHTML) - parseFloat(crackerAvailTar.innerHTML)).toFixed(2) + ' Cups' 
-ewmDef.innerHTML = (parseFloat(ewmFieldNeed.innerHTML)  - parseFloat(ewmAvailTar.innerHTML)).toFixed(2) + ' Cups'   
-enmDef.innerHTML = (parseFloat(enmFieldNeed.innerHTML) - parseFloat(enmAvailTar.innerHTML)).toFixed(2) + ' Cups'   
-meatOnlyDef.innerHTML = (parseFloat(meatOnlyFieldNeed.innerHTML) - parseFloat(meatOnlyAvailTar.innerHTML)).toFixed(2) + ' Cups'   
-potatoDef.innerHTML =   (parseFloat(potatoFieldNeed.innerHTML)  - parseFloat(potatoAvailTar.innerHTML)).toFixed(2) + ' Cups'    
-sauceGravyDef.innerHTML =       (parseFloat(sauceGravyFieldNeed.innerHTML) - parseFloat(sauceGravyAvailTar.innerHTML)).toFixed(2) + ' Cups'
+eggDef.innerHTML = (parseFloat(eggFieldNeed.innerHTML)   - parseFloat(eggAvailTar.innerHTML)).toFixed(3) + ' Cups'
+fruitDef.innerHTML =  (parseFloat(fruitFieldNeed.innerHTML) - parseFloat(fruitAvailTar.innerHTML)).toFixed(3) + ' Cups'   
+oatsDef.innerHTML = (parseFloat(oatsFieldNeed.innerHTML)  - parseFloat(oatsAvailTar.innerHTML)).toFixed(3) + ' Cups'   
+milkDef.innerHTML = (parseFloat(milkFieldNeed.innerHTML)  - parseFloat(milkAvailTar.innerHTML)).toFixed(3) + ' Cups'   
+yogurtDef.innerHTML =   (parseFloat(yogurtFieldNeed.innerHTML) - parseFloat(yogurtAvailTar.innerHTML)).toFixed(3) + ' Cups' 
+granolaDef.innerHTML =     (parseFloat(granolaFieldNeed.innerHTML) - parseFloat(granolaAvailTar.innerHTML)).toFixed(3) + ' Cups'   
+bfastDrinkDef.innerHTML =       (parseFloat(breakfastDrinkFieldNeed.innerHTML) - parseFloat(bfastDrinkAvailTar.innerHTML)).toFixed(3) + ' Cups'       
+beansDef.innerHTML =  (parseFloat(beansFieldNeed.innerHTML) - parseFloat(beansAvailTar.innerHTML)).toFixed(3) + ' Cups'     
+pastaDef.innerHTML =  (parseFloat(pastaFieldNeed.innerHTML) - parseFloat(pastaAvailTar.innerHTML)).toFixed(3) + ' Cups'    
+riceDef.innerHTML = (parseFloat(riceFieldNeed.innerHTML)  - parseFloat(riceAvailTar.innerHTML)).toFixed(3) + ' Cups'       
+vegDef.innerHTML =      (parseFloat(vegFieldNeed.innerHTML) - parseFloat(vegAvailTar.innerHTML)).toFixed(3) + ' Cups'         
+soupDef.innerHTML = (parseFloat(soupFieldNeed.innerHTML)  - parseFloat(soupAvailTar.innerHTML)).toFixed(3) + ' Cups'     
+crackerDef.innerHTML =    (parseFloat(crackerFieldNeed.innerHTML) - parseFloat(crackerAvailTar.innerHTML)).toFixed(3) + ' Cups' 
+ewmDef.innerHTML = (parseFloat(ewmFieldNeed.innerHTML)  - parseFloat(ewmAvailTar.innerHTML)).toFixed(3) + ' Cups'   
+enmDef.innerHTML = (parseFloat(enmFieldNeed.innerHTML) - parseFloat(enmAvailTar.innerHTML)).toFixed(3) + ' Cups'   
+meatOnlyDef.innerHTML = (parseFloat(meatOnlyFieldNeed.innerHTML) - parseFloat(meatOnlyAvailTar.innerHTML)).toFixed(3) + ' Cups'   
+potatoDef.innerHTML =   (parseFloat(potatoFieldNeed.innerHTML)  - parseFloat(potatoAvailTar.innerHTML)).toFixed(3) + ' Cups'    
+sauceGravyDef.innerHTML =       (parseFloat(sauceGravyFieldNeed.innerHTML) - parseFloat(sauceGravyAvailTar.innerHTML)).toFixed(3) + ' Cups'
 
 }
 
@@ -334,21 +335,21 @@ let dmeal3ResDay = gebi('dmeal3ResDay');
 let dmeal4ResDay = gebi('dmeal4ResDay');
 let dmeal5ResDay = gebi('dmeal5ResDay');
 
-bmeal1ResDay.value = (bmeal1Perc * 365).toFixed(1);
-bmeal2ResDay.value = (bmeal2Perc * 365).toFixed(1);
-bmeal3ResDay.value = (bmeal3Perc * 365).toFixed(1);
-bmeal4ResDay.value = (bmeal4Perc * 365).toFixed(1);
-bmeal5ResDay.value = (bmeal5Perc * 365).toFixed(1);
+bmeal1ResDay.value = (bmeal1Perc * 365).toFixed(3);
+bmeal2ResDay.value = (bmeal2Perc * 365).toFixed(3);
+bmeal3ResDay.value = (bmeal3Perc * 365).toFixed(3);
+bmeal4ResDay.value = (bmeal4Perc * 365).toFixed(3);
+bmeal5ResDay.value = (bmeal5Perc * 365).toFixed(3);
 
-lmeal1ResDay.value = (lmeal1Perc * 365).toFixed(1);
-lmeal2ResDay.value = (lmeal2Perc * 365).toFixed(1);
-lmeal3ResDay.value = (lmeal3Perc * 365).toFixed(1);
+lmeal1ResDay.value = (lmeal1Perc * 365).toFixed(3);
+lmeal2ResDay.value = (lmeal2Perc * 365).toFixed(3);
+lmeal3ResDay.value = (lmeal3Perc * 365).toFixed(3);
 
-dmeal1ResDay.value = (dmeal1Perc * 365).toFixed(1);
-dmeal2ResDay.value = (dmeal2Perc * 365).toFixed(1);
-dmeal3ResDay.value = (dmeal3Perc * 365).toFixed(1);
-dmeal4ResDay.value = (dmeal4Perc * 365).toFixed(1);
-dmeal5ResDay.value = (dmeal5Perc * 365).toFixed(1);
+dmeal1ResDay.value = (dmeal1Perc * 365).toFixed(3);
+dmeal2ResDay.value = (dmeal2Perc * 365).toFixed(3);
+dmeal3ResDay.value = (dmeal3Perc * 365).toFixed(3);
+dmeal4ResDay.value = (dmeal4Perc * 365).toFixed(3);
+dmeal5ResDay.value = (dmeal5Perc * 365).toFixed(3);
 
 
 
@@ -357,5 +358,5 @@ dmeal5ResDay.value = (dmeal5Perc * 365).toFixed(1);
 // Event Triggers
 calculateDays();
 setInterval(calculateDays,1200);
-getAnalytics();
-gebi('trig').addEventListener('click', getAnalytics);
+// getAnalytics();
+$('#trig').click(getAnalytics);

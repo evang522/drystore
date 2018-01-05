@@ -77,6 +77,7 @@ router.post('/register', (req,res) => {
 	let password = req.body.password;
 	let password2 = req.body.password2;
 
+
 	//Validation
 	req.checkBody('name', 'Name is Required').notEmpty();
 	req.checkBody('email', 'Email is required').notEmpty();
@@ -96,6 +97,19 @@ router.post('/register', (req,res) => {
 			name:name,
 			email:email,
 			password:password,
+			mealprefs: { bmeal1: '25%',
+			bmeal2: '53%',
+			bmeal3: '1%',
+			bmeal4: '11%',
+			bmeal5: '10%',
+			lmeal1: '25%',
+			lmeal2: '53%',
+			lmeal3: '1%',
+			dmeal1: '25%',
+			dmeal2: '53%',
+			dmeal3: '1%',
+			dmeal4: '11%',
+			dmeal5: '10%' }
 		});
 
 	User.createUser(newUser, (err,user) => {
