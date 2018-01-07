@@ -41,6 +41,9 @@ div.itemInfoCont
         div.itemInfo
             h3 Last Edited By:
             p #{item.editedBy}
+        div.itemInfo
+            h3 Total Available Prepared Cups
+            p #{item.preparedserving* item.quantity * item.servings} cups
     div.itemInfoUnit
         div.itemInfo.last
             h3 Additional Details:
