@@ -85,20 +85,21 @@ router.get('/categorylist', (req,res) => {
 
 
     router.post('/needscalculator/mealprefs/:id', (req,res) => {
+        console.log(req.body);
         let mealprefs = {};
         mealprefs.bmeal1 = req.body.bmeal1;
         mealprefs.bmeal2 = req.body.bmeal2;
         mealprefs.bmeal3 = req.body.bmeal3;
         mealprefs.bmeal4 = req.body.bmeal4;
         mealprefs.bmeal5 = req.body.bmeal5;
-        mealprefs.lmeal1 = req.body.bmeal1;
-        mealprefs.lmeal2 = req.body.bmeal2;
-        mealprefs.lmeal3 = req.body.bmeal3;
-        mealprefs.dmeal1 = req.body.bmeal1;
-        mealprefs.dmeal2 = req.body.bmeal2;
-        mealprefs.dmeal3 = req.body.bmeal3;
-        mealprefs.dmeal4 = req.body.bmeal4;
-        mealprefs.dmeal5 = req.body.bmeal5;
+        mealprefs.lmeal1 = req.body.lmeal1;
+        mealprefs.lmeal2 = req.body.lmeal2;
+        mealprefs.lmeal3 = req.body.lmeal3;
+        mealprefs.dmeal1 = req.body.dmeal1;
+        mealprefs.dmeal2 = req.body.dmeal2;
+        mealprefs.dmeal3 = req.body.dmeal3;
+        mealprefs.dmeal4 = req.body.dmeal4;
+        mealprefs.dmeal5 = req.body.dmeal5;
         User.findByIdAndUpdate({_id:req.params.id}, {$set: {mealprefs:mealprefs}}, (err,usertoUpdate) => {
             if (err) {
                 console.log(err);
