@@ -456,7 +456,7 @@ canvas {
 
 .dsiCat {
     border-right:1px solid black;
-    width:11em;
+    width:15em;
     margin:0;
 }
 
@@ -468,13 +468,13 @@ canvas {
 }
 .dsiManu {
     border-right:1px solid black;
-    width:17.5em;
+    width:14.5em;
     margin:0;
 }
 
-.dsiExp {
+.dsiPrep {
     border-right:1px solid black;
-    width:11em;
+    width:13em;
     margin:0;
 }
 
