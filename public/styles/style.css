@@ -17,6 +17,18 @@ body {
     margin-bottom:2em !important;
 }
 
+.js-percentWarning {
+    min-width:10em;
+    background-color:red;
+    line-height:35px;
+    height:2em;
+    border-radius:5px;
+    width:80%;
+    color:white;
+    margin:4px auto !important;
+
+}
+
 .js-hideInput {
     display:none;
 }

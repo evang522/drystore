@@ -34,18 +34,20 @@ let dmeal5Perc = (gebi('dmeal5').value.replace('%','') / 100);
 
 
 // Throws an error if the percentages in the DOM do not add up to 100%
-if (!((bmeal1Perc + bmeal2Perc + bmeal3Perc + bmeal4Perc + bmeal5Perc) > .998877 && (bmeal1Perc + bmeal2Perc + bmeal3Perc + bmeal4Perc + bmeal5Perc < 1.00011111))) {
-    // alert('Sorry, cannot continue! Breakfast percentages don\'t add up to 100%. You can understand why this may cause some problems.');
-    $('.js-percentWarning').toggleClass('.invisible');
-}
+// if (!((bmeal1Perc + bmeal2Perc + bmeal3Perc + bmeal4Perc + bmeal5Perc) > .998877 && (bmeal1Perc + bmeal2Perc + bmeal3Perc + bmeal4Perc + bmeal5Perc < 1.00111111))) {
+//     // alert('Sorry, cannot continue! Breakfast percentages don\'t add up to 100%. You can understand why this may cause some problems.');
+//     $('.js-percentWarning-breakfast').removeClass('invisible')
+// }
 
-if (!((lmeal1Perc + lmeal2Perc + lmeal3Perc) > .998877 && (lmeal1Perc + lmeal2Perc + lmeal3Perc < 1.00011111))) {
-    alert('Sorry, cannot continue! Lunch percentages don\'t add up to 100%. You can understand why this may cause some problems.');
-}
+// if (!((lmeal1Perc + lmeal2Perc + lmeal3Perc) > .998877 && (lmeal1Perc + lmeal2Perc + lmeal3Perc < 1.00011111))) {
+//     // alert('Sorry, cannot continue! Lunch percentages don\'t add up to 100%. You can understand why this may cause some problems.');
+//     $('.js-percentWarning-lunch').removeClass('invisible');
+// }
 
-if (!((dmeal1Perc + dmeal2Perc + dmeal3Perc + dmeal4Perc + dmeal5Perc) > .998877 && (dmeal1Perc + dmeal2Perc + dmeal3Perc + dmeal4Perc + dmeal5Perc < 1.00011111))) {
-    alert('Sorry, cannot continue! Dinner percentages don\'t add up to 100%. You can understand why this may cause some problems.');
-}
+// if (!((dmeal1Perc + dmeal2Perc + dmeal3Perc + dmeal4Perc + dmeal5Perc) > .998877 && (dmeal1Perc + dmeal2Perc + dmeal3Perc + dmeal4Perc + dmeal5Perc < 1.00011111))) {
+//     // alert('Sorry, cannot continue! Dinner percentages don\'t add up to 100%. You can understand why this may cause some problems.');
+//     $('.js-percentWarning-dinner').removeClass('invisible');
+// }
 
 
 // Objects Representing the specified meals available. These generally will not change, but they do grab the percentage value specified from the input fields on the
@@ -356,8 +358,67 @@ dmeal5ResDay.value = (dmeal5Perc * 365).toFixed(3);
 
 }
 
+
+    
+
+// Throws an error if the percentages in the DOM do not add up to 100%
+let checkPercentageSums = () => {
+    // Getting percent info for calculating Days
+    let bmeal1Perc = (gebi('bmeal1').value.replace('%','') / 100);
+    let bmeal2Perc = (gebi('bmeal2').value.replace('%','') / 100);
+    let bmeal3Perc = (gebi('bmeal3').value.replace('%','') / 100);
+    let bmeal4Perc = (gebi('bmeal4').value.replace('%','') / 100);
+    let bmeal5Perc = (gebi('bmeal5').value.replace('%','') / 100);
+    
+    let lmeal1Perc = (gebi('lmeal1').value.replace('%','') / 100);
+    let lmeal2Perc = (gebi('lmeal2').value.replace('%','') / 100);
+    let lmeal3Perc = (gebi('lmeal3').value.replace('%','') / 100);
+    
+    let dmeal1Perc = (gebi('dmeal1').value.replace('%','') / 100);
+    let dmeal2Perc = (gebi('dmeal2').value.replace('%','') / 100);
+    let dmeal3Perc = (gebi('dmeal3').value.replace('%','') / 100);
+    let dmeal4Perc = (gebi('dmeal4').value.replace('%','') / 100);
+    let dmeal5Perc = (gebi('dmeal5').value.replace('%','') / 100);
+
+
+
+    if (!((bmeal1Perc + bmeal2Perc + bmeal3Perc + bmeal4Perc + bmeal5Perc) > .998877 && (bmeal1Perc + bmeal2Perc + bmeal3Perc + bmeal4Perc + bmeal5Perc < 1.00111111))) {
+        // alert('Sorry, cannot continue! Breakfast percentages don\'t add up to 100%. You can understand why this may cause some problems.');
+        $('.js-percentWarning-breakfast').removeClass('invisible')
+    }
+
+    if (!((lmeal1Perc + lmeal2Perc + lmeal3Perc) > .998877 && (lmeal1Perc + lmeal2Perc + lmeal3Perc < 1.00011111))) {
+        // alert('Sorry, cannot continue! Lunch percentages don\'t add up to 100%. You can understand why this may cause some problems.');
+        $('.js-percentWarning-lunch').removeClass('invisible');
+    }
+
+    if (!((dmeal1Perc + dmeal2Perc + dmeal3Perc + dmeal4Perc + dmeal5Perc) > .998877 && (dmeal1Perc + dmeal2Perc + dmeal3Perc + dmeal4Perc + dmeal5Perc < 1.00011111))) {
+        // alert('Sorry, cannot continue! Dinner percentages don\'t add up to 100%. You can understand why this may cause some problems.');
+        $('.js-percentWarning-dinner').removeClass('invisible');
+    }
+
+    
+
+
+    if (((bmeal1Perc + bmeal2Perc + bmeal3Perc + bmeal4Perc + bmeal5Perc) > .998877 && (bmeal1Perc + bmeal2Perc + bmeal3Perc + bmeal4Perc + bmeal5Perc < 1.00111111))) {
+        // alert('Sorry, cannot continue! Breakfast percentages don\'t add up to 100%. You can understand why this may cause some problems.');
+        $('.js-percentWarning-breakfast').addClass('invisible')
+    }
+
+    if (((lmeal1Perc + lmeal2Perc + lmeal3Perc) > .998877 && (lmeal1Perc + lmeal2Perc + lmeal3Perc < 1.00011111))) {
+        // alert('Sorry, cannot continue! Lunch percentages don\'t add up to 100%. You can understand why this may cause some problems.');
+        $('.js-percentWarning-lunch').addClass('invisible');
+    }
+
+    if (((dmeal1Perc + dmeal2Perc + dmeal3Perc + dmeal4Perc + dmeal5Perc) > .998877 && (dmeal1Perc + dmeal2Perc + dmeal3Perc + dmeal4Perc + dmeal5Perc < 1.00011111))) {
+        // alert('Sorry, cannot continue! Dinner percentages don\'t add up to 100%. You can understand why this may cause some problems.');
+        $('.js-percentWarning-dinner').addClass('invisible');
+    }
+}
+
 // Event Triggers
+setInterval(checkPercentageSums,1200)
 calculateDays();
 setInterval(calculateDays,1200);
-// getAnalytics();
+getAnalytics();
 $('#trig').click(getAnalytics);

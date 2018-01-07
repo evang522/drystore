@@ -31,7 +31,7 @@ router.get('/confirmlogout', (req,res) => {
 	if (req.isAuthenticated()) {
 	res.render('confirmlogout');
 	} else {
-		res.render('notauthenticatedd');
+		res.render('notauthenticated');
 	}
 });
 
@@ -102,13 +102,13 @@ router.post('/register', (req,res) => {
 			bmeal3: '1%',
 			bmeal4: '11%',
 			bmeal5: '10%',
-			lmeal1: '25%',
-			lmeal2: '53%',
-			lmeal3: '1%',
-			dmeal1: '25%',
-			dmeal2: '53%',
-			dmeal3: '1%',
-			dmeal4: '11%',
+			lmeal1: '60%',
+			lmeal2: '10%',
+			lmeal3: '30%',
+			dmeal1: '40%',
+			dmeal2: '20%',
+			dmeal3: '25%',
+			dmeal4: '5%',
 			dmeal5: '10%' }
 		});
 
