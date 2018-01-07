@@ -31,7 +31,7 @@ div.addItemForm
         br
         label(for='quantity') Quantity
         br
-        input#quantity(name='quantity' value=item.quantity type='number')
+        input#quantity(name='quantity' value=item.quantity type='number' step='.01')
         br
         br
         br
@@ -67,23 +67,23 @@ div.addItemForm
         br
         label(for='servings') Number of Servings per Unit
         br
-        input#servings(name='servings', value=item.servings type='number')
+        input#servings(name='servings', value=item.servings type='number' step='.01')
         br
         br
         label(for='unpreparedserving') Dry Serving Size (Cups)
         br
-        input#unpreparedserving(name='unpreparedserving' type='number' required value=item.unpreparedserving)
+        input#unpreparedserving(name='unpreparedserving' type='number' step='.01' required value=item.unpreparedserving)
         br
         br
         label(for='preparedserving') Prepared Serving Size
         br
-        input#preparedserving(name='preparedserving' type='number' value=item.preparedserving)
+        input#preparedserving(name='preparedserving' type='number' step='.01' value=item.preparedserving)
         br
         br
         br
         p Expiration Year:
         br
-        input(name='expiration' value=item.expiration type='number')
+        input(name='expiration' value=item.expiration type='number' step='.01')
         br
         br
         br

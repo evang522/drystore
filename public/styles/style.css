@@ -20,6 +20,11 @@ body {
 .js-hideInput {
     display:none;
 }
+
+.invisible {
+    display:none !important;
+}
+
 .smallSpaceAbove {
     margin-top:1em !important;
 }

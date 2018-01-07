@@ -30,7 +30,7 @@ form.addItem(action='/db/add' method='POST')
     br
     label(for='quantity') Quantity:
     br
-    input(name='quantity' id='quantity' required type='number')
+    input(name='quantity' id='quantity' required type='number' step='0.01')
     br
     br
     br
@@ -66,23 +66,23 @@ form.addItem(action='/db/add' method='POST')
     br
     label(for='servings') Number of Servings Per Unit:
     br
-    input(name='servings', id='servings' required type='number')
+    input(name='servings', id='servings' required type='number' step='0.01')
     br
     br
     label(for='unpreparedserving') Dry Serving Size (Cups)
     br
-    input(name='unpreparedserving' id='unpreparedserving' required type='number')
+    input(name='unpreparedserving' id='unpreparedserving' required type='number' step='0.01')
     br
     br
     label(for="preparedserving") Prepared Serving Size (Cups)
     br
-    input(name='preparedserving' id='preparedserving' required type='number')
+    input(name='preparedserving' id='preparedserving' required type='number' step='0.01')
     br
     br
     br
     p Expiration Year:
     br
-    input(name='expiration' type='number')
+    input(name='expiration' type='number' step='0.01')
     br
     br
     br
