@@ -2,8 +2,8 @@ include headmenu.pug
 header
     h1.bigHead.center View Note
 main.editNoteForm
-    textarea.editNoteSubject(name='subject')= notes.subject
-    textarea.above.editNoteBody(name='body')= notes.body
+    textarea.editNoteSubject(name='subject' readonly)= notes.subject
+    textarea.above.editNoteBody(name='body' readonly)= notes.body
     form.above(action='/notes')
         button.generalButton(type='submit') Back to Notes
     form.below(action='/notes/edit_note/' + notes.id, + notes.id, method='GET')
