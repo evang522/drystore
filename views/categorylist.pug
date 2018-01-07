@@ -25,8 +25,8 @@ if user
                                 p Category: <b>#{item.category}</b>
                             div.dryStoreItem.dsiManu
                                 p Manufacturer: <b>#{item.manufacturer}</b>
-                            div.dryStoreItem.dsiExp
-                                p Expires: <b>#{item.expiration}</b>
+                            div.dryStoreItem.dsiPrep
+                                p Cups Prepared: <b>#{item.preparedserving* item.quantity * item.servings}</b>
                             button.dryStoreItem.dsiButt.dryStoreButton.backTo(action='submit') Details
 
                             br
