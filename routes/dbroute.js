@@ -75,6 +75,7 @@ router.get('/edit_item/:id', (req,res) => {
 
 router.post('/add', (req,res) => {
     if(req.isAuthenticated()) {
+        if (req.user.role == 'Visitor') {
     let item = new Item();
         item.name = req.body.name;
         item.storageUnit = req.body.storageUnit;
@@ -106,6 +107,10 @@ router.post('/add', (req,res) => {
             })
         }
     })
+        } else {
+            res.render('visitor.pug');
+        }
+    
     } else {
         res.render('notauthenticated');
     }
@@ -114,23 +119,27 @@ router.post('/add', (req,res) => {
 
 router.post('/view_item/del/:id', (req,res) => {
     if (req.isAuthenticated()) {
-    Item.findByIdAndRemove({_id:req.params.id}, (err) => {
-        if (err) {
-            console.log(err);
+        if (req.user.role == 'Visitor') {
+            res.render('visitor');
         } else {
-            Item.find({}, (err,items) => {
-                if (err) {
-                    console.log(err)
-                } else { 
-                    res.render('storeview', {
-                    success:'Item Removed',
-                    items:items
-                    });
+        Item.findByIdAndRemove({_id:req.params.id}, (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                Item.find({}, (err,items) => {
+                    if (err) {
+                        console.log(err)
+                    } else { 
+                        res.render('storeview', {
+                        success:'Item Removed',
+                        items:items
+                        });
+                    }
                 }
+            )
             }
-        )
+        })
         }
-    })
     } else {
         res.render('notauthenticated');
     }
@@ -153,6 +162,9 @@ router.post('/view_item/confirm/:id', (req,res) => {
 
 router.post('/edit_item/:id', (req,res) => {
     if (req.isAuthenticated()) {
+        if (req.user.role == 'Visitor') {
+            res.render('visitor');
+        } else {
     let item = {};
         item.name = req.body.name;
         item.storageUnit = req.body.storageUnit;
@@ -183,6 +195,7 @@ router.post('/edit_item/:id', (req,res) => {
             })
 		}
     })
+}
 } else {
     res.render('notauthenticated');
 }

@@ -14,5 +14,14 @@ main
                     div.userFieldSub
                         form(action='/users/manage/delete/'+ user.id, method='GET')
                             button#warning.UserButton(type='submit') Remove User
+                    div.userFieldSub
+                        form.userRoleForm(action='/users/manage/roles/' + user.id, method ='POST')
+                            p Change Role
+                            select(name='role')
+                                option(selected value=user.role) Current: #{user.role} 
+                                option(value='Visitor') Visitor
+                                option(value='Standard') Standard
+                                option(value='Admin') Administrator
+                            button.smallButton Apply
         form(action="/users/register")
             button.generalButton.center.blueButton.smallSpaceAbove  Add User

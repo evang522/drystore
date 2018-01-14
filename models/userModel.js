@@ -20,6 +20,9 @@ let UserSchema = mongoose.Schema( {
     mealprefs: {
         type:Object,
     },
+    role: {
+        type:String,
+    },
 
 });
 

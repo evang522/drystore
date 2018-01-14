@@ -138,6 +138,9 @@ app.get('/notes/edit_note/:id', (req,res) => {
 
 // Notes Post Route
 app.post('/notes', (req,res) => {
+    if (req.user.role == 'Visitor') {
+        res.render('visitor');
+    } else {
     if (req.isAuthenticated()) {
         let noteObj = new Note;
         noteObj.subject = req.body.subject;
@@ -157,7 +160,7 @@ app.post('/notes', (req,res) => {
             })
         }
     })
-    }
+    }}
 });
 
 app.get('/notes/view_note/:id', (req,res) => {
@@ -181,6 +184,7 @@ app.get('/notes/view_note/:id', (req,res) => {
 
 
 app.get('/notes/confirmdelete/:id', (req,res) => {
+    if (req.isAuthenticated()) {
     Note.findById({_id:req.params.id}, (err,note) => {
         if (err) {
             console.log(err);
@@ -190,10 +194,17 @@ app.get('/notes/confirmdelete/:id', (req,res) => {
         });
         }
     })
+    } else {
+        res.render('notauthenticated');
+    }
 });
 
 // Delete note Route
 app.post('/notes/delete/:id', (req,res) => {
+    if (req.isAuthenticated()) {
+        if (req.user.role == 'Visitor') {
+            res.render('visitor');
+        } else {
     Note.findByIdAndRemove({_id:req.params.id}, (err) => {
         if(err) {
             console.log(err);
@@ -210,25 +221,33 @@ app.post('/notes/delete/:id', (req,res) => {
             )
         }
     })
+    }
+} else {
+    res.render('notauthenticated');
+}
 });
 
 // Edit Note Route
 
 app.post('/notes/edit_note/update/:id', (req,res) => {
     if (req.isAuthenticated()) {
-        let note = {};
-        note.subject = req.body.subject;
-        note.body = req.body.body;
-        let query = {_id:req.params.id};
-        Note.update(query,note,(err) => {
-            if (err) {
-                console.log(err);
-            } else {
-                res.redirect('/notes')
-            }
-        })
+        if (req.user.role == 'Visitor') {
+            res.render('visitor');
+        } else {
+            let note = {};
+            note.subject = req.body.subject;
+            note.body = req.body.body;
+            let query = {_id:req.params.id};
+            Note.update(query,note,(err) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    res.redirect('/notes')
+                }
+            })
+        }
     } else {
-        res.redirect('notes');
+        res.render('notauthenticated');
     }
 });
 
