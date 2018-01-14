@@ -75,9 +75,9 @@ router.get('/manage/delete/:id', (req,res) => {
 router.post('/manage/roles/:id', (req,res) => {
 	console.log(req.user.role);
 	if (req.isAuthenticated()) {
-		// if (req.user.role == 'Visitor') {
-		// 	res.render('visitor');
-		// } else {
+		if (req.user.role == 'Visitor') {
+			res.render('visitor');
+		} else {
 		let query = req.body.role;
 		User.update({_id:req.params.id}, { $set: {role: query}}, (err) => {
 			if (err) {
@@ -86,7 +86,7 @@ router.post('/manage/roles/:id', (req,res) => {
 				res.redirect('/users/manage');
 			}
 		})
-	// }
+	}
 } else {
 	res.render('notauthenticated');
 }
