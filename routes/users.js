@@ -52,7 +52,7 @@ router.get('/manage', (req,res) => {
 
 router.get('/manage/delete/:id', (req,res) => {
   if (req.isAuthenticated()) {
-    if (req.user.role !== 'Administrator') {
+    if (req.user.role !== 'Admin') {
       res.render('administrator');
     } else {
       User.find({}, (err,users) => {
@@ -77,7 +77,7 @@ router.get('/manage/delete/:id', (req,res) => {
 router.post('/manage/roles/:id', (req,res) => {
   console.log(req.user.role);
   if (req.isAuthenticated()) {
-    if (req.user.role !== 'Administrator') {
+    if (req.user.role !== 'Admin') {
       res.render('administrator');
     } else {
       let query = req.body.role;
