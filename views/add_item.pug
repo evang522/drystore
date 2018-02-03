@@ -101,7 +101,7 @@ form.addItem(action='/db/add' method='POST')
 script.
     let timeP = new Date();
     let zeroVar = timeP.getMinutes().toString();
-    if (zeroVar.length == 1) {
+    if (zeroVar.length === 1) {
         zeroVar = "0" + zeroVar;
     }
     let target = document.getElementById('submittedBy');

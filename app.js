@@ -138,7 +138,7 @@ app.get('/notes/edit_note/:id', (req,res) => {
 
 // Notes Post Route
 app.post('/notes', (req,res) => {
-  if (req.user.role == 'Visitor') {
+  if (req.user.role === 'Visitor') {
     res.render('visitor');
   } else {
     if (req.isAuthenticated()) {
@@ -202,7 +202,7 @@ app.get('/notes/confirmdelete/:id', (req,res) => {
 // Delete note Route
 app.post('/notes/delete/:id', (req,res) => {
   if (req.isAuthenticated()) {
-    if (req.user.role == 'Visitor') {
+    if (req.user.role === 'Visitor') {
       res.render('visitor');
     } else {
       Note.findByIdAndRemove({_id:req.params.id}, (err) => {
@@ -231,7 +231,7 @@ app.post('/notes/delete/:id', (req,res) => {
 
 app.post('/notes/edit_note/update/:id', (req,res) => {
   if (req.isAuthenticated()) {
-    if (req.user.role == 'Visitor') {
+    if (req.user.role === 'Visitor') {
       res.render('visitor');
     } else {
       let note = {};
