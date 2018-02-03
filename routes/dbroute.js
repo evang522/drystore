@@ -5,6 +5,7 @@ let router = express.Router();
 let Item = require('../models/itemModel');
 let expressValidator = require('express-validator');
 const { check, validationResult } = require('express-validator/check');
+const fs = require('fs');
 
 // GET Routes
 
@@ -104,6 +105,8 @@ router.post('/add', (req,res) => {
             if (err) {
               console.log(err);
             } else {
+              let today = new Date();
+              fs.appendFile('./logs/addlogs.txt', `\n Name:  ${item.name} | Manufacturer:  ${item.manufacturer} | Quantity: ${item.quantity} | added ${today}`);
               res.render('storeview', {
                 items:items,
                 success: 'Item has been added!'
@@ -124,7 +127,9 @@ router.post('/view_item/del/:id', (req,res) => {
     if (req.user.role === 'Visitor') {
       res.render('visitor');
     } else {
-      Item.findByIdAndRemove({_id:req.params.id}, (err) => {
+      Item.findByIdAndRemove({_id:req.params.id}, (err,item) => {
+        let today = new Date();
+        fs.appendFile('./logs/deletelogs.txt', `\n Name:  ${item.name} | Manufacturer:  ${item.manufacturer} | Quantity: ${item.quantity} | deleted ${today}`);
         if (err) {
           console.log(err);
         } else {
