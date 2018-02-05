@@ -31,7 +31,24 @@
       </ul>
 		</div>
 		<div class="headBreaker"></div>
+		<h1 class='center spaceBelow bigHead'>Logs</h1>
+		<br>
+		<br>
+		<h2 class='center bold'>Deleted Item Logs</h2>
+		<section role='region' class='center delete-item-logs'></section>
+		<br>
+		<br>
+		<h2 class='center bold'>Added Item Logs</h2>
+		<section role='region' class='center add-item-logs'></section>
   	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script>
+				$.getJSON('/logs/delete', (res) => {
+					$('.delete-item-logs').html(`<p> ${res}</p>`);
+				});
+				$.getJSON('/logs/add', (res) => {
+					$('.add-item-logs').html(`<p> ${res}</p>`);
+				});
+			</script>
 		<script>
 			let hdd = document.getElementById('hdd');
 			let trigger = document.getElementById('trigger');
@@ -62,6 +79,7 @@
 			trigger.addEventListener('click', toggleView);
 			window.addEventListener('click', toggleViewWindow);
 		</script>
+
 		</body>
 	</html>
 	
