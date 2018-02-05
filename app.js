@@ -1,33 +1,44 @@
 'use strict';
 
-let express = require('express');
-let app = express();
-let bodyParser = require('body-parser');
-let dbroute = require('./routes/dbroute');
-let userroute = require('./routes/users');
-let cookieParser = require('cookie-parser');
-let session = require('express-session');
-let passport = require('passport');
-let expressValidator = require('express-validator');
-let insightroute = require('./routes/insightroute');
-let fs = require('fs');
-let https = require('https');
-let sslPath = '/etc/letsencrypt/live/drystore.haus.world/';
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const dbroute = require('./routes/dbroute');
+const logRoute = require('./routes/logs');
+const userroute = require('./routes/users');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const passport = require('passport');
+const expressValidator = require('express-validator');
+const insightroute = require('./routes/insightroute');
+const fs = require('fs');
+const https = require('https');
+let sslPath;
+try { 
+  sslPath = '/etc/letsencrypt/live/drystore.haus.world/';
+  fs.readFileSync('/etc/letsencrypt/live/drystore.haus.world/privkey.pem');
+} catch(e) {
+  console.log('sslPath not found, running in dev environment');
+  sslPath = null;
+}
 
-let http = require('http'); 
+  
+const http = require('http'); 
 http.createServer(app).listen(80);
-let forceSsl = require('express-force-ssl');
- 
 
-app.use(forceSsl);
+// Check if SSLpath is defined (if running in production environment) and run Https server
+if (sslPath) {
+  const forceSsl = require('express-force-ssl');
+  app.use(forceSsl);
+  let options = {
+    key:fs.readFileSync(sslPath + 'privkey.pem'),
+    cert: fs.readFileSync(sslPath + 'fullchain.pem')
+  };
+  https.createServer(options,app).listen(443);
+
+} 
 
 
-let options = {
-  key:fs.readFileSync(sslPath + 'privkey.pem'),
-  cert: fs.readFileSync(sslPath + 'fullchain.pem')
-};
-
-https.createServer(options,app).listen(443);
 
 
 // Bring in Models for queries
@@ -263,6 +274,9 @@ app.use('/users', userroute);
 
 // Insights Route
 app.use('/insights', insightroute);
+
+// Logs Route
+app.use('/logs', logRoute);
 
 // Error Handling
 app.get('*', (req,res) => {

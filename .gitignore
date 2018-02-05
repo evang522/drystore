@@ -2,3 +2,4 @@ node_modules
 well-known
 .DS_Store
 certbot-auto
+logs

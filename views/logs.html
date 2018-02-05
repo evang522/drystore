@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Source+Sans+Pro|Roboto" rel="stylesheet">
+    <title>Garrett Drystore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Database for storing food goods">
+    <meta name="author" content="Evan Garrett">
+    <meta name="keywords" content="Database, Drystore, Evan, Garrett">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+  </head>
+  <body>
+    <div class="header">
+      <div>
+        <button id="trigger" src="/img/hamb.png" alt="Menu Icon"></button>
+      </div>
+    </div>
+    <div class="headerDropDown" id="hdd">
+      <ul class="headerUl shorter">
+        <li class="headerLi">
+          <form action="/">
+            <button class="hov">Home</button>
+          </form>
+        </li>
+        <li class="headerLi">
+          <form action="/users/login">
+            <button class="hov">Login</button>
+          </form>
+        </li>
+      </ul>
+		</div>
+		<div class="headBreaker"></div>
+  	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script>
+			let hdd = document.getElementById('hdd');
+			let trigger = document.getElementById('trigger');
+			let entireCont = document.getElementById('homeCircle');
+			let t = 0;
+			let toggleView = () => {
+					//- console.log('toggleView has run' + 'and i = ' + t);
+					if(t===0) {
+							hdd.style.display = 'block';
+							trigger.style.backgroundColor='#8e5f07';
+							t=1;
+					} else if (t===1) {
+							hdd.style.display = 'none';
+							trigger.style.backgroundColor = '#34604b';
+							t--;
+					}
+			}
+			let toggleViewWindow = () => {
+					if (t===1 && event.target != trigger) {
+							hdd.style.display = 'none';
+							trigger.style.backgroundColor = '#34604b';
+							t--;
+					}
+			}
+			
+			//- function red() { document.body.style.backgroundColor = 'red'};
+			//if (navigator.userAgent.includes('iOS') || navigator.userAgent.includes('iPad')) {
+			trigger.addEventListener('click', toggleView);
+			window.addEventListener('click', toggleViewWindow);
+		</script>
+		</body>
+	</html>
+	
