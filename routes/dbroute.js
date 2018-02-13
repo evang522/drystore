@@ -23,7 +23,7 @@ router.get('/storeview', (req,res) => {
     if(req.query.search) {
       const regex = new RegExp(escapeRegex(req.query.search),'gi');
       console.log(regex);
-      Item.find({name: regex}, (err,items) => {
+      Item.find({$or: [{name: regex}, {manufacturer:regex},{category:regex},{info:regex}]}, (err,items) => {
         if (err) {
           console.log(err);
         } else {
@@ -106,7 +106,7 @@ router.post('/add', (req,res) => {
               console.log(err);
             } else {
               let today = new Date();
-              fs.appendFile('./logs/addlogs.txt', `\n Name:  ${item.name} | Manufacturer:  ${item.manufacturer} | Quantity: ${item.quantity} | added ${today}`);
+              fs.appendFile('./logs/addlogs.txt', `\n Name:  ${item.name} | Manufacturer:  ${item.manufacturer} | Quantity: ${item.quantity} | added ${today} <br>`);
               res.render('storeview', {
                 items:items,
                 success: 'Item has been added!'
@@ -129,7 +129,7 @@ router.post('/view_item/del/:id', (req,res) => {
     } else {
       Item.findByIdAndRemove({_id:req.params.id}, (err,item) => {
         let today = new Date();
-        fs.appendFile('./logs/deletelogs.txt', `\n Name:  ${item.name} | Manufacturer:  ${item.manufacturer} | Quantity: ${item.quantity} | deleted ${today}`);
+        fs.appendFile('./logs/deletelogs.txt', `\n Name:  ${item.name} | Manufacturer:  ${item.manufacturer} | Quantity: ${item.quantity} | deleted ${today} <br>`);
         if (err) {
           console.log(err);
         } else {

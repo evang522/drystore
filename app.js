@@ -35,7 +35,6 @@ if (sslPath) {
     cert: fs.readFileSync(sslPath + 'fullchain.pem')
   };
   https.createServer(options,app).listen(443);
-
 } 
 
 
