@@ -11,6 +11,8 @@ const session = require('express-session');
 const passport = require('passport');
 const expressValidator = require('express-validator');
 const insightroute = require('./routes/insightroute');
+const mongoose = require('mongoose');
+const DBURL = require('./config');
 const fs = require('fs');
 const https = require('https');
 let sslPath;
@@ -22,6 +24,11 @@ try {
   sslPath = null;
 }
 
+
+// Connect to DB 
+mongoose.connect(DBURL, () => {
+  console.log('Connected to Db');
+});
   
 const http = require('http'); 
 http.createServer(app).listen(80);
@@ -63,7 +70,7 @@ app.use(cookieParser());
 // Express Session Middleware
 app.use(session({
   secret: 'secret',
-  saveuninitialized: true,
+  saveUninitialized: true,
   resave: true
 }));
 
