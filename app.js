@@ -12,17 +12,18 @@ const passport = require('passport');
 const expressValidator = require('express-validator');
 const insightroute = require('./routes/insightroute');
 const mongoose = require('mongoose');
-const DBURL = require('./config');
-const fs = require('fs');
-const https = require('https');
-let sslPath;
-try { 
-  sslPath = '/etc/letsencrypt/live/drystore.haus.world/';
-  fs.readFileSync('/etc/letsencrypt/live/drystore.haus.world/privkey.pem');
-} catch(e) {
-  console.log('sslPath not found, running in dev environment');
-  sslPath = null;
-}
+const { DBURL }  = require('./config');
+const { PORT } = require('./config');
+// const fs = require('fs');
+// const https = require('https');
+// let sslPath;
+// try { 
+//   sslPath = '/etc/letsencrypt/live/drystore.haus.world/';
+//   fs.readFileSync('/etc/letsencrypt/live/drystore.haus.world/privkey.pem');
+// } catch(e) {
+//   console.log('sslPath not found, running in dev environment');
+//   sslPath = null;
+// }
 
 
 // Connect to DB 
@@ -30,19 +31,19 @@ mongoose.connect(DBURL, () => {
   console.log('Connected to Db');
 });
   
-const http = require('http'); 
-http.createServer(app).listen(80);
+// const http = require('http'); 
+// http.createServer(app).listen(80);
 
 // Check if SSLpath is defined (if running in production environment) and run Https server
-if (sslPath) {
-  const forceSsl = require('express-force-ssl');
-  app.use(forceSsl);
-  let options = {
-    key:fs.readFileSync(sslPath + 'privkey.pem'),
-    cert: fs.readFileSync(sslPath + 'fullchain.pem')
-  };
-  https.createServer(options,app).listen(443);
-} 
+// if (sslPath) {
+//   const forceSsl = require('express-force-ssl');
+//   app.use(forceSsl);
+//   let options = {
+//     key:fs.readFileSync(sslPath + 'privkey.pem'),
+//     cert: fs.readFileSync(sslPath + 'fullchain.pem')
+//   };
+//   https.createServer(options,app).listen(443);
+// } 
 
 
 
@@ -292,5 +293,5 @@ app.get('*', (req,res) => {
 
 
 // Start Server
-// app.listen(80);
-// console.log('Now listening on Port 80!');
+app.listen(PORT);
+console.log(`Now listening on Port ${PORT}!`);
