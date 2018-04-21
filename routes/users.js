@@ -22,11 +22,7 @@ router.get('/loginerror', (req,res) => {
 
 
 router.get('/register', (req,res) => {
-  if (req.isAuthenticated()) {
-    res.render('register');
-  } else {
-    res.render('notauthenticated');
-  }
+  res.render('register');
 });
 
 router.get('/confirmlogout', (req,res) => {
@@ -60,7 +56,7 @@ router.get('/manage/delete/:id', (req,res) => {
           res.send('Sorry, cannot delete last user. Please create a new user in order to delete this user');
         } else {
           User.findByIdAndRemove({_id:req.params.id}, (err) => {
-			 if (err) {
+            if (err) {
               console.log(err);
             } else {
               res.redirect('/users/manage');
@@ -98,64 +94,55 @@ router.post('/manage/roles/:id', (req,res) => {
 // POST Routes
 
 router.post('/register', (req,res) => {
-  if(req.isAuthenticated) {
-    if (req.user.role === 'Visitor') {
-      res.render('visitor');
-    } else {
-      let name = req.body.name;
-      let email = req.body.email;
-      let password = req.body.password;
-      let password2 = req.body.password2;
+  let name = req.body.name;
+  let email = req.body.email;
+  let password = req.body.password;
+  let password2 = req.body.password2;
 
 
-      //Validation
-      req.checkBody('name', 'Name is Required').notEmpty();
-      req.checkBody('email', 'Email is required').notEmpty();
-      req.checkBody('email', 'Please enter a valid email address').isEmail();
-      req.checkBody('password', 'Password is required').notEmpty();
-      req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+  //Validation
+  req.checkBody('name', 'Name is Required').notEmpty();
+  req.checkBody('email', 'Email is required').notEmpty();
+  req.checkBody('email', 'Please enter a valid email address').isEmail();
+  req.checkBody('password', 'Password is required').notEmpty();
+  req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
-      let errors = req.validationErrors();
+  let errors = req.validationErrors();
 
 
-      if(errors) {
-        res.render('register', {
-          errmessage: 'There was a validation problem with the information you entered. Please try again'
-        });
-      } else {
-        let newUser = new User({
-          name:name,
-          email:email,
-          password:password,
-          role:'Standard',
-          mealprefs: { bmeal1: '25%',
-            bmeal2: '53%',
-            bmeal3: '1%',
-            bmeal4: '11%',
-            bmeal5: '10%',
-            lmeal1: '60%',
-            lmeal2: '10%',
-            lmeal3: '30%',
-            dmeal1: '40%',
-            dmeal2: '20%',
-            dmeal3: '25%',
-            dmeal4: '5%',
-            dmeal5: '10%' }
-        });
-
-        User.createUser(newUser, (err,user) => {
-          if(err) throw err;
-          console.log(user);
-        });
-        console.log('User is registered');
-        res.render('login', {
-          success: 'User was Created!'
-        });
-
-      }
-    }
+  if(errors) {
+    res.render('register', {
+      errmessage: 'There was a validation problem with the information you entered. Please try again'
+    });
   } else {
-    res.render('notauthenticated');
+    let newUser = new User({
+      name:name,
+      email:email,
+      password:password,
+      role:'Standard',
+      mealprefs: { bmeal1: '25%',
+        bmeal2: '53%',
+        bmeal3: '1%',
+        bmeal4: '11%',
+        bmeal5: '10%',
+        lmeal1: '60%',
+        lmeal2: '10%',
+        lmeal3: '30%',
+        dmeal1: '40%',
+        dmeal2: '20%',
+        dmeal3: '25%',
+        dmeal4: '5%',
+        dmeal5: '10%' }
+    });
+
+    User.createUser(newUser, (err,user) => {
+      if(err) throw err;
+      console.log(user);
+    });
+    console.log('User is registered');
+    res.render('login', {
+      success: 'User was Created!'
+    });
   }
 });
 
