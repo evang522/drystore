@@ -13,7 +13,7 @@ router.get('/view', (req,res) => {
     res.render('notauthenticated');
   }
 });
-
+ 
 
 router.get('/delete', (req,res) => {
   if (req.isAuthenticated()) {
