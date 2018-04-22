@@ -30,6 +30,9 @@
 
 * User Roles
   * Users with a standard role are permitted to make changes to items, but users with a guest role cannot make any changes. Administrators may alter user roles, as well as creating and deleting users.
+  
+* Analytics
+  * One important aspect of the service is being able to calculate how much food will be needed per person over a period of time, breaking this down into potential and common meals and comparing the amount of food available with how much is necessary to sustain the provided amount of people for the provided amount of time. A deficit is calculated so that it can be known how much is lacking. 
 
 
 ## How to Deploy
