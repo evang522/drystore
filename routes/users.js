@@ -60,7 +60,7 @@ router.get('/manage/delete/:id', (req,res) => {
           res.send('Sorry, cannot delete last user. Please create a new user in order to delete this user');
         } else {
           User.findByIdAndRemove({_id:req.params.id}, (err) => {
-			 if (err) {
+            if (err) {
               console.log(err);
             } else {
               res.redirect('/users/manage');

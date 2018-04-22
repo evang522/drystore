@@ -23,7 +23,7 @@ router.get('/console', (req,res) => {
         });
       }
         
-    })
+    });
   } else {
     res.render('notauthenticated');
   }
@@ -73,8 +73,8 @@ router.get('/categorylist', (req,res) => {
 });
 
 function escapeRegex(text) {
-  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-};
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+}
 
 
 router.get('/needscalculator', (req,res) => {
@@ -109,7 +109,7 @@ router.post('/needscalculator/mealprefs/:id', (req,res) => {
       } else {
         res.redirect('/insights/needscalculator');
       }
-    })
+    });
   } else {
     res.render('notauthenticated');
   }

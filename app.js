@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const dbroute = require('./routes/dbroute');
-const logRoute = require('./routes/logs');
+// const logRoute = require('./routes/logs');
 const userroute = require('./routes/users');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -14,39 +14,10 @@ const insightroute = require('./routes/insightroute');
 const mongoose = require('mongoose');
 const { DBURL }  = require('./config');
 const { PORT } = require('./config');
-// const fs = require('fs');
-// const https = require('https');
-// let sslPath;
-// try { 
-//   sslPath = '/etc/letsencrypt/live/drystore.haus.world/';
-//   fs.readFileSync('/etc/letsencrypt/live/drystore.haus.world/privkey.pem');
-// } catch(e) {
-//   console.log('sslPath not found, running in dev environment');
-//   sslPath = null;
-// }
 
 
-// Connect to DB 
-mongoose.connect(DBURL, () => {
-  console.log('Connected to Db');
-});
+
   
-// const http = require('http'); 
-// http.createServer(app).listen(80);
-
-// Check if SSLpath is defined (if running in production environment) and run Https server
-// if (sslPath) {
-//   const forceSsl = require('express-force-ssl');
-//   app.use(forceSsl);
-//   let options = {
-//     key:fs.readFileSync(sslPath + 'privkey.pem'),
-//     cert: fs.readFileSync(sslPath + 'fullchain.pem')
-//   };
-//   https.createServer(options,app).listen(443);
-// } 
-
-
-
 
 // Bring in Models for queries
 let Item = require('./models/itemModel');
@@ -75,6 +46,11 @@ app.use(session({
   resave: true
 }));
 
+
+// Connect to DB 
+mongoose.connect(DBURL, () => {
+  console.log('Connected to Db');
+});
 
 // Validation
 app.use(expressValidator({
@@ -281,9 +257,6 @@ app.use('/users', userroute);
 
 // Insights Route
 app.use('/insights', insightroute);
-
-// Logs Route
-app.use('/logs', logRoute);
 
 // Error Handling
 app.get('*', (req,res) => {
