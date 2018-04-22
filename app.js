@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const dbroute = require('./routes/dbroute');
-const logRoute = require('./routes/logs');
+// const logRoute = require('./routes/logs');
 const userroute = require('./routes/users');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
@@ -257,9 +257,6 @@ app.use('/users', userroute);
 
 // Insights Route
 app.use('/insights', insightroute);
-
-// Logs Route
-app.use('/logs', logRoute);
 
 // Error Handling
 app.get('*', (req,res) => {
