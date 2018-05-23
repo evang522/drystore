@@ -81,6 +81,9 @@ app.use((req,res,next) => {
 });
 
 
+//Set up Moment.js
+app.locals.moment = require('moment');
+
 
 // Home Route
 app.get('/', (req,res) => {
@@ -248,6 +251,9 @@ app.post('/notes/edit_note/update/:id', (req,res) => {
 app.get('/about', (req,res) => {
   res.render('about');
 });
+
+
+//================================== Set up Routes ====================>
 
 // DB Route
 app.use('/db', dbroute);

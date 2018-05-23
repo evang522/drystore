@@ -49,7 +49,7 @@ body {
     margin-top:2em !important;
 }
 .contain {
-  width:70%;
+  width:50%;
 }
 
 .bold {
@@ -225,7 +225,8 @@ body {
     background-color:#4D8C6D;
     color:white;
     /* box-shadow: 1px 1px #b6b8ba; */
-    border-radius:4px;
+    border-radius:3px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.384);
 }
 
 .wideButton {
@@ -270,10 +271,12 @@ body {
 
 .breakDownDiv {
     padding:1em;
-    background-color:#dbbb83;
+    background-color:white;
+    box-shadow:2px 2px 5px 2px rgba(0, 0, 0, 0.26);
     margin:10px;
     text-align:center;
-    border-radius:10px;
+    border-radius:2px;
+
 }
 
 
@@ -333,11 +336,11 @@ hr {
     color:black;
     background-color:#f9f9f9;
     width:22em;
-    height:20em;
+    height:30em;
     margin:0 auto;
-    box-shadow: 1px 1px 1px 1px gray;
-    border-radius:5px;
+    box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.425);
     display:none;
+    border-radius:1px;
 
 }
 
@@ -438,7 +441,8 @@ hr {
     padding-left:1em;
     line-height:26px;
     overflow:hidden;
-    border:1px solid gray;
+    /* border:1px solid gray; */
+    box-shadow:2px 2px 2px rgba(0, 0, 0, 0.432);
 }
 
 .dryStoreButton {
@@ -458,7 +462,6 @@ canvas {
 .dsiName {
     width:20em;
     border-right:1px solid black;
-    border-top-left-radius:1em;
     margin:0;
 }
 
@@ -489,7 +492,6 @@ canvas {
 
 .dsiButt {
     background-color:gray;
-    border-bottom-right-radius:1em;
     margin:0;
 }
 .dryStoreItem button {
@@ -732,10 +734,11 @@ canvas {
     border:1px solid gray;
     text-align:center;
     background-color:white;
-    border-radius:10px;
+    border-radius:1px;
     width:25%;
-    margin:5px;
+    margin:7px;
     color:black;
+    box-shadow:2px 2px 2px rgba(0, 0, 0, 0.274);
 }
 
 .itemInfo:hover {
@@ -1151,7 +1154,9 @@ canvas {
 
 @media screen and (max-width: 800px) {
 
-
+    .contain {
+        width:80%;
+    }
     .dsiExp {
         display:none;
     }
@@ -1195,19 +1200,6 @@ canvas {
 
 
 @media screen and (max-width: 700px) {
-
-    .homeCircle {
-        margin-top:-4em;
-    }
-
-    .homeCircle {
-        width:100vw;
-        height:18em;
-        box-shadow:none;
-        border:1px solid gray;
-        border-radius:0;
-    }
-
 
     #homeWelcome {
         font-size:1.5em;

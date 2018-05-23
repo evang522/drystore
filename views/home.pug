@@ -15,22 +15,26 @@ div#entireCont
         div#homeWelcomeinfo
         br
         br
+        br
         if !user
             form.homeLogin(action='/users/login')
                 button.generalButton.backTo.homeLogin Login
         if user
             form.homeLogin(action='/db/storeview')
                 button.generalButton.backTo View Drystore
+        br
+        br
+        div.heading.homeLinks.space
+            a(href='/about') About The Drystore
+            br
+            a(href='/users/manage') User Management
+            br
+            a(href='/users/register') Sign Up Here! 
+            br
+            a(href='http://freesuggestionbox.com/pub/hnbiazp') Feature Requests / Report a Bug
     br
     br
-    div.heading.homeLinks.space
-        a(href='/about') About The Drystore
-        br
-        a(href='/users/manage') User Management
-        br
-        a(href='/users/register') Sign Up Here! 
-        br
-        a(href='http://freesuggestionbox.com/pub/hnbiazp') Feature Requests / Report a Bug
+   
 script(src='/js/showdate.js')
 script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
 script.
