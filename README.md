@@ -44,3 +44,13 @@
 If I were to re-create this app again (and I still might!), I would seek to use a REST API and an appropriate front-end technology, as it allows for scalability and multi-platform use.
 
 Earlier I tried to implement a log of `item` changes that simply consisted of text files storing changes made to the database every time an item was created or deleting and made requests to a `/log` route on the server to retrieve them. I was surprised to find that though the logging worked locally, it did not work in heroku, because heroku appeared to be redeploying the app from github or reverting any changes made to files in the repository, so though the logs were being filled while the dyno was spun up, the logs were populating. But after the dyno went to sleep, the changes were gone on the next spin-up. In short, don't use flat file DB storage in heroku unless you've thought about the implications. 
+
+
+# How it Looks
+
+![Drystore Home Screen](https://github.com/evang522/drystore/blob/master/public/img/drystorehome.png "Drystore Home Screen")
+
+
+![Drystore Items List](https://github.com/evang522/drystore/blob/master/public/img/drystoreitems.png "Drystore Items List")
+
+
