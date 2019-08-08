@@ -15,9 +15,9 @@ class RestRouteHandler {
 
     async getAllItems(req, res, next) {
         try {
-            // if (!req.isAuthenticated()) {
-            //     throw new Error('Not Authenticated');
-            // }
+            if (!req.isAuthenticated()) {
+                throw new Error('Not Authenticated');
+            }
             const itemList = await Item.find({});
             const itemProcessor = new InsightProcessor(itemList);
             console.log(itemProcessor.getTotalCupsAmountForCategory('Breakfast Meat'));
