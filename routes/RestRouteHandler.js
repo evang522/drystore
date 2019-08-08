@@ -26,6 +26,7 @@ class RestRouteHandler {
             next(e);
         }
     }
+    
 }
 
 module.exports = RestRouteHandler;
