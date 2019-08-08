@@ -11,6 +11,7 @@ const session = require('express-session');
 const passport = require('passport');
 const expressValidator = require('express-validator');
 const insightroute = require('./routes/insightroute');
+const RestRouteHandler = require('./routes/RestRouteHandler');
 const mongoose = require('mongoose');
 const { DBURL }  = require('./config');
 const { PORT } = require('./config');
@@ -258,12 +259,19 @@ app.use('/users', userroute);
 // Insights Route
 app.use('/insights', insightroute);
 
+// Rest API Route (for Items)
+app.use('/rest', RestRouteHandler.getRouter());
+
 // Error Handling
 app.get('*', (req,res) => {
   res.render('error.pug');
 });
 
-
+app.use((err, req, res, next) => {
+  res.json({
+    error: err.message || 'Internal Server Error',
+  })
+})
 
 // Start Server
 app.listen(PORT);

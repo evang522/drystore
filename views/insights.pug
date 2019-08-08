@@ -5,12 +5,61 @@ include insightsubmen.pug
 input#data(type='hidden', value=items)
 input#catData(type='hidden', value=catData)
 script.
-		let getData = document.getElementById('catData').value;
-		let newDat = (JSON.parse(getData));
-		let totalQuant = 0;
+		//- let getData = document.getElementById('catData').value;
+		//- let newDat = (JSON.parse(getData));
+		//- let totalQuant = 0;
+		//- console.log(newDat);
+
+	class InsightProcessor {
+		constructor(items) {
+			this.items = items;
+			this.categories = [
+				'Soup',
+				'Entree with Meat',
+				'Entree without Meat',
+				'Meat Only',
+				'Beans',
+				'Cracker',
+				'Pasta',
+				'Potato',
+				'Rice',
+				'Vegetable',
+				'Breakfast Meal',
+				'Breakfast Drink',
+				'Breakfast Meat',
+				'Eggs',
+				'Granola',
+				'Milk',
+				'Yogurt',
+				'Fruit',
+				'SauceGravy',
+				'Dessert',
+				'Spice',
+				'Drink',
+				'Oats',
+			];
+		}
+
+		getTotalCupsAmountForCategory(category) {
+			return this.items.reduce((accumulator, item) => {
+				if (item.category !== category) {
+					return accumulator;
+				}
+
+				accumulator += (item.preparedserving * item.servings * item.quantity);
+				return accumulator;
+			}, 0);
+		}
+	}
+
+
+
+		window.onload = async function () {
 		
-		window.onload = function () {
-			
+		const itemsResponse = await window.fetch('/rest/items');
+		const items = await itemsResponse.json();
+		const itemsInsightProcessor = new InsightProcessor(items);
+
 		var chart = new CanvasJS.Chart("chartContainer", {
 			animationEnabled: true,
 			
@@ -20,50 +69,29 @@ script.
 			axisX:{
 				interval: 1
 			},
+			exportEnabled: true,
 			axisY2:{
 				interlacedColor: "rgba(1,77,101,.2)",
 				gridColor: "rgba(1,77,101,.1)",
 				title: "Contents Measured in Cups"
 			},
 			data: [{
-				type: "bar",
+				type: "column",
 				name: "companies",
 				axisYType: "secondary",
-				color: "#34604b",
-				dataPoints: [
-					{ y: newDat.Beans, label: "Beans" },
-					{ y: newDat.BreakfastDrink, label: "Breakfast Drink" },
-					{ y: newDat.BreakfastMeal, label: "Breakfast Meals" },
-					{ y: newDat.Soup, label: "Soup" },
-					{ y: newDat.BreakfastMeal, label: "Breakfast Meals" },
-					{ y: newDat.BreakfastMeat, label: "Breakfast Meat" },
-					{ y: newDat.Cracker, label: "Crackers" },
-					{ y: newDat.Dessert, label: "Dessert" },
-					{ y: newDat.Drink, label: "Drink" },
-					{ y: newDat.Eggs, label: "Eggs" },
-					{ y: newDat.Entree, label: "Entree" },
-					{ y: newDat.EntreeWithMeat, label: "Entrees With Meat" },
-					{ y: newDat.Fruit, label: "Fruit" },				
-					{ y: newDat.Granola, label: "Granola" },
-					{ y: newDat.Gravy, label: "Gravy" },
-					{ y: newDat.MeatOnly, label: "Meat Only" },
-					{ y: newDat.Milk, label: "Milk" },
-					{ y: newDat.Oatmeal, label: "Oatmeal" },
-					{ y: newDat.Pasta, label: "Pasta" },
-					{ y: newDat.Potato, label: "Potato" },
-					{ y: newDat.Rice, label: "Rice" },
-					{ y: newDat.Sauce, label: "Sauce" },
-					{ y: newDat.Spice, label: "Spice" },
-					{ y: newDat.Vegetable, label: "Vegetable" },
-					{ y: newDat.Yogurt, label: "Yogurt" },
-					{ y: newDat.Oats, label: "Oats" },
-				]
+				color: "#24604b",
+				dataPoints: itemsInsightProcessor.categories.map((category) => {
+					return {
+						y: itemsInsightProcessor.getTotalCupsAmountForCategory(category),
+						label: category,
+					}
+				})
 			}]
 		});
 		chart.render();
 
 		}
-div(id="chartContainer" style="height: 370px; width: 100%;")
+div(id="chartContainer" style="height: 570px; width: 95%; margin: 0 auto;")
 script(src="https://canvasjs.com/assets/script/canvasjs.min.js")
 div.insightCont.smallSpaceAbove
 	div.insightUnit

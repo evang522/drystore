@@ -19,7 +19,6 @@ router.get('/console', (req,res) => {
         let catData = produceCatData(items);
         res.render('insights', {
           items:items,
-          catData:catData
         });
       }
         
