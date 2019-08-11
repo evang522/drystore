@@ -9,6 +9,7 @@ const userroute = require('./routes/users');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
+const logger = require('morgan');
 const expressValidator = require('express-validator');
 const insightroute = require('./routes/insightroute');
 const RestRouteHandler = require('./routes/RestRouteHandler');
@@ -24,6 +25,9 @@ const { PORT } = require('./config');
 let Item = require('./models/itemModel');
 let User = require('./models/userModel');
 let Note = require('./models/noteModel');
+
+// setup Logger
+app.use(logger('dev'));
 
 // Set View Engine
 app.set('view engine', 'pug');
@@ -49,7 +53,10 @@ app.use(session({
 
 
 // Connect to DB 
-mongoose.connect(DBURL, () => {
+mongoose.connect(DBURL, { useNewUrlParser: true }, (err) => {
+  if (err) {
+  console.log('DB Connect Error: ' + err.message);
+  } 
   console.log('Connected to Db');
 });
 
@@ -84,18 +91,18 @@ app.use((req,res,next) => {
 
 
 // Home Route
-app.get('/', (req,res) => {
-  Item.find({}, (err,items)=> {
-    if(err) {
-      console.log(err);
-    } else {
+app.get('/', async(req,res,next) => {
+  try {
+    const items = await Item.find({});
       res.render('home.pug', {
-        items:items
+        items,
       });
-    }
-  });
-
+  } catch (e) {
+    console.log(e);
+    next(e)
+  }
 });
+
 
 // Notes Route
 app.get('/notes', (req,res) => {

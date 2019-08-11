@@ -1,0 +1,41 @@
+# This docker-compose file is intended for development
+version: '3'
+services:
+  node:
+    container_name: node-container
+    command: npm run dev
+    build: .
+    expose: 
+      - "8080"
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/drystore
+    environment:
+      NODE_ENV: development
+      SERVICE_PORT: 8080
+      DATABASE_URI: mongodb://10.0.205.3:27017/drystore
+      BLUEBIRD_WARNINGS: 0
+    networks:
+      drystore-network:
+        ipv4_address: 10.0.205.2
+  mongodb:
+    container_name: drystore_db
+    image: mongo
+    expose: 
+      - "27017"
+    ports:
+      - "27017:27017"
+    networks:
+      drystore-network:
+        ipv4_address: 10.0.205.3
+
+networks:
+  drystore-network:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: "10.0.205.0/24"
+
+# hosts
+# default-gateway 10.0.205.1
