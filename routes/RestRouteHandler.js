@@ -19,8 +19,6 @@ class RestRouteHandler {
                 throw new Error('Not Authenticated');
             }
             const itemList = await Item.find({});
-            const itemProcessor = new InsightProcessor(itemList);
-            console.log(itemProcessor.getTotalCupsAmountForCategory('Breakfast Meat'));
             res.json(itemList);
         } catch (e) {
             next(e);

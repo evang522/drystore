@@ -1,31 +1,16 @@
 class InsightProcessor {
     constructor(items) {
         this.items = items;
-        this.categories = [
-            'Soup',
-            'Entree with Meat',
-            'Entree without Meat',
-            'Meat Only',
-            'Beans',
-            'Cracker',
-            'Pasta',
-            'Potato',
-            'Rice',
-            'Vegetable',
-            'Breakfast Meal',
-            'Breakfast Drink',
-            'Breakfast Meat',
-            'Eggs',
-            'Granola',
-            'Milk',
-            'Yogurt',
-            'Fruit',
-            'SauceGravy',
-            'Dessert',
-            'Spice',
-            'Drink',
-            'Oats',
-        ];
+    }
+
+    getAllCategories() {
+        return this.items.reduce((accumulator, item) => {
+            if (!accumulator.includes(item.category)) {
+                accumulator.push(item.category);
+            }
+
+            return accumulator;
+        }, [])
     }
 
     getTotalCupsAmountForCategory(category) {
@@ -39,7 +24,16 @@ class InsightProcessor {
         }, 0);
     }
 
-    
+    getCategoriesAmountReportInCups() {
+        return this.getAllCategories().map((categoryName) => {
+            return {
+                name: categoryName,
+                amount: this.getTotalCupsAmountForCategory(categoryName),
+            }
+        })
+    }
+
+
 }
 
 module.exports = InsightProcessor;

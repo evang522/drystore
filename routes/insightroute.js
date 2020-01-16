@@ -8,6 +8,8 @@ const { check, validationResult } = require('express-validator/check');
 let produceCatData = require('../js/insightprocess');
 let produceWaterData = require('../js/waterProcess');
 let User = require('../models/userModel');
+const InsightProcessor = require('../js/InsightProcessor');
+
 
 //GET ROUTES
 router.get('/console', (req,res) => {
@@ -34,10 +36,9 @@ router.get('/breakdown', (req,res) => {
       if(err) {
         console.log(err);
       } else {
-        let catData = produceCatData(items);
+        const processor = new InsightProcessor(items);
         res.render('insightBreakdown', {
-          items:items,
-          catData:catData,
+          categories: processor.getCategoriesAmountReportInCups(),
         });
       }
     });

@@ -1,180 +1,63 @@
 html(lang='en')
-	head
-		//- link(rel='stylesheet' type='text/css' href='https://meyerweb.com/eric/tools/css/reset/reset.css')
-		link(rel='stylesheet' type='text/css' href='/styles/style.css')
-		link(href='https://fonts.googleapis.com/css?family=Montserrat|Roboto', rel='stylesheet')
-		title Garrett Drystore
-		meta(name='viewport', content='width=device-width, initial-scale=1.0')
-		meta(name='description' content='A Database for storing food goods')
-		meta(name='author' content='Evan Garrett')
-		meta(name='keywords' content='Database, Drystore, Evan, Garrett')
-		link(rel ='shortcut icon' href='/img/favicon.ico')
-	body
-		if user
-			div.header
-				div
-					button#trigger(src='/img/hamb.png' alt='Menu Icon')
-			div.headerDropDown#hdd
-				ul.headerUl
-					li.headerLi
-						form(action='/')
-							button.hov Home
-					li.headerLi  
-						form(action='/db/storeview')
-							button.hov View Drystore
-					li.headerLi
-						form(action='/db/add')
-							button.hov Add Item
-					li.headerLi
-						form(action='/insights/console')
-							button.hov Insights
-					li.headerLi
-						form(action='/users/confirmlogout')
-							button.hov Log Out
+    head
+        //- link(rel='stylesheet' type='text/css' href='https://meyerweb.com/eric/tools/css/reset/reset.css')
+        link(rel='stylesheet' type='text/css' href='/styles/style.css')
+        link(href='https://fonts.googleapis.com/css?family=Montserrat|Roboto', rel='stylesheet')
+        title Garrett Drystore
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='description' content='A Database for storing food goods')
+        meta(name='author' content='Evan Garrett')
+        meta(name='keywords' content='Database, Drystore, Evan, Garrett')
+        link(rel ='shortcut icon' href='/img/favicon.ico')
+    body
+        if user
+            div.header
+                div
+                    button#trigger(src='/img/hamb.png' alt='Menu Icon')
+            div.headerDropDown#hdd
+                ul.headerUl
+                    li.headerLi
+                        form(action='/')
+                            button.hov Home
+                    li.headerLi
+                        form(action='/db/storeview')
+                            button.hov View Drystore
+                    li.headerLi
+                        form(action='/db/add')
+                            button.hov Add Item
+                    li.headerLi
+                        form(action='/insights/console')
+                            button.hov Insights
+                    li.headerLi
+                        form(action='/users/confirmlogout')
+                            button.hov Log Out
 
-		if !user
-			div.header
-				div
-					button#trigger(src='/img/hamb.png' alt='Menu Icon')
-			div.headerDropDown#hdd
-				ul.headerUl.shorter
-					li.headerLi
-						form(action='/')
-							button.hov Home
-					li.headerLi
-						form(action='/users/login')
-							button.hov Login
-		div.headBreaker
-		input#data(type='hidden', value=items)
-		h1.heading.bigHead Insights
-		br
-		include insightsubmen.pug
-		br
-		br
-		//- #chartContainer(style='height: 300px; width: 100%;')
-		br
-		h1.heading.space Breakdown: Total Prepared Food Available per Category (in Cups)
-		br
-		div.breakDownCont
-			div.breakDownUnit
-				a(href='/insights/categorylist?search=soup')
-					div.breakDownDiv#soup
-				a(href='/insights/categorylist?search=Entree+Without+Meat')
-					div.breakDownDiv#entreeWithoutMeat
-				a(href='/insights/categorylist?search=Entree+With+Meat')
-					div.breakDownDiv#entreeWithMeat
-				a(href='/insights/categorylist?search=Meat+Only')
-					div.breakDownDiv#MeatOnly
-				a(href='/insights/categorylist?search=Beans')
-					div.breakDownDiv#Beans
-				a(href='/insights/categorylist?search=Cracker')
-					div.breakDownDiv#Cracker
-				a(href='/insights/categorylist?search=Pasta')
-					div.breakDownDiv#Pasta
-				a(href='/insights/categorylist?search=Potato')
-					div.breakDownDiv#Potato
-				a(href='/insights/categorylist?search=Rice')
-					div.breakDownDiv#Rice
-				a(href='/insights/categorylist?search=Vegetable')
-					div.breakDownDiv#Vegetable
-				a(href='/insights/categorylist?search=Breakfast+Meal')
-					div.breakDownDiv#BreakfastMeal
-				a(href='/insights/categorylist?search=Breakfast+Drink')
-					div.breakDownDiv#BreakfastDrink
-			div.breakDownUnit
-				a(href='/insights/categorylist?search=Breakfast+Meat')
-					div.breakDownDiv#BreakfastMeat
-				a(href='/insights/categorylist?search=Eggs')
-					div.breakDownDiv#Eggs
-				a(href='/insights/categorylist?search=Granola')
-					div.breakDownDiv#Granola
-				a(href='/insights/categorylist?search=Milk')
-					div.breakDownDiv#Milk
-				a(href='/insights/categorylist?search=Oats')
-					div.breakDownDiv#Oats
-				a(href='/insights/categorylist?search=Yogurt')
-					div.breakDownDiv#Yogurt
-				a(href='/insights/categorylist?search=Fruit')
-					div.breakDownDiv#Fruit
-				a(href='/insights/categorylist?search=SauceGravy')
-					div.breakDownDiv#SauceGravy
-				a(href='/insights/categorylist?search=Dessert')
-					div.breakDownDiv#Dessert
-				a(href='/insights/categorylist?search=Spice')
-					div.breakDownDiv#Spice
-				a(href='/insights/categorylist?search=Drink')
-					div.breakDownDiv#Drink
-		br
-		input#getDat(type='hidden' value=catData)
-	include dropdownjs.pug
-	//- script(src="https://canvasjs.com/assets/script/canvasjs.min.js")
-	script.
-		let allItemData = document.getElementById('data');
-		let items = JSON.parse(allItemData.value);
-		let produceCatData = (items) => {
-			let catTotal = {};
-
-			const jsCategories = {
-				'Soup':'Soup',
-				'Entree':'Entree',
-				'EntreeWithMeat':'Entree with Meat',
-				'EntreeWithoutMeat':'Entree without Meat',
-				'MeatOnly':'Meat Only',
-				'Beans':'Beans',
-				'Cracker':'Cracker',
-				'Pasta':'Pasta',
-				'Potato': 'Potato',
-				'Rice':'Rice',
-				'Vegetable':'Vegetable',
-				'BreakfastMeal':'Breakfast Meal',
-				'BreakfastDrink':'Breakfast Drink',
-				'BreakfastMeat':'Breakfast Meat',
-				'Eggs':'Eggs',
-				'Granola':'Granola',
-				'Milk':'Milk',
-				'Oatmeal':'Oatmeal',
-				'Yogurt':'Yogurt',
-				'Fruit':'Fruit',
-				'SauceGravy':'SauceGravy',
-				'Dessert':'Dessert',
-				'Spice':'Spice',
-				'Drink':'Drink',
-				'Oats':'Oats'
-			};
-
-			for(let n in jsCategories) {
-				catTotal[n] = 0;
-			};
-
-			items.forEach((item,index) => {
-				catTotal[jsCategories[item.category]] += (item.quantity * item.servings * item.preparedserving);
-			});
-			
-			return catTotal;
-		};
-
-		const catTotal = produceCatData(items);
-	
-		document.getElementById('soup').innerHTML = '<h1>Soups:</h1> ' + catTotal.Soup + ' cups';
-		document.getElementById('entreeWithoutMeat').innerHTML = '<h1>Entree Without Meat:</h1> ' + catTotal.EntreeWithoutMeat + ' cups';
-		document.getElementById('entreeWithMeat').innerHTML = '<h1>Entree with Meat:</h1> ' + catTotal.EntreeWithMeat + ' cups';
-		document.getElementById('MeatOnly').innerHTML = '<h1>Meat Only:</h1> ' + catTotal.MeatOnly + ' cups';
-		document.getElementById('Beans').innerHTML = '<h1>Beans:</h1> ' + catTotal.Beans + ' cups';
-		document.getElementById('Cracker').innerHTML = '<h1>Crackers:</h1> ' + catTotal.Cracker + ' cups';
-		document.getElementById('Pasta').innerHTML = '<h1>Pasta:</h1> ' + catTotal.Pasta + ' cups';
-		document.getElementById('Potato').innerHTML = '<h1>Potato:</h1> ' + catTotal.Potato + ' cups';
-		document.getElementById('Rice').innerHTML = '<h1>Rice:</h1> ' + catTotal.Rice + ' cups';
-		document.getElementById('Vegetable').innerHTML = '<h1>Vegetable:</h1> ' + catTotal.Vegetable + ' cups';
-		document.getElementById('BreakfastMeal').innerHTML = '<h1>Breakfast Meal:</h1> ' + catTotal.BreakfastMeal + ' cups';
-		document.getElementById('BreakfastDrink').innerHTML = '<h1>Breakfast Drink:</h1> ' + catTotal.BreakfastDrink + ' cups';
-		document.getElementById('BreakfastMeat').innerHTML = '<h1>Breakfast Meat:</h1> ' + catTotal.BreakfastMeat + ' cups';
-		document.getElementById('Eggs').innerHTML = '<h1>Eggs:</h1> ' + catTotal.Eggs + ' cups';
-		document.getElementById('Granola').innerHTML = '<h1>Granola:</h1> ' + catTotal.Granola + ' cups';
-		document.getElementById('Milk').innerHTML = '<h1>Milk:</h1> ' + catTotal.Milk + ' cups';
-		document.getElementById('Oats').innerHTML = '<h1>Oats:</h1> ' + catTotal.Oats + ' cups';
-		document.getElementById('Yogurt').innerHTML = '<h1>Yogurt:</h1> ' + catTotal.Yogurt + ' cups';
-		document.getElementById('Fruit').innerHTML = '<h1>Fruit:</h1> ' + catTotal.Fruit + ' cups';
-		document.getElementById('SauceGravy').innerHTML = '<h1>Sauce/Gravy:</h1> ' + catTotal.SauceGravy + ' cups';
-		document.getElementById('Dessert').innerHTML = '<h1>Dessert:</h1> ' + catTotal.Dessert + ' cups';
-		document.getElementById('Spice').innerHTML = '<h1>Spice:</h1> ' + catTotal.Spice + ' cups';
-		document.getElementById('Drink').innerHTML = '<h1>Drink:</h1> ' + catTotal.Drink + ' cups';
+        if !user
+            div.header
+                div
+                    button#trigger(src='/img/hamb.png' alt='Menu Icon')
+            div.headerDropDown#hdd
+                ul.headerUl.shorter
+                    li.headerLi
+                        form(action='/')
+                            button.hov Home
+                    li.headerLi
+                        form(action='/users/login')
+                            button.hov Login
+        div.headBreaker
+        input#data(type='hidden', value=items)
+        h1.heading.bigHead Insights
+        br
+        include insightsubmen.pug
+        br
+        br
+        br
+        h1.heading.space Breakdown: Total Prepared Food Available per Category (in Cups)
+        br
+        div.breakDownCont
+            div.breakDownUnit
+                each category, index in categories
+                    a(href='/insights/categorylist?search=' + category.name)
+                        div.breakDownDiv#soup #{category.name}
+                            br
+                            div #{category.amount} cups
